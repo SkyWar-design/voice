@@ -114,7 +114,7 @@ $array_category = Category::getDropName();
         });
 
         $("#category").change(function (e) {
-            var id = $(".radio_filtr").attr("id");
+            var id = $(".radio_filtr.active").attr("id");
             var category = $(this).val();
             goPage('cards?filter='+id+'&category='+category);
         });
