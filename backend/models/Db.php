@@ -9,13 +9,29 @@ use common\models\CardVoice;
  */
 class Db extends Model
 {
-    public static function get_card($result){
+    public static function get_card_one($result){
         $result = Yii::$app->db->createCommand('SELECT *, card_voice.id as card_voice_id FROM card_voice JOIN category on card_voice.category_id=category.id where  card_voice.id=:id order by card_voice.id limit 1')
         ->bindValue(':id', $result)
         ->queryOne();
         return $result;
     }
+    public static function get_card_all($filter){
+        $query = CardVoice::find()
+            ->orderBy('id');
 
+        if (!empty($filter) and $filter==1){
+            $query = CardVoice::find()
+                ->where(['=','status', CardVoice::STATUS_ACTIVE])
+                ->orderBy('id');
+        }
+
+        if (!empty($filter) and $filter==2){
+            $query = CardVoice::find()
+                ->andWhere(['=','status', CardVoice::STATUS_DEACTIVE])
+                ->orderBy('id');
+        }
+        return $query;
+    }
     public static function get_random_card(){
         $result = Yii::$app->db->createCommand('SELECT *, card_voice.id as card_voice_id FROM card_voice JOIN category on card_voice.category_id=category.id where status = 0 order by card_voice.id limit 1')
             ->queryOne();
