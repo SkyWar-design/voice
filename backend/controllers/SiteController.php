@@ -76,7 +76,7 @@ class SiteController extends Controller
         $filter = Yii::$app->request->get('filter');
 
         $query = Db::get_card_all($filter);
-        
+
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
