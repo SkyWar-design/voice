@@ -20,7 +20,6 @@ class Db extends Model
             ->with('category')
             ->orderBy('id');
 
-        var_dump($query);die();
         if (!empty($filter) and $filter==1){
             $query = CardVoice::find()
                 ->where(['=','status', CardVoice::STATUS_ACTIVE])
