@@ -1,0 +1,110 @@
+.logo{
+    margin-top: 50px;
+    text-align: center;
+    font-size: 16px;
+}
+.send a{
+    color: #889293;
+    display: block;
+    width: 60px;
+    text-align: center;
+    height: 17px;
+    margin: 5px 0 0;
+    font-size: 10px;
+    text-decoration: none;
+    line-height: 14px;
+    background: greenyellow;
+}
+.send a:hover{
+ background: green;
+}
+.send{
+    position: absolute;
+    left: 75px;
+    margin-top: -10px;
+}
+.card {
+    width: 100%;
+    position: relative;
+    margin-bottom: 50px;
+}
+.player {
+    float: left;
+    cursor: pointer;
+}
+.jumbotron p{
+    margin-bottom: 15px;
+    font-size: 17px;
+    font-weight: 200;
+}
+.jumbotron p.name{
+    line-height: 0.8;
+}
+.jumbotron p.name a{
+    font-weight: bold;
+    font-size: 11px;
+    margin: 0;
+    padding: 0 0 3px;
+}
+.card-info {
+    margin: 0 0 0 71px;
+    position: relative;
+}
+.call-me{
+    margin-top: 50px;
+    text-align: center;
+}
+.smalltext{
+    color: #5d6978;
+    font-size: 13px;
+}
+
+.small-player .mejs-time{
+    display: none;
+}
+.mejs-controls div.mejs-time-rail{
+    display: none;
+}
+.mejs-container .mejs-controls .mejs-time{
+    display: none;
+}
+.mejs-controls a.mejs-horizontal-volume-slider{
+    display: none;
+    cursor: text;
+    height: 0px;
+    width: 0px;
+}
+.mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-total{
+    display: none;
+}
+.mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-current{
+    display: none;
+}
+.mejs-button.mejs-volume-button.mejs-mute{
+    display: none;
+}
+.mejs-container {
+    width: 61px;
+    height: 65px;
+    background: url(/image/small.png) no-repeat;
+}
+.mejs-container .mejs-controls{
+    background: none;
+}
+.mejs-button.mejs-playpause-button.mejs-play button{
+    background-position: 0 0;
+}
+.mejs-button.mejs-playpause-button.mejs-pause button{
+    background-position: 0 -33px;
+}
+.mejs-controls .mejs-button button{
+    height: 33px;
+    width: 33px;
+    left: 9px;
+    bottom: 17px;
+    background: url(/image/button.gif) no-repeat;
+}
+
+.no-svg .mejs-controls .mejs-button button {
+    background-image: url("controls.png");
+}
