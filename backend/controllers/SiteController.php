@@ -84,7 +84,7 @@ class SiteController extends Controller
                 'pageSize' => 12,
             ],
         ]);
-        var_dump($dataProvider);die();
+        
         return $this->render('cards',[
             'dataProvider' => $dataProvider,
             'filter' =>$filter
