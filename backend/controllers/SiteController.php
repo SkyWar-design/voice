@@ -75,7 +75,9 @@ class SiteController extends Controller
         $this->enableCsrfValidation = false;
 
         $filter = Yii::$app->request->get('filter');
-        $query = Db::get_card_all($filter);
+        $filter_category = Yii::$app->request->get('category');
+
+        $query = Db::get_card_all($filter,$filter_category);
 
 
         $dataProvider = new ActiveDataProvider([

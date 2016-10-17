@@ -17,7 +17,7 @@ use common\models\Category;
 $this->title = 'Карточки';
 $array_category = Category::getDropName();
 ?>
-<div class="col-md-8 col-xs-12">
+<div class="col-md-12 col-xs-12">
     <div id="w0" class="x_panel">
         <div class="x_content">
             <div class="x_title"><h2>Фильтры</h2><div class="clearfix"></div></div>
@@ -33,7 +33,7 @@ $array_category = Category::getDropName();
                 </label>
             </div>
             <div class="btn-group" data-toggle="buttons">
-                <select class="form-control" name="card_edit[category}">
+                <select class="form-control" id ="category" name="card_edit[category}">
                     <?php foreach ($array_category as $category){?>
                         <option value="<?=$category['id'] ?>"  ><?=$category['name'] ?></option>
                     <?php } ?>
@@ -109,8 +109,16 @@ $array_category = Category::getDropName();
         $('.radio_filtr').click(function (e) {
             console.log('123');
             var id = $(this).attr("id");
+            var category = $("#category").val();
             goPage('cards?filter='+id);
         });
+
+        $("#category").change(function (e) {
+            var id = $(".radio_filtr").attr("id");
+            var category = $(this).val();
+            goPage('cards?filter='+id+'&category='+category);
+        });
+
         function goPage(url) {
             document.location.href = url;
             return false;
