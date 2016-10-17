@@ -14,8 +14,12 @@ use yii\helpers\html;
 use yii\helpers\ArrayHelper;
 use common\models\CardVoice;
 use common\models\Category;
+use yii\helpers\VarDumper;
+
 $this->title = 'Карточки';
 $array_category = Category::getDropName();
+$data = $dataProvider->getData();
+VarDumper::dump($data); die();
 ?>
 <div class="col-md-12 col-xs-12">
     <div id="w0" class="x_panel">

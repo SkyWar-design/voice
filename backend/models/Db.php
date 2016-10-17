@@ -21,6 +21,14 @@ class Db extends Model
             ->joinWith('category')
             ->orderBy('id');
 
+        if (!empty($filter) and $filter==3 and !empty($filter_category)){
+            $query = CardVoice::find()
+            ->select('card_voice.*,category.name')
+                ->joinWith('category')
+                ->where(['<>','status', $filter])
+                ->andWhere(['=','category_id', $filter_category])
+                ->orderBy('id');
+        }
         if (!empty($filter) and $filter==1 and empty($filter_category)){
             $query = CardVoice::find()
                 ->where(['=','status', CardVoice::STATUS_ACTIVE])
