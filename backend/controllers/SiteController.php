@@ -76,9 +76,7 @@ class SiteController extends Controller
         $filter = Yii::$app->request->get('filter');
 
         $query = Db::get_card_all($filter);
-
-        $query = Yii::$app->db->createCommand('SELECT * FROM card_voice order by card_voice.id')
-            ->queryAll();
+        
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
