@@ -19,7 +19,7 @@ use yii\helpers\VarDumper;
 
 $this->title = 'Карточки';
 $array_category = Category::getDropName();
-array_unshift($array_category, "0", "Не выбрано");
+array_unshift($array_category, [0=>'Не выбрано']);
 ?>
 <div class="col-md-12 col-xs-12">
     <div id="w0" class="x_panel">
