@@ -7,6 +7,8 @@
  */
 
 /* @var $this yii\web\View */
+/* @var $filter */
+
 use app\common\GridViewEditable;
 use yii\helpers\html;
 use yii\helpers\ArrayHelper;
@@ -15,12 +17,12 @@ use common\models\Category;
 $this->title = 'Карточки';
 $array_category = Category::getDropName();
 ?>
-<div class="col-md-4 col-xs-12">
+<div class="col-md-8 col-xs-12">
     <div id="w0" class="x_panel">
         <div class="x_content">
             <div class="x_title"><h2>Фильтры</h2><div class="clearfix"></div></div>
             <div class="btn-group" data-toggle="buttons">
-                <label class="btn btn-default radio_filtr <?php if ($filter == 3){ echo 'active';} ?>" id="3">
+                <label class="btn btn-default radio_filtr <?php if (empty($filter)){ echo 'active';} ?>" id="3">
                     <input type="radio" name="options3" > Все карточки
                 </label>
                 <label class="btn btn-default radio_filtr <?php if ($filter == 1){ echo 'active';} ?>" id="1">
@@ -29,15 +31,6 @@ $array_category = Category::getDropName();
                 <label class="btn btn-default radio_filtr <?php if ($filter == 2){ echo 'active';} ?>"  id="2">
                     <input type="radio" name="options"> Неактивные
                 </label>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-md-4 col-xs-12">
-    <div id="w0" class="x_panel">
-        <div class="x_content">
-            <div class="x_title"><h2>Категория</h2><div class="clearfix"></div></div>
-            <div class="col-md-6 col-sm-6 col-xs-12">
                 <select class="form-control" name="card_edit[category}">
                     <?php foreach ($array_category as $category){?>
                         <option value="<?=$category['id'] ?>"  ><?=$category['name'] ?></option>
