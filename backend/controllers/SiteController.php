@@ -73,6 +73,7 @@ class SiteController extends Controller
     public function actionCards()
     {
         $this->enableCsrfValidation = false;
+        $filter = 3;
         $filter = Yii::$app->request->get('filter');
 
         $query = Db::get_card_all($filter);

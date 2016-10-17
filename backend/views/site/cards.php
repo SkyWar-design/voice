@@ -36,7 +36,7 @@ $array_category = Category::getDropName();
 <div class="col-md-4 col-xs-12">
     <div id="w0" class="x_panel">
         <div class="x_content">
-            <div class="x_title"><h2>Фильтры</h2><div class="clearfix"></div></div>
+            <div class="x_title"><h2>Категория</h2><div class="clearfix"></div></div>
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <select class="form-control" name="card_edit[category}">
                     <?php foreach ($array_category as $category){?>
