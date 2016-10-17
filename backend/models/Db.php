@@ -17,7 +17,7 @@ class Db extends Model
     }
     public static function get_card_all($filter){
         $query = CardVoice::find()
-            ->select('card_voice*','category.name,')
+            ->select('card_voice.*','category.name,')
             ->joinWith('category')
             ->orderBy('id');
 
