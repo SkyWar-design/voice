@@ -21,13 +21,13 @@ class Db extends Model
             ->joinWith('category')
             ->orderBy('id');
 
-        if (!empty($filter) and $filter==1 and empty($filter_category){
+        if (!empty($filter) and $filter==1 and empty($filter_category)){
             $query = CardVoice::find()
                 ->where(['=','status', CardVoice::STATUS_ACTIVE])
                 ->orderBy('id');
         }
 
-        if (!empty($filter) and $filter==2 and empty($filter_category){
+        if (!empty($filter) and $filter==2 and empty($filter_category)){
             $query = CardVoice::find()
                 ->andWhere(['=','status', CardVoice::STATUS_DEACTIVE])
                 ->orderBy('id');
