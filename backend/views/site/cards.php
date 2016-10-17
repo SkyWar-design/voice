@@ -45,7 +45,6 @@ $this->title = 'Карточки';
             'voice_text_h1',
             'voice_text_description',
             'voice_text_theme',
-            'name',
             [
                 'class' => 'yii\grid\ActionColumn',
                 'header'=>'Пол',
