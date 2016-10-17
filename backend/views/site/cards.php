@@ -31,13 +31,13 @@ $array_category = Category::getDropName();
                 <label class="btn btn-default radio_filtr <?php if ($filter == 2){ echo 'active';} ?>"  id="2">
                     <input type="radio" name="options"> Неактивные
                 </label>
-                <div class="form-group">
-                    <select class="form-control" name="card_edit[category}">
-                        <?php foreach ($array_category as $category){?>
-                            <option value="<?=$category['id'] ?>"  ><?=$category['name'] ?></option>
-                        <?php } ?>
-                    </select>
-                </div>
+            </div>
+            <div class="form-group">
+                <select class="form-control" name="card_edit[category}">
+                    <?php foreach ($array_category as $category){?>
+                        <option value="<?=$category['id'] ?>"  ><?=$category['name'] ?></option>
+                    <?php } ?>
+                </select>
             </div>
         </div>
     </div>
