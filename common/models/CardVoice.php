@@ -87,6 +87,7 @@ class CardVoice extends \yii\db\ActiveRecord
             'voice_date' => 'Дата праздника',
             'sex' => 'Пол',
             'status' => 'Статус карточки',
+            'category.name' => 'Категория'
         ];
     }
 }
