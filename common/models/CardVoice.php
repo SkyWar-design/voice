@@ -62,10 +62,11 @@ class CardVoice extends \yii\db\ActiveRecord
         ];
     }
 
-    public function category_bind()
+    public function getCategory()
     {
-        return $this->hasMany(Category::className(), ['category.id' => 'card_voice.id']);
+        return $this->hasOne(Category::className(), ['id' => 'category_id']);
     }
+
     /**
      * @inheritdoc
      */
