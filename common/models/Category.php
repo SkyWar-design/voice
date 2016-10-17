@@ -8,7 +8,7 @@ use Yii;
  * This is the model class for table "category".
  *
  * @property integer $id
- * @property integer $category_id
+ * @property integer $this_id
  * @property string $name
  * @property integer $count_card
  */
@@ -37,7 +37,7 @@ class Category extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['category_id', 'count_card'], 'integer'],
+            [['this_id', 'count_card'], 'integer'],
             [['name'], 'string', 'max' => 255],
         ];
     }
@@ -49,7 +49,7 @@ class Category extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'category_id' => 'Category ID',
+            'this_id' => 'Category ID',
             'name' => 'Name',
             'count_card' => 'Count Card',
         ];
