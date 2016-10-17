@@ -40,7 +40,7 @@ $array_category = Category::getDropName();
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <select class="form-control" name="card_edit[category}">
                     <?php foreach ($array_category as $category){?>
-                        <option value="<?=$category['id'] ?>" <?php echo $category['name'] == $card_array['name'] ? 'selected': '' ?> ><?=$category['name'] ?></option>
+                        <option value="<?=$category['id'] ?>"  ><?=$category['name'] ?></option>
                     <?php } ?>
                 </select>
             </div>
