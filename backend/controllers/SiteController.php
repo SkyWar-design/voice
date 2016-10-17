@@ -77,6 +77,9 @@ class SiteController extends Controller
 
         $query = Db::get_card_all($filter);
 
+        $query = Yii::$app->db->createCommand('SELECT * FROM card_voice order by card_voice.id')
+            ->queryAll();
+
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => [
@@ -104,6 +107,7 @@ class SiteController extends Controller
         //запись данных
         if($request)
         return json_encode(Db::save_card($request), JSON_FORCE_OBJECT);
+
         //вывод данных
         if($card_edit)
             $result = Db::get_card_one($card_edit);
@@ -119,6 +123,7 @@ class SiteController extends Controller
     public function actionUpdate()
     {
         $request = Yii::$app->request->post('card_array');
+
         //сохранение
         if($request)
         return json_encode(Db::update_card($request), JSON_FORCE_OBJECT);
@@ -133,8 +138,6 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-
-
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
