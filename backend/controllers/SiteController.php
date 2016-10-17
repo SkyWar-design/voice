@@ -127,8 +127,8 @@ class SiteController extends Controller
         $request = Yii::$app->request->post('card_array');
 
         //сохранение
-        if($request)
-        return json_encode(Db::update_card($request), JSON_FORCE_OBJECT);
+        if($request){}
+//        return json_encode(Db::update_card($request), JSON_FORCE_OBJECT);
         else{
             return false;
         }
