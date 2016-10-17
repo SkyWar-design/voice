@@ -16,9 +16,9 @@ class Db extends Model
         return $result;
     }
     public static function get_card_all($filter){
-        var_dump($query = CardVoice::find()
+        $query = CardVoice::find()
             ->joinWith('category')
-            ->orderBy('id'));die();
+            ->orderBy('id');
 
         if (!empty($filter) and $filter==1){
             $query = CardVoice::find()
