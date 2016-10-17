@@ -89,7 +89,8 @@ class SiteController extends Controller
 
         return $this->render('cards',[
             'dataProvider' => $dataProvider,
-            'filter' =>$filter
+            'filter' =>$filter,
+            'filter_category'=>$filter_category
         ]);
     }
 

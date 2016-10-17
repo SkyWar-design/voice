@@ -8,6 +8,7 @@
 
 /* @var $this yii\web\View */
 /* @var $filter */
+/* @var $filter_category */
 
 use app\common\GridViewEditable;
 use yii\helpers\html;
@@ -18,8 +19,7 @@ use yii\helpers\VarDumper;
 
 $this->title = 'Карточки';
 $array_category = Category::getDropName();
-$data = $dataProvider->getData();
-VarDumper::dump($data); die();
+
 ?>
 <div class="col-md-12 col-xs-12">
     <div id="w0" class="x_panel">
@@ -39,7 +39,7 @@ VarDumper::dump($data); die();
             <div class="btn-group" data-toggle="buttons">
                 <select class="form-control" id ="category" name="card_edit[category}">
                     <?php foreach ($array_category as $category){?>
-                        <option value="<?=$category['id'] ?>"  ><?=$category['name'] ?></option>
+                        <option value="<?=$category['id'] ?>" <?=$filter_category == $category['id'] ? 'selected': '' ?> ><?=$category['name'] ?></option>
                     <?php } ?>
                 </select>
             </div>
