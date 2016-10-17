@@ -32,7 +32,7 @@ $array_category = Category::getDropName();
                     <input type="radio" name="options"> Неактивные
                 </label>
             </div>
-            <div class="form-group">
+            <div class="btn-group" data-toggle="buttons">
                 <select class="form-control" name="card_edit[category}">
                     <?php foreach ($array_category as $category){?>
                         <option value="<?=$category['id'] ?>"  ><?=$category['name'] ?></option>
