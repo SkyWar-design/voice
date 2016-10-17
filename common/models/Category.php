@@ -14,7 +14,7 @@ use Yii;
  */
 class Category extends \yii\db\ActiveRecord
 {
-    public function getDropName()
+    public static function getDropName()
     {
         $query = "SELECT id,name from category group by name";
         $result = Yii::$app->db

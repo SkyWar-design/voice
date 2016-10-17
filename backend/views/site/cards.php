@@ -11,8 +11,9 @@ use app\common\GridViewEditable;
 use yii\helpers\html;
 use yii\helpers\ArrayHelper;
 use common\models\CardVoice;
+use common\models\Category;
 $this->title = 'Карточки';
-$array_category = $model->getDropName();
+$array_category = Category::getDropName();
 ?>
 <div class="col-md-4 col-xs-12">
     <div id="w0" class="x_panel">

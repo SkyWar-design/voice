@@ -14,8 +14,7 @@ use yii\helpers\ArrayHelper;
 use common\models\Category;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-$model = new Category();
-$array_category = $model->getDropName();
+$array_category = Category::getDropName();
 $this->title = 'Заполнение карточек';
 
 ?>
