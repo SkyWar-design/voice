@@ -22,7 +22,7 @@ $array_category = Category::getDropName();
         <div class="x_content">
             <div class="x_title"><h2>Фильтры</h2><div class="clearfix"></div></div>
             <div class="btn-group" data-toggle="buttons">
-                <label class="btn btn-default radio_filtr <?php if (empty($filter)){ echo 'active';} ?>" id="3">
+                <label class="btn btn-default radio_filtr <?php if (empty($filter) or $filter==3){ echo 'active';} ?>" id="3">
                     <input type="radio" name="options3" > Все карточки
                 </label>
                 <label class="btn btn-default radio_filtr <?php if ($filter == 1){ echo 'active';} ?>" id="1">
