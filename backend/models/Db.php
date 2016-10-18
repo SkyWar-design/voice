@@ -159,7 +159,7 @@ class Db extends Model
         $id = $request[0]['value'];
         try {
             if($id)
-                Yii::$app->db->createCommand('DELETE FROM card_voice where id=:id')
+                Yii::$app->db->createCommand('DELETE FROM page where id=:id')
                     ->bindValue(':id', $id)
                     ->execute();
             $result = [
@@ -183,7 +183,7 @@ class Db extends Model
         $id = $request[0]['value'];
         try {
             if($id)
-            Yii::$app->db->createCommand('DELETE FROM page where id=:id')
+            Yii::$app->db->createCommand('DELETE FROM card_voice where id=:id')
                 ->bindValue(':id', $id)
                 ->execute();
             $result = [
