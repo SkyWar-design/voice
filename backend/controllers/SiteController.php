@@ -110,7 +110,7 @@ class SiteController extends Controller
             ->select('card_voice.*,category.name')
             ->joinWith('category')
             ->orderBy('id')->all();
-
+        echo '123';
         \moonland\phpexcel\Excel::export([
             'models' => $model1,
             'columns' => [
@@ -119,7 +119,7 @@ class SiteController extends Controller
             'category.name','voice_date','sex','status'
             ],
         ]);
-
+        echo '123';
     }
 
     public function actionEdit_card()
