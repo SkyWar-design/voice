@@ -50,7 +50,9 @@ $this->title = 'Заполнение карточек';
                         <input type="text" id="last-name" name="card_edit[mp3_id]"  required="required" value="<?=$card_array['mp3_id'] ?>" required="required" class="form-control col-md-7 col-xs-12">
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-6">
-                        <audio id="player"  src="<?php echo Yii::getAlias('@mp3') ?>/<?=$card_array['mp3_id'] ?>.mp3" type="audio/mp3" ></audio>
+                        <audio autoplay="autoplay" controls="controls">
+                            <source src="<?php echo Yii::getAlias('@mp3') ?>/<?=$card_array['mp3_id'] ?>.mp3" />
+                        </audio>
                     </div>
                 </div>
                 <div class="form-group">
