@@ -201,7 +201,7 @@ $this->title = 'Страницы';
                 if( val.indexOf("span") != -1 || val.indexOf("button") != -1 || val.indexOf("select") != -1){
                     return false;
                 }
-                if(val.indexOf("a") != -1){
+                if(elm_name == 'a'){
                     return true;
                 }
                 var code = '<textarea  id="edit" style="width: 400px" rows="15" cols="5" name="text">'+val+'</textarea>';
