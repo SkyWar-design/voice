@@ -96,8 +96,7 @@ class SiteController extends Controller
 
     public function actionAbout()
     {
-        $result = Db::get_random_card();
-
+        $result = new Db();
         \moonland\phpexcel\Excel::widget([
             'models' => $result,
             'mode' => 'export', //default value as 'export'
