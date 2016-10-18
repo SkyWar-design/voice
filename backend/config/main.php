@@ -49,7 +49,7 @@ return [
                 'login' => 'site/login',
                 'logout' => 'site/logout',
                 'cards' => 'site/cards',
-                'pages' => 'site/page',
+                'pages' => 'site/pages',
                 'update' => 'site/update',
                 'about' => 'site/about',
                 'add_card' => 'site/add_card',
