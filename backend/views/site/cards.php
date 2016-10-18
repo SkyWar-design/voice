@@ -53,12 +53,9 @@ array_unshift($array_category, ['id' => '0', 'name' => "Не выбрано"] );
 
 <?php
     $gridColumns = [
-        ['class' => 'yii\grid\SerialColumn'],
-        'id',
-        'voice_title',
-        'voice_text_h1',
-        'voice_text_description',
-        ['class' => 'yii\grid\ActionColumn'],
+        'id','url','mp3_id','voice_description','voice_keywords','voice_title',
+        'voice_text_h1','voice_text_description','voice_text_theme','voice_text_tags',
+        'category.name','voice_date','sex','status'
     ];
     echo ExportMenu::widget([
     'dataProvider' => $dataProvider,
