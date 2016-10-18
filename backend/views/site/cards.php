@@ -28,17 +28,17 @@ array_unshift($array_category, ['id' => '0', 'name' => "Не выбрано"] );
     <div id="w0" class="x_panel">
         <div class="x_content">
             <div class="x_title"><h2>Фильтры</h2><div class="clearfix"></div></div>
-            <div class="btn-group" data-toggle="buttons">
-                <label class="btn btn-default radio_filtr <?php if (empty($filter) or $filter==3){ echo 'active';} ?>" id="3">
-                    <input type="radio" name="options3" > Все карточки
-                </label>
-                <label class="btn btn-default radio_filtr <?php if ($filter == 1){ echo 'active';} ?>" id="1">
-                    <input  type="radio" name="options" > Активные
-                </label>
-                <label class="btn btn-default radio_filtr <?php if ($filter == 2){ echo 'active';} ?>"  id="2">
-                    <input type="radio" name="options"> Неактивные
-                </label>
-            </div>
+<!--            <div class="btn-group" data-toggle="buttons">-->
+<!--                <label class="btn btn-default radio_filtr --><?php //if (empty($filter) or $filter==3){ echo 'active';} ?><!--" id="3">-->
+<!--                    <input type="radio" name="options3" > Все карточки-->
+<!--                </label>-->
+<!--                <label class="btn btn-default radio_filtr --><?php //if ($filter == 1){ echo 'active';} ?><!--" id="1">-->
+<!--                    <input  type="radio" name="options" > Активные-->
+<!--                </label>-->
+<!--                <label class="btn btn-default radio_filtr --><?php //if ($filter == 2){ echo 'active';} ?><!--"  id="2">-->
+<!--                    <input type="radio" name="options"> Неактивные-->
+<!--                </label>-->
+<!--            </div>-->
             <div class="btn-group" data-toggle="buttons">
                 <select class="form-control" id ="category" name="card_edit[category}">
                     <?php foreach ($array_category as $category){?>
