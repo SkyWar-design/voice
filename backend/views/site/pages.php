@@ -198,7 +198,7 @@ $this->title = 'Страницы';
                 console.log(elm_name);
                 var val = $(this).html();
                 console.log(val);
-                if( val.indexOf("span") != -1 || val.indexOf("button") != -1 || val.indexOf("select") != -1 || val.indexOf("a") != -1){
+                if( val.indexOf("span") != -1 || val.indexOf("button") != -1 || val.indexOf("select") != -1){
                     return false;
                 }
                 if(val.indexOf("a") != -1){
