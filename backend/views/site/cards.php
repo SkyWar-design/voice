@@ -57,7 +57,6 @@ array_unshift($array_category, ['id' => '0', 'name' => "Не выбрано"] );
         'id',
         'voice_title',
         'voice_text_h1',
-        'publish_date',
         'voice_text_description',
         ['class' => 'yii\grid\ActionColumn'],
     ];
