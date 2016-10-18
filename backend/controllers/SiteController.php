@@ -114,7 +114,7 @@ class SiteController extends Controller
         \moonland\phpexcel\Excel::export([
             'models' => $model1,
             'columns' => ['id','url'], //without header working, because the header will be get label from attribute label.
-            'header' => ['id','url']
+            'header' => ['id'=>'id','url'=>'url']
         ]);
 
     }
