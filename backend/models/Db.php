@@ -153,12 +153,37 @@ class Db extends Model
                 return $result;
             }
     }
+
+    public static function del_page($request)
+    {
+        $id = $request[0]['value'];
+        try {
+            if($id)
+                Yii::$app->db->createCommand('DELETE FROM card_voice where id=:id')
+                    ->bindValue(':id', $id)
+                    ->execute();
+            $result = [
+                "id" => $id,
+                "status" => "success",
+            ];
+            return $result;
+        }
+
+        catch (Exception $e) {
+            $result = [
+                "id" => $id,
+                "status" => "error",
+                "message" => $e
+            ];
+            return $result;
+        }
+    }
     public static function del_card($request)
     {
         $id = $request[0]['value'];
         try {
             if($id)
-            Yii::$app->db->createCommand('DELETE FROM card_voice where id=:id')
+            Yii::$app->db->createCommand('DELETE FROM page where id=:id')
                 ->bindValue(':id', $id)
                 ->execute();
             $result = [
@@ -242,11 +267,18 @@ class Db extends Model
 
     }
     public static function save_page($request,$type){
+
         //сохранение
         if ($type == 1){
             try {
                 $model = CardVoice::findOne(['id' => $request[0]['value']]);
-
+                $model->card_id = $request[1]['value'];
+                $model->url =  $request[2]['value'];
+                $model->description = $request[3]['value'];
+                $model->keywords = $request[4]['value'];
+                $model->title = $request[5]['value'];
+                $model->text_h1 = $request[6]['value'];
+                $model->status = $request[7]['value'];
                 $model->save();
                 $result = [
                     "id" => $request[0]['value'],
@@ -265,10 +297,14 @@ class Db extends Model
         //добавление
         if ($type == 2){
             try {
-
-
                 $model = new CardVoice();
-
+                $model->card_id = $request[1]['value'];
+                $model->url =  $request[2]['value'];
+                $model->description = $request[3]['value'];
+                $model->keywords = $request[4]['value'];
+                $model->title = $request[5]['value'];
+                $model->text_h1 = $request[6]['value'];
+                $model->status = $request[7]['value'];
                 $model->save();
                 $result = [
                     "id" => $request[0]['value'],

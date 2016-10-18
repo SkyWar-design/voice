@@ -100,10 +100,7 @@ $this->title = 'Заполнение карточек';
                 <div class="ln_solid"></div>
                 <div class="form-group">
                     <div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-3">
-                        <button type="submit" id="send_form" class="btn btn-primary">Сохранить и загрузить следующую</button>
-                    </div>
-                    <div class="col-md-2 col-sm-2 col-xs-12 col-md-offset-3">
-                        <button type="submit" id="del_form" class="btn btn-danger">Удалить</button>
+                        <button type="submit" id="send_form" class="btn btn-primary">Добавить</button>
                     </div>
                 </div>
             </form>
@@ -122,51 +119,11 @@ $this->title = 'Заполнение карточек';
             document.location.href = url;
             return false;
         }
-        $('#del_form').click(function (){
-            var data = $('#demo-form2').serializeArray();
-            $.ajax({
-                type: "POST",
-                url: "/del_page",
-                context: document.body,
-                data: { csrf_backend: token, page_array: data },
-                success: function(otvet){
-                    otvet = JSON.parse(otvet);
-                    if (otvet.status =="success"){
-                        new PNotify({
-                            title: 'Сохранение',
-                            text: 'Карточка #'+otvet.id+' успешно удалена. Переадресация...',
-                            type: 'success',
-                            styling: 'bootstrap3'
-                        });
-                        setTimeout(function(){goPage('edit_card')}, 2400);
-                    }else{
-                        console.log(otvet);
-                        new PNotify({
-                            title: 'Сохранение',
-                            text: 'Не удалось удалить карточку #'+otvet.id+' '+otvet.message,
-                            type: 'error',
-                            styling: 'bootstrap3'
-                        });
-                    }
-                }
-            });
-
-        });
         $('#send_form').click(function (){
             var data = $('#demo-form2').serializeArray();
-
-            if(data.length < 5 ){
-                new PNotify({
-                    title: 'Ошибка',
-                    text: 'Не заполнено все необходимые поля',
-                    type: 'error',
-                    styling: 'bootstrap3'
-                });
-                return false;
-            }
             $.ajax({
                 type: "POST",
-                url: "/edit_page",
+                url: "/add_page",
                 context: document.body,
                 data: { csrf_backend: token, page_array: data },
                 success: function(otvet){

@@ -55,7 +55,9 @@ return [
                 'add_card' => 'site/add_card',
                 'edit_card' => 'site/edit_card',
                 'del_card' => 'site/del_card',
+                'del_page' => 'site/del_page',
                 'edit_page' => 'site/edit_page',
+                'add_page' => 'site/add_page',
                 'update_page' => 'site/update_page'
             ],
         ],

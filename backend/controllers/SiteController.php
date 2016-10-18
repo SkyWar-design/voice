@@ -132,6 +132,19 @@ class SiteController extends Controller
         }
         
     }
+    public function actionDel_page()
+    {
+        $this->enableCsrfValidation = false;
+        $request = Yii::$app->request->post('page_array');
+
+        //удаление данных
+        if($request)
+            return json_encode(Db::del_page($request), JSON_FORCE_OBJECT);
+        else{
+            return false;
+        }
+
+    }
 
     public function actionAdd_card()
     {
@@ -146,6 +159,20 @@ class SiteController extends Controller
         return $this->render('add_cards',[
         ]);
     }
+    public function actionAdd_page()
+    {
+        $this->enableCsrfValidation = false;
+        $request = Yii::$app->request->post('page_array');
+
+        //запись данных
+        if($request)
+            return json_encode(Db::save_page($request,2), JSON_FORCE_OBJECT);
+
+
+        return $this->render('add_page',[
+        ]);
+    }
+
     public function actionEdit_page(){
         $this->enableCsrfValidation = false;
         $request = Yii::$app->request->post('page_array');
