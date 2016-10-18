@@ -45,11 +45,17 @@ class CardVoice extends \yii\db\ActiveRecord
     }
     public function getDropCategory()
     {
-        $query = "SELECT name from category group by name";
+        $query = "SELECT id,name from category group by name";
         $result = Yii::$app->db
             ->createCommand($query)
             ->queryAll();
-        return $result;
+        $array=[];
+        foreach ($result as $result_to){
+            $array = [
+                $result_to['id']=>$result_to['name'],
+            ];
+        }
+        return $array;
     }
     public static function tableName()
     {
