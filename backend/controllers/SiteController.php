@@ -96,22 +96,26 @@ class SiteController extends Controller
 
     public function actionAbout()
     {
-
-
+//        \moonland\phpexcel\Excel::export([
+//            'models' => CardVoice::find()->all(),
+//            'columns' => [
+//                'id',
+//                'url'
+//            ],
+//            'headers' => [
+//                'voice_title' => 'Date Created Content',
+//            ],
+//        ]);
         \moonland\phpexcel\Excel::export([
-            'models' => CardVoice::find()
-                ->select('card_voice.*,category.name')
-                ->joinWith('category')
-                ->orderBy('id'),
+            'models' => Db::get_card_all(2,81),
             'columns' => [
-                'mp3_id',
+                'id',
                 'url'
             ],
             'headers' => [
                 'voice_title' => 'Date Created Content',
             ],
         ]);
-
 
     }
 
