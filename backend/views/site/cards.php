@@ -59,7 +59,6 @@ array_unshift($array_category, ['id' => '0', 'name' => "Не выбрано"] );
             'voice_text_h1',
             'voice_text_description',
             'voice_text_theme',
-            'category.name',
             [
                 'class' => 'yii\grid\ActionColumn',
                 'header'=>'Категория',
@@ -159,7 +158,9 @@ array_unshift($array_category, ['id' => '0', 'name' => "Не выбрано"] );
 
             myTableArray.forEach(function(item, i, arr) {
                 if(item[0] == val){
-                //замена элементов массива
+                    //замена элементов массива
+                    var value_category = $("#cardvoice-category_id.category_"+val).val();
+                    item.splice(5,1,value_category);
                     var value_sex = $("#cardvoice-sex.sex_"+val).val();
                     item.splice(6,1,value_sex);
                     var value_status = $("#cardvoice-status.status_"+val).val();
