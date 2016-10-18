@@ -271,7 +271,7 @@ class Db extends Model
         //сохранение
         if ($type == 1){
             try {
-                $model = CardVoice::findOne(['id' => $request[0]['value']]);
+                $model = Page::findOne(['id' => $request[0]['value']]);
                 $model->card_id = $request[1]['value'];
                 $model->url =  $request[2]['value'];
                 $model->description = $request[3]['value'];
@@ -297,7 +297,7 @@ class Db extends Model
         //добавление
         if ($type == 2){
             try {
-                $model = new CardVoice();
+                $model = new Page();
                 $model->card_id = $request[1]['value'];
                 $model->url =  $request[2]['value'];
                 $model->description = $request[3]['value'];

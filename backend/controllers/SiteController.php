@@ -164,8 +164,9 @@ class SiteController extends Controller
         $this->enableCsrfValidation = false;
         $request = Yii::$app->request->post('page_array');
 
-        //запись данных
+        //добавление страницы
         if($request)
+            return true;
             return json_encode(Db::save_page($request,2), JSON_FORCE_OBJECT);
 
 
