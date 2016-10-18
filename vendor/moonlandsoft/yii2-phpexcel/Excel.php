@@ -255,7 +255,7 @@ class Excel extends \yii\base\Widget
 	/**
 	 * @var string save path is a directory to save the file or you can blank this to set the file as attachment.
 	 */
-	public $savePath = '/';
+	public $savePath = 1;
 	/**
 	 * @var string format for excel to export. Valid value are 'Excel5','Excel2007','Excel2003XML','00Calc','Gnumeric'.
 	 */
