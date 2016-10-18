@@ -43,20 +43,6 @@ $this->title = 'Заполнение карточек';
             <br />
             <form  id="demo-form2" class="form-horizontal form-label-left" novalidate>
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">URL <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="last-name" name="card_edit[id]" required="required" value="<?=$card_array['id'] ?>" style="display: none">
-                    </div>
-                    <div class='tooltip help'>
-                        <span>?</span>
-                        <div class='content'>
-                            <b></b>
-                            <p>Необходимо заполнить url</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">MP3 ID<span class="required">*</span>
                     </label>
                     <div class="col-md-3 col-sm-3 col-xs-6">
@@ -94,6 +80,15 @@ $this->title = 'Заполнение карточек';
                         <select class="form-control" name="card_edit[sex}">
                             <option value="1" <?php echo $card_array['sex']  == 1 ? 'selected': '' ?> >Для мужчины</option>
                             <option value="2" <?php echo $card_array['sex']  == 2 ? 'selected': '' ?> >Для женщины</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Пол</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <select class="form-control" name="card_edit[sex}">
+                            <option value="1" <?php echo $card_array['status']  == 1 ? 'selected': '' ?> >Активна</option>
+                            <option value="0" <?php echo $card_array['status']  == 0 ? 'selected': '' ?> >Неактивна</option>
                         </select>
                     </div>
                 </div>
