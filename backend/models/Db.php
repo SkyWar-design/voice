@@ -93,13 +93,14 @@ class Db extends Model
     public static function del_card($request)
     {
         try {
-        Yii::$app->db->createCommand('DELETE FROM card_voice where id=:id')
-            ->bindValue(':id', $request[1]['value'])
-            ->queryOne();
-        $result = [
-            "id" => $request[1]['value'],
-            "status" => "success",
-        ];
+            if($request[1]['value'])
+            Yii::$app->db->createCommand('DELETE FROM card_voice where id=:id')
+                ->bindValue(':id', $request[1]['value'])
+                ->queryOne();
+            $result = [
+                "id" => $request[1]['value'],
+                "status" => "success",
+            ];
             return $result;
         }
         
