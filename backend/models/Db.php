@@ -29,12 +29,12 @@ class Db extends Model
                 ->orderBy('id');
         }
         if (!empty($filter) and $filter==2){
-            $query = CardVoice::find()
+            $query = Page::find()
                 ->Where(['=','status', Page::STATUS_DEACTIVE])
                 ->orderBy('id');
         }
         if (!empty($filter) and $filter==3 and !empty($filter_category)){
-            $query = CardVoice::find()
+            $query = Page::find()
                 ->where(['<>','status', $filter])
                 ->orderBy('id');
         }
