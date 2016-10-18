@@ -46,7 +46,6 @@ $this->title = 'Заполнение карточек';
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">URL <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="url" name="card_edit[url]" data-validate-lengthRange="6" data-validate-words="2" required="required" value="<?=$card_array['url'] ?>"placeholder="Url для страницы, на латыни, пример: c_dnem_rojdenia" class="form-control col-md-7 col-xs-12">
                         <input type="text" id="last-name" name="card_edit[id]" required="required" value="<?=$card_array['id'] ?>" style="display: none">
                     </div>
                     <div class='tooltip help'>
