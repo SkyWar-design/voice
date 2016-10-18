@@ -192,13 +192,16 @@ $this->title = 'Страницы';
                 var elm_name = t.tagName.toLowerCase();
                 //если это инпут - ничего не делаем
 
-                if (elm_name == 'textarea' || elm_name == 'button'|| elm_name=='a') {
+                if (elm_name == 'textarea' || elm_name == 'button') {
                     return false;
                 }
                 console.log(elm_name);
                 var val = $(this).html();
                 console.log(val);
                 if( val.indexOf("span") != -1 || val.indexOf("button") != -1 || val.indexOf("select") != -1 || val.indexOf("a") != -1){
+                    return false;
+                }
+                if(val.indexOf("a") != -1){
                     return false;
                 }
                 var code = '<textarea  id="edit" style="width: 400px" rows="15" cols="5" name="text">'+val+'</textarea>';
