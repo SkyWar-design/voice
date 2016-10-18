@@ -85,7 +85,7 @@ $this->title = 'Заполнение карточек';
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Пол</label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Статус</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <select class="form-control" name="card_edit[status}">
                             <option value="1">Активна</option>
