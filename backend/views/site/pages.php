@@ -202,7 +202,7 @@ $this->title = 'Страницы';
                     return false;
                 }
                 if(val.indexOf("a") != -1){
-                    return false;
+                    return true;
                 }
                 var code = '<textarea  id="edit" style="width: 400px" rows="15" cols="5" name="text">'+val+'</textarea>';
                 $(this).empty().append(code);
