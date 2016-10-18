@@ -68,13 +68,11 @@ class Db extends Model
     public static function update_card($request){
             try{
                 $model = CardVoice::findOne(['id' => $request[0]]);
-                $model->voice_title = $request[1];
-                $model->voice_text_h1 = $request[2];
-                $model->voice_text_description = $request[3];
-                $model->voice_text_theme = $request[4];
-                $model->category_id = $request[5];
-                $model->sex = $request[6];
-                $model->status = $request[7];
+                $model->voice_text_description = $request[1];
+                $model->voice_text_theme = $request[2];
+                $model->category_id = $request[3];
+                $model->sex = $request[4];
+                $model->status = $request[5];
                 $model->save();
                 $result = [
                     "id" => $request[0],
