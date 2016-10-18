@@ -106,9 +106,14 @@ class SiteController extends Controller
 //                'voice_title' => 'Date Created Content',
 //            ],
 //        ]);
+        $model1 =  CardVoice::find()
+            ->select('card_voice.*,category.name')
+            ->joinWith('category')
+            ->orderBy('id')->all();
         $model = CardVoice::find()->all();
+        
         \moonland\phpexcel\Excel::export([
-            'models' => $model,
+            'models' => $model1,
             'columns' => ['id','url'], //without header working, because the header will be get label from attribute label.
         ]);
 
