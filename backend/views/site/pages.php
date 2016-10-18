@@ -85,7 +85,7 @@ $this->title = 'Страницы';
                     'template' => '{link}',
                     'buttons' => [
                         'link' => function ($url,$model,$key) {
-                            return Html::a('Карточка #'.$model->card_id, 'edit_card?card_edit'.$model->card_id, $options = ['id' => 'url_link']);
+                            return Html::a('Карточка #'.$model->card_id, 'edit_card?card_edit='.$model->card_id, $options = ['id' => 'url_link']);
                         },
                     ],
                 ],
