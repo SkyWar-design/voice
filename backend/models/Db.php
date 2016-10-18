@@ -87,10 +87,36 @@ class Db extends Model
         }
         return $query;
     }
+
     public static function get_random_card(){
         $result = Yii::$app->db->createCommand('SELECT *, card_voice.id as card_voice_id FROM card_voice JOIN category on card_voice.category_id=category.id where status = 0 order by card_voice.id limit 1')
             ->queryOne();
         return $result;
+    }
+
+
+    public static function update_page($request){
+        try{
+            $model = Page::findOne(['id' => $request[0]]);
+            $model->description = $request[1];
+            $model->keywords = $request[2];
+            $model->title = $request[3];
+            $model->text_h1 = $request[4];
+            $model->status = $request[5];
+            $model->save();
+            $result = [
+                "id" => $request[0],
+                "status" => "success",
+            ];
+            return $result;
+        }
+        catch(Exception $e){
+            $result = [
+                "id" => $request[0],
+                "status" => "error",
+            ];
+            return $result;
+        }
     }
     public static function update_card($request){
             try{

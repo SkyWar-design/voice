@@ -182,7 +182,15 @@ class SiteController extends Controller
 
     public function actionUpdate_page()
     {
-       return true;
+        $request = Yii::$app->request->post('card_array');
+
+        //сохранение
+        if($request)
+            return json_encode(Db::update_page($request), JSON_FORCE_OBJECT);
+        else{
+            return false;
+        }
+
     }
 
     /**

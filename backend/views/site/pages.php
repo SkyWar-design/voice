@@ -150,8 +150,8 @@ $this->title = 'Страницы';
             myTableArray.forEach(function(item, i, arr) {
                 if(item[0] == val){
                     //замена элементов массива
-//                    var value_status = $("#cardvoice-status.status_"+val).val();
-//                    item.splice(5,1,value_status);
+                    var value_status = $("#page-status.status_"+val).val();
+                    item.splice(5,1,value_status);
                     console.log(item);
                     $.ajax({
                         type: "POST",

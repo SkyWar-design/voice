@@ -56,7 +56,7 @@ return [
                 'edit_card' => 'site/edit_card',
                 'del_card' => 'site/del_card',
                 'edit_page' => 'site/edit_page',
-                'update_page' => 'update_page'
+                'update_page' => 'site/update_page'
             ],
         ],
 
