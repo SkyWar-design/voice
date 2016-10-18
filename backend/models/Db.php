@@ -298,13 +298,13 @@ class Db extends Model
         if ($type == 2){
             try {
                 $model = new Page();
-                $model->card_id = $request[1]['value'];
-                $model->url =  $request[2]['value'];
-                $model->description = $request[3]['value'];
-                $model->keywords = $request[4]['value'];
-                $model->title = $request[5]['value'];
-                $model->text_h1 = $request[6]['value'];
-                $model->status = $request[7]['value'];
+                $model->card_id = $request[0]['value'];
+                $model->url =  $request[1]['value'];
+                $model->description = $request[2]['value'];
+                $model->keywords = $request[3]['value'];
+                $model->title = $request[4]['value'];
+                $model->text_h1 = $request[5]['value'];
+                $model->status = $request[6]['value'];
                 $model->save();
                 $result = [
                     "id" => $request[0]['value'],

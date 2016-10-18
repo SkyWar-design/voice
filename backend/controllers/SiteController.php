@@ -165,9 +165,9 @@ class SiteController extends Controller
         $request = Yii::$app->request->post('page_array');
 
         //добавление страницы
-//        if($request)
+        if($request)
 //            return true;
-//            return json_encode(Db::save_page($request,2), JSON_FORCE_OBJECT);
+            return json_encode(Db::save_page($request,2), JSON_FORCE_OBJECT);
 
 
         return $this->render('add_page',[
