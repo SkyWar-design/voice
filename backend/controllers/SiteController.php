@@ -99,7 +99,10 @@ class SiteController extends Controller
 
 
         \moonland\phpexcel\Excel::export([
-            'models' => CardVoice::find()->all(),
+            'models' => CardVoice::find()
+                ->select('card_voice.*,category.name')
+                ->joinWith('category')
+                ->orderBy('id'),
             'columns' => [
                 'id',
                 'url'
