@@ -168,6 +168,7 @@ $this->title = 'Заполнение карточек';
         }
         $('#del_form').click(function (){
             var data = $('#demo-form2').serializeArray();
+ 
             $.ajax({
                 type: "POST",
                 url: "/del_card",
@@ -200,19 +201,10 @@ $this->title = 'Заполнение карточек';
             var data = $('#demo-form2').serializeArray();
             var date = $('#birthday').val();
             var url = $('#url').val();
-            if(date == ''){
+            if(date.length < 12 ){
                 new PNotify({
                     title: 'Ошибка',
-                    text: 'Не заполнено поле Даты',
-                    type: 'error',
-                    styling: 'bootstrap3'
-                });
-                return false;
-            }
-            if(url == ''){
-                new PNotify({
-                    title: 'Ошибка',
-                    text: 'Не заполнено поле URL',
+                    text: 'Не заполнено все необходимые поля',
                     type: 'error',
                     styling: 'bootstrap3'
                 });
