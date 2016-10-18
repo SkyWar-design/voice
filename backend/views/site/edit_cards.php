@@ -147,6 +147,7 @@ $this->title = 'Заполнение карточек';
                 <div class="form-group">
                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                         <button type="submit" id="send_form" class="btn btn-primary btn-lg">Сохранить и загрузить следующую</button>
+                        <button type="submit" id="del_form" class="btn btn-danger">Удалить</button>
                     </div>
                 </div>
             </form>
@@ -165,6 +166,35 @@ $this->title = 'Заполнение карточек';
             document.location.href = url;
             return false;
         }
+        $('#del_form').click(function (){
+            $.ajax({
+                type: "POST",
+                url: "/del_card",
+                context: document.body,
+                data: { csrf_backend: token, card_array: data },
+                success: function(otvet){
+                    otvet = JSON.parse(otvet);
+                    if (otvet.status =="success"){
+                        new PNotify({
+                            title: 'Сохранение',
+                            text: 'Карточка #'+otvet.id+' успешно удалена. Переадресация...',
+                            type: 'success',
+                            styling: 'bootstrap3'
+                        });
+                        setTimeout(function(){goPage('edit_card')}, 2400);
+                    }else{
+                        console.log(otvet);
+                        new PNotify({
+                            title: 'Сохранение',
+                            text: 'Не удалось удалить карточку #'+otvet.id+' '+otvet.message,
+                            type: 'error',
+                            styling: 'bootstrap3'
+                        });
+                    }
+                }
+            });
+
+        });
         $('#send_form').click(function (){
             var data = $('#demo-form2').serializeArray();
             var date = $('#birthday').val();

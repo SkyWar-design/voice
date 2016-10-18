@@ -52,7 +52,8 @@ return [
                 'update' => 'site/update',
                 'about' => 'site/about',
                 'add_card' => 'site/add_card',
-                'edit_card' => 'site/edit_card'
+                'edit_card' => 'site/edit_card',
+                'del_card' => 'site/del_card'
             ],
         ],
 

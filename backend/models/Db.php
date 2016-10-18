@@ -90,6 +90,29 @@ class Db extends Model
                 return $result;
             }
     }
+    public static function del_card($request)
+    {
+        try {
+        Yii::$app->db->createCommand('DELETE FROM card_voice where id=:id')
+            ->bindValue(':id', $request[1]['value'])
+            ->queryOne();
+        $result = [
+            "id" => $request[1]['value'],
+            "status" => "success",
+        ];
+            return $result;
+        }
+        
+        catch (Exception $e) {
+        $result = [
+            "id" => $request[1]['value'],
+            "status" => "error",
+            "message" => $e
+        ];
+            return $result;
+        }
+    }
+
     public static function save_card($request,$type){
         //сохранение
         if ($type == 1){

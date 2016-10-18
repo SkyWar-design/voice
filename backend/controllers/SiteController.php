@@ -96,31 +96,20 @@ class SiteController extends Controller
 
     public function actionAbout()
     {
-//        \moonland\phpexcel\Excel::export([
-//            'models' => CardVoice::find()->all(),
-//            'columns' => [
-//                'id',
-//                'url'
-//            ],
-//            'headers' => [
-//                'voice_title' => 'Date Created Content',
-//            ],
-//        ]);
-        $model1 =  CardVoice::find()
-            ->select('card_voice.*,category.name')
-            ->joinWith('category')
-            ->orderBy('id')->all();
-        echo '123';
+    }
 
-        \moonland\phpexcel\Excel::export([
-            'models' => $model1,
-            'columns' => [
-            'id','url','mp3_id','voice_description','voice_keywords','voice_title',
-            'voice_text_h1','voice_text_description','voice_text_theme','voice_text_tags',
-            'category.name','voice_date','sex','status'
-            ],
-        ]);
-        echo '123';
+    public function actionDel_card()
+    {
+        $this->enableCsrfValidation = false;
+        $request = Yii::$app->request->post('card_array');
+
+        //удаление данных
+        if($request)
+            return json_encode(Db::del_card($request), JSON_FORCE_OBJECT);
+        else{
+            return false;
+        }
+        
     }
 
     public function actionAdd_card()
