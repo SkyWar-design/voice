@@ -48,7 +48,7 @@ array_unshift($array_category, ['id' => '0', 'name' => "Не выбрано"] );
                 </select>
             </div>
             <div class="btn-group" data-toggle="buttons">
-                <?=$gridColumns = [
+                <?php $gridColumns = [
                     'id','url','mp3_id','voice_description','voice_keywords','voice_title',
                     'voice_text_h1','voice_text_description','voice_text_theme','voice_text_tags',
                     'category.name','voice_date','sex','status'
