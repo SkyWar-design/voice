@@ -90,13 +90,14 @@ class Db extends Model
     }
     public static function del_card($request)
     {
+        $id = $request[0]['value'];
         try {
-            if($request[1]['value'])
+            if($id)
             Yii::$app->db->createCommand('DELETE FROM card_voice where id=:id')
-                ->bindValue(':id', $request[1]['value'])
+                ->bindValue(':id', $id)
                 ->execute();
             $result = [
-                "id" => $request[1]['value'],
+                "id" => $id,
                 "status" => "success",
             ];
             return $result;
@@ -104,7 +105,7 @@ class Db extends Model
 
         catch (Exception $e) {
         $result = [
-            "id" => $request[1]['value'],
+            "id" => $id,
             "status" => "error",
             "message" => $e
         ];

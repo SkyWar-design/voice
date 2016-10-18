@@ -135,7 +135,6 @@ $this->title = 'Заполнение карточек';
         }
         $('#del_form').click(function (){
             var data = $('#demo-form2').serializeArray();
- 
             $.ajax({
                 type: "POST",
                 url: "/del_card",
