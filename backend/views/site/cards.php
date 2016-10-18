@@ -12,7 +12,6 @@
 /* @var $dataProvider */
 
 //для выгрузки
-ini_set('memory_limit', '1024M');
 use app\common\GridViewEditable;
 use yii\helpers\html;
 use yii\helpers\ArrayHelper;
