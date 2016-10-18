@@ -68,6 +68,10 @@ array_unshift($array_category, ['id' => '0', 'name' => "Не выбрано"] );
     [
         'dataProvider' => $dataProvider,
         'hover' => true,
+        'pager' => [
+        'firstPageLabel' => 'Первая страница',
+        'lastPageLabel'  => 'Последняя страница'
+        ],
         'columns' => [
             'id',
             'voice_title',
