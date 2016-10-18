@@ -59,17 +59,8 @@ array_unshift($array_category, ['id' => '0', 'name' => "Не выбрано"] );
             'voice_text_h1',
             'voice_text_description',
             'voice_text_theme',
-            [
-                'class' => 'yii\grid\ActionColumn',
-                'header'=>'Категория',
-                'template' => '{link}',
-                'buttons' => [
-                    'link' => function ($url,$model,$key) {
-                        return Html::activeDropDownList($model, 'category.name', $model->DropCategory,['class'=>'category_'.$model->id]);
-                    },
-
-                ],
-            ],
+            'category.name',
+ 
             [
                 'class' => 'yii\grid\ActionColumn',
                 'header'=>'Пол',

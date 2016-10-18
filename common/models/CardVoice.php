@@ -62,7 +62,7 @@ class CardVoice extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'mp3_id', 'category_id','category.name', 'status'], 'integer'],
+            [['id', 'mp3_id', 'category_id', 'status'], 'integer'],
             [['voice_date'], 'safe'],
             [['url'], 'string', 'max' => 300],
             [['voice_description', 'voice_keywords', 'voice_title', 'voice_text_h1', 'voice_text_description', 'voice_text_theme', 'voice_text_tags'], 'string', 'max' => 3000],
