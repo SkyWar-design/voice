@@ -111,7 +111,7 @@ class SiteController extends Controller
             ->joinWith('category')
             ->orderBy('id')->all();
         echo '123';
-        
+
         \moonland\phpexcel\Excel::export([
             'models' => $model1,
             'columns' => [
@@ -123,6 +123,19 @@ class SiteController extends Controller
         echo '123';
     }
 
+    public function actionAdd_card()
+    {
+        $this->enableCsrfValidation = false;
+        $request = Yii::$app->request->post('card_array');
+
+        //запись данных
+        if($request)
+            return json_encode(Db::save_card($request,2), JSON_FORCE_OBJECT);
+
+
+        return $this->render('add_cards',[
+        ]);
+    }
     public function actionEdit_card()
     {
         $this->enableCsrfValidation = false;
@@ -131,7 +144,7 @@ class SiteController extends Controller
 
         //запись данных
         if($request)
-        return json_encode(Db::save_card($request), JSON_FORCE_OBJECT);
+        return json_encode(Db::save_card($request,1), JSON_FORCE_OBJECT);
 
         //вывод данных
         if($card_edit)

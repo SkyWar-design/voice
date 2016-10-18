@@ -51,6 +51,7 @@ return [
                 'cards' => 'site/cards',
                 'update' => 'site/update',
                 'about' => 'site/about',
+                'add_card' => 'site/add_card',
                 'edit_card' => 'site/edit_card'
             ],
         ],
