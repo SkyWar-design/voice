@@ -121,14 +121,9 @@ $this->title = 'Страницы';
         $('.radio_filtr').click(function (e) {
             var id = $(this).attr("id");
             var category = $("#category").val();
-            goPage('cards?filter='+id);
+            goPage('pages?filter='+id);
         });
 
-        $("#category").change(function (e) {
-            var id = $(".radio_filtr.active").attr("id");
-            var category = $(this).val();
-            goPage('cards?filter='+id+'&category='+category);
-        });
 
         function goPage(url) {
             document.location.href = url;
@@ -155,12 +150,8 @@ $this->title = 'Страницы';
             myTableArray.forEach(function(item, i, arr) {
                 if(item[0] == val){
                     //замена элементов массива
-                    var value_category = $("#cardvoice-category_id.category_"+val).val();
-                    item.splice(3,1,value_category);
-                    var value_sex = $("#cardvoice-sex.sex_"+val).val();
-                    item.splice(4,1,value_sex);
-                    var value_status = $("#cardvoice-status.status_"+val).val();
-                    item.splice(5,1,value_status);
+//                    var value_status = $("#cardvoice-status.status_"+val).val();
+//                    item.splice(5,1,value_status);
                     console.log(item);
                     $.ajax({
                         type: "POST",
@@ -207,7 +198,7 @@ $this->title = 'Страницы';
                 console.log(elm_name);
                 var val = $(this).html();
                 console.log(val);
-                if( val.indexOf("span") != -1 || val.indexOf("button") != -1 || val.indexOf("select") != -1){
+                if( val.indexOf("span") != -1 || val.indexOf("button") != -1 || val.indexOf("select") != -1 || val.indexOf("a") != -1){
                     return false;
                 }
                 var code = '<textarea  id="edit" style="width: 400px" rows="15" cols="5" name="text">'+val+'</textarea>';

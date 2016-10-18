@@ -179,6 +179,12 @@ class SiteController extends Controller
             return false;
         }
     }
+
+    public function actionUpdate_page()
+    {
+       return true;
+    }
+
     /**
      * Login action.
      *
