@@ -108,13 +108,11 @@ class SiteController extends Controller
             'models' => $dataProvider,
             'mode' => 'export', //default value as 'export'
             'columns' => ['id','voice_title'], //without header working, because the header will be get label from attribute label.
-            'header' => ['id' => 'Header Column 1','voice_title' => 'Header Column 2'],
         ]);
 
         \moonland\phpexcel\Excel::export([
             'models' => $dataProvider,
             'columns' => ['id','voice_title'], //without header working, because the header will be get label from attribute label.
-            'header' => ['id' => 'Header Column 1','voice_title' => 'Header Column 2'],
         ]);
 
 
