@@ -128,7 +128,7 @@ class SiteController extends Controller
 
         //сохранение
         if($request){}
-//        return json_encode(Db::update_card($request), JSON_FORCE_OBJECT);
+        return json_encode(Db::update_card($request), JSON_FORCE_OBJECT);
         else{
             return false;
         }

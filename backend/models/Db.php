@@ -72,8 +72,9 @@ class Db extends Model
                 $model->voice_text_h1 = $request[2];
                 $model->voice_text_description = $request[3];
                 $model->voice_text_theme = $request[4];
-                $model->sex = $request[5];
-                $model->status = $request[6];
+                $model->category_id = $request[5];
+                $model->sex = $request[6];
+                $model->status = $request[7];
                 $model->save();
                 $result = [
                     "id" => $request[0],
