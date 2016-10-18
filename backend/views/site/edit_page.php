@@ -134,7 +134,7 @@ $this->title = 'Заполнение карточек';
                     if (otvet.status =="success"){
                         new PNotify({
                             title: 'Сохранение',
-                            text: 'Карточка #'+otvet.id+' успешно удалена. Переадресация...',
+                            text: 'Страница #'+otvet.id+' успешно удалена. Переадресация...',
                             type: 'success',
                             styling: 'bootstrap3'
                         });
@@ -143,7 +143,7 @@ $this->title = 'Заполнение карточек';
                         console.log(otvet);
                         new PNotify({
                             title: 'Сохранение',
-                            text: 'Не удалось удалить карточку #'+otvet.id+' '+otvet.message,
+                            text: 'Не удалось удалить страницу #'+otvet.id+' '+otvet.message,
                             type: 'error',
                             styling: 'bootstrap3'
                         });
@@ -174,7 +174,7 @@ $this->title = 'Заполнение карточек';
                     if (otvet.status =="success"){
                         new PNotify({
                             title: 'Сохранение',
-                            text: 'Карточка #'+otvet.id+' успешно сохранена. Переадресация...',
+                            text: 'Страница #'+otvet.id+' успешно сохранена. Переадресация...',
                             type: 'success',
                             styling: 'bootstrap3'
                         });
@@ -183,7 +183,7 @@ $this->title = 'Заполнение карточек';
                         console.log(otvet);
                         new PNotify({
                             title: 'Сохранение',
-                            text: 'Не удалось сохранить карточку #'+otvet.id+' '+otvet.message,
+                            text: 'Не удалось сохранить страницу #'+otvet.id+' '+otvet.message,
                             type: 'error',
                             styling: 'bootstrap3'
                         });

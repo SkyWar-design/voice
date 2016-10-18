@@ -127,7 +127,7 @@ $this->title = 'Заполнение карточек';
                     if (otvet.status =="success"){
                         new PNotify({
                             title: 'Сохранение',
-                            text: 'Карточка #'+otvet.id+' успешно сохранена. Переадресация...',
+                            text: 'Страница успешно добавлена. Переадресация...',
                             type: 'success',
                             styling: 'bootstrap3'
                         });
@@ -136,7 +136,7 @@ $this->title = 'Заполнение карточек';
                         console.log(otvet);
                         new PNotify({
                             title: 'Сохранение',
-                            text: 'Не удалось сохранить карточку #'+otvet.id+' '+otvet.message,
+                            text: 'Не удалось добавить страницу #'+otvet.id+' '+otvet.message,
                             type: 'error',
                             styling: 'bootstrap3'
                         });
