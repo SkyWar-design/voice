@@ -11,7 +11,8 @@
 /* @var $filter_category */
 /* @var $dataProvider */
 
-
+//для выгрузки
+ini_set('memory_limit', '1024M');
 use app\common\GridViewEditable;
 use yii\helpers\html;
 use yii\helpers\ArrayHelper;
@@ -46,24 +47,23 @@ array_unshift($array_category, ['id' => '0', 'name' => "Не выбрано"] );
                     <?php } ?>
                 </select>
             </div>
+            <div class="btn-group" data-toggle="buttons">
+                <?=$gridColumns = [
+                    'id','url','mp3_id','voice_description','voice_keywords','voice_title',
+                    'voice_text_h1','voice_text_description','voice_text_theme','voice_text_tags',
+                    'category.name','voice_date','sex','status'
+                ];
+                echo ExportMenu::widget([
+                    'dataProvider' => $dataProvider,
+                    'columns' => $gridColumns
+                ]); ?>
+            </div>
         </div>
     </div>
 </div>
 <div class="col-md-12 col-sm-12 col-xs-12">
 
-<?php
-ini_set('memory_limit', '1024M');
 
-    $gridColumns = [
-        'id','url','mp3_id','voice_description','voice_keywords','voice_title',
-        'voice_text_h1','voice_text_description','voice_text_theme','voice_text_tags',
-        'category.name','voice_date','sex','status'
-    ];
-    echo ExportMenu::widget([
-    'dataProvider' => $dataProvider,
-    'columns' => $gridColumns
-    ]);
-?>
 <?=
 \yiister\gentelella\widgets\grid\GridView::widget(
     [
