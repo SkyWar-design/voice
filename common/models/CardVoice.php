@@ -51,7 +51,7 @@ class CardVoice extends \yii\db\ActiveRecord
             ->queryAll();
         $array=[];
         foreach ($result as $result_to){
-            $array = [
+            $array .= [
                 $result_to['id']=>$result_to['name'],
             ];
         }
