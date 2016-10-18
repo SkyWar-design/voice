@@ -32,6 +32,13 @@ class ComposerStaticInitce90636a0ed34b00acf59086a2f4614f
         array (
             'moonland\\phpexcel\\' => 18,
         ),
+        'k' => 
+        array (
+            'kartik\\grid\\' => 12,
+            'kartik\\export\\' => 14,
+            'kartik\\dialog\\' => 14,
+            'kartik\\base\\' => 12,
+        ),
         'c' => 
         array (
             'cebe\\markdown\\' => 14,
@@ -86,6 +93,22 @@ class ComposerStaticInitce90636a0ed34b00acf59086a2f4614f
         'moonland\\phpexcel\\' => 
         array (
             0 => __DIR__ . '/..' . '/moonlandsoft/yii2-phpexcel',
+        ),
+        'kartik\\grid\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-grid',
+        ),
+        'kartik\\export\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-export',
+        ),
+        'kartik\\dialog\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-dialog',
+        ),
+        'kartik\\base\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-krajee-base',
         ),
         'cebe\\markdown\\' => 
         array (
