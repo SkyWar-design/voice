@@ -21,7 +21,7 @@ $this->title = 'Заполнение карточек';
 <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
         <div class="x_title">
-            <h2>Добавление карточки</h2>
+            <h2>Заполнение карточки #<?=$card_array['card_voice_id'] ?></h2>
             <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -43,56 +43,14 @@ $this->title = 'Заполнение карточек';
             <br />
             <form  id="demo-form2" class="form-horizontal form-label-left" novalidate>
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">URL <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="url" name="card_edit[url]" data-validate-lengthRange="6" data-validate-words="2" required="required" value="" placeholder="Url для страницы, на латыни, пример: c_dnem_rojdenia" class="form-control col-md-7 col-xs-12">
-                        <input type="text" id="last-name" name="card_edit[id]" required="required" value="" style="display: none">
-                    </div>
-                    <div class='tooltip help'>
-                        <span>?</span>
-                        <div class='content'>
-                            <b></b>
-                            <p>Необходимо заполнить url</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">MP3 ID<span class="required">*</span>
                     </label>
                     <div class="col-md-3 col-sm-3 col-xs-6">
-                        <input type="text" id="last-name" name="card_edit[mp3_id]"  class="form-control col-md-7 col-xs-12">
+                        <input type="text"  name="card_edit[id]" style="display: none"  value="1" required="required" class="form-control col-md-7 col-xs-12">
+                        <input type="text" id="last-name" name="card_edit[mp3_id]"  required="required" value="" required="required" class="form-control col-md-7 col-xs-12">
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-6">
                         <audio id="player"  src="" type="audio/mp3" ></audio>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Description страницы<span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <textarea class="form-control" name="card_edit[voice_description]" required="required" rows="7" ></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Keywords страницы<span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <textarea class="form-control" name="card_edit[voice_keywords]" required="required" rows="5" ></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Title страницы<span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <textarea class="form-control" name="card_edit[voice_title]" rows="4" ></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">H1 страницы<span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <textarea class="form-control"  name="card_edit[voice_text_h1]" rows="3" ></textarea>
                     </div>
                 </div>
                 <div class="form-group">
@@ -127,6 +85,15 @@ $this->title = 'Заполнение карточек';
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Пол</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <select class="form-control" name="card_edit[status}">
+                            <option value="1">Активна</option>
+                            <option value="0">Неактивна</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Категория</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <select class="form-control" name="card_edit[category}">
@@ -146,7 +113,8 @@ $this->title = 'Заполнение карточек';
                 <div class="ln_solid"></div>
                 <div class="form-group">
                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                        <button type="submit" id="send_form" class="btn btn-primary btn-lg">Добавить</button>
+                        <button type="submit" id="send_form" class="btn btn-primary">Сохранить и загрузить следующую</button>
+                        <button type="submit" id="del_form" class="btn btn-danger">Удалить</button>
                     </div>
                 </div>
             </form>
@@ -167,21 +135,10 @@ $this->title = 'Заполнение карточек';
         }
         $('#send_form').click(function (){
             var data = $('#demo-form2').serializeArray();
-            var date = $('#birthday').val();
-            var url = $('#url').val();
-            if(date == ''){
+            if(data.length < 5 ){
                 new PNotify({
                     title: 'Ошибка',
-                    text: 'Не заполнено поле Даты',
-                    type: 'error',
-                    styling: 'bootstrap3'
-                });
-                return false;
-            }
-            if(url == ''){
-                new PNotify({
-                    title: 'Ошибка',
-                    text: 'Не заполнено поле URL',
+                    text: 'Не заполнено все необходимые поля',
                     type: 'error',
                     styling: 'bootstrap3'
                 });
