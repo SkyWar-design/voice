@@ -19,7 +19,7 @@ class Db extends Model
     }
 
     public static function get_page_one($result){
-        $result = Yii::$app->db->createCommand('SELECT * FROM page limit 1')
+        $result = Yii::$app->db->createCommand('SELECT * FROM page where id=:id limit 1')
             ->bindValue(':id', $result)
             ->queryOne();
         return $result;
