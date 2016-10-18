@@ -28,17 +28,17 @@ array_unshift($array_category, ['id' => '0', 'name' => "Не выбрано"] );
     <div id="w0" class="x_panel">
         <div class="x_content">
             <div class="x_title"><h2>Фильтры</h2><div class="clearfix"></div></div>
-<!--            <div class="btn-group" data-toggle="buttons">-->
-<!--                <label class="btn btn-default radio_filtr --><?php //if (empty($filter) or $filter==3){ echo 'active';} ?><!--" id="3">-->
-<!--                    <input type="radio" name="options3" > Все карточки-->
-<!--                </label>-->
-<!--                <label class="btn btn-default radio_filtr --><?php //if ($filter == 1){ echo 'active';} ?><!--" id="1">-->
-<!--                    <input  type="radio" name="options" > Активные-->
-<!--                </label>-->
-<!--                <label class="btn btn-default radio_filtr --><?php //if ($filter == 2){ echo 'active';} ?><!--"  id="2">-->
-<!--                    <input type="radio" name="options"> Неактивные-->
-<!--                </label>-->
-<!--            </div>-->
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default radio_filtr <?php if (empty($filter) or $filter==3){ echo 'active';} ?>" id="3">
+                    <input type="radio" name="options3" > Все карточки
+                </label>
+                <label class="btn btn-default radio_filtr <?php if ($filter == 1){ echo 'active';} ?>" id="1">
+                    <input  type="radio" name="options" > Активные
+                </label>
+                <label class="btn btn-default radio_filtr <?php if ($filter == 2){ echo 'active';} ?>"  id="2">
+                    <input type="radio" name="options"> Неактивные
+                </label>
+            </div>
             <div class="btn-group" data-toggle="buttons">
                 <select class="form-control" id ="category" name="card_edit[category}">
                     <?php foreach ($array_category as $category){?>
@@ -50,7 +50,7 @@ array_unshift($array_category, ['id' => '0', 'name' => "Не выбрано"] );
                 <?php $gridColumns = [
                     'id','url','mp3_id','voice_description','voice_keywords','voice_title',
                     'voice_text_h1','voice_text_description','voice_text_theme','voice_text_tags',
-                    'category.name','voice_date','sex'
+                    'category.name','voice_date','sex','status'
                 ];
                 echo ExportMenu::widget([
                     'dataProvider' => $dataProvider,
@@ -100,6 +100,17 @@ array_unshift($array_category, ['id' => '0', 'name' => "Не выбрано"] );
             ],
             [
                 'class' => 'yii\grid\ActionColumn',
+                'header'=>'Статус карточки',
+                'template' => '{link}',
+                'buttons' => [
+                    'link' => function ($url,$model,$key) {
+                        return Html::activeDropDownList($model, 'status', $model->DropStatus,['class'=>'status_'.$model->id]);
+                    },
+
+                ],
+            ],
+            [
+                'class' => 'yii\grid\ActionColumn',
                 'header'=>'Действия',
                 'template' => '{update}{link}',
                 'buttons' => [
@@ -128,6 +139,7 @@ array_unshift($array_category, ['id' => '0', 'name' => "Не выбрано"] );
         });
 
         $('.radio_filtr').click(function (e) {
+           
             var id = $(this).attr("id");
             var category = $("#category").val();
             goPage('cards?filter='+id);
