@@ -68,7 +68,8 @@ class CardVoice extends \yii\db\ActiveRecord
         return [
             [['mp3_id', 'category_id', 'status'], 'integer'],
             [['voice_date'], 'safe'],
-            [['voice_text_description', 'voice_text_theme', 'voice_text_tags'], 'string', 'max' => 3000],
+            [['voice_text_description', 'voice_text_theme'], 'string', 'max' => 3000],
+            [['voice_text_tags'], 'string', 'max' => 2000],
             [['sex'], 'string', 'max' => 50],
         ];
     }
