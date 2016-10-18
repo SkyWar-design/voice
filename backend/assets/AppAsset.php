@@ -13,7 +13,8 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/notify.buttons.css',
-        'css/notify.css'
+        'css/notify.css',
+        'css/site.css',
     ];
 
     public $jsOptions = array(
