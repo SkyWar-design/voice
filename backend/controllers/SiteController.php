@@ -96,7 +96,7 @@ class SiteController extends Controller
 
     public function actionAbout()
     {
-        $query = Db::get_card_all();
+        $query = Db::get_card_all(false,false);
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => [
