@@ -43,6 +43,14 @@ class CardVoice extends \yii\db\ActiveRecord
             1=>'Для мужчины',
         );
     }
+    public function getDropCategory()
+    {
+        $query = "SELECT name from category group by name";
+        $result = Yii::$app->db
+            ->createCommand($query)
+            ->queryAll();
+        return $result;
+    }
     public static function tableName()
     {
         return 'card_voice';
