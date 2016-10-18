@@ -74,7 +74,6 @@ array_unshift($array_category, ['id' => '0', 'name' => "Не выбрано"] );
         ],
         'columns' => [
             'id',
-            'voice_text_tags',
             'voice_text_description',
             'voice_text_theme',
             [
