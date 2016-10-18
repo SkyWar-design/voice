@@ -133,7 +133,8 @@ class SiteController extends Controller
 
         //запись данных
         if($request)
-        return json_encode(Db::save_card($request,1), JSON_FORCE_OBJECT);
+            return true;
+//        return json_encode(Db::save_card($request,1), JSON_FORCE_OBJECT);
 
         //вывод данных
         if($card_edit)

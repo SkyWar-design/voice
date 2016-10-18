@@ -47,7 +47,7 @@ $this->title = 'Заполнение карточек';
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <input type="text" id="url" name="card_edit[url]" data-validate-lengthRange="6" data-validate-words="2" required="required" value="<?=$card_array['url'] ?>"placeholder="Url для страницы, на латыни, пример: c_dnem_rojdenia" class="form-control col-md-7 col-xs-12">
-                        <input type="text" id="last-name" name="card_edit[id]" required="required" value="<?=$card_array['card_voice_id'] ?>" style="display: none">
+                        <input type="text" id="last-name" name="card_edit[id]" required="required" value="<?=$card_array['id'] ?>" style="display: none">
                     </div>
                     <div class='tooltip help'>
                         <span>?</span>
@@ -65,34 +65,6 @@ $this->title = 'Заполнение карточек';
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-6">
                         <audio id="player"  src="<?php echo Yii::getAlias('@mp3') ?>/<?=$card_array['mp3_id'] ?>.mp3" type="audio/mp3" ></audio>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Description страницы<span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <textarea class="form-control" name="card_edit[voice_description]" required="required" rows="7" ><?=$card_array['voice_description'] ?></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Keywords страницы<span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <textarea class="form-control" name="card_edit[voice_keywords]" required="required" rows="5" ><?=$card_array['voice_keywords'] ?></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Title страницы<span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <textarea class="form-control" name="card_edit[voice_title]" rows="4" ><?=$card_array['voice_title'] ?></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">H1 страницы<span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <textarea class="form-control"  name="card_edit[voice_text_h1]" rows="3" ><?=$card_array['voice_text_h1'] ?></textarea>
                     </div>
                 </div>
                 <div class="form-group">
@@ -200,8 +172,7 @@ $this->title = 'Заполнение карточек';
         $('#send_form').click(function (){
             var data = $('#demo-form2').serializeArray();
             var date = $('#birthday').val();
-            var url = $('#url').val();
-            if(date.length < 12 ){
+            if(data.length < 5 ){
                 new PNotify({
                     title: 'Ошибка',
                     text: 'Не заполнено все необходимые поля',
