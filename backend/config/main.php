@@ -48,6 +48,7 @@ return [
                 'logout' => 'site/logout',
                 'cards' => 'site/cards',
                 'update' => 'site/update',
+                'about' => 'site/about',
                 'edit_card' => 'site/edit_card'
             ],
         ],
