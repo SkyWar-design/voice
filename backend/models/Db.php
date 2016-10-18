@@ -99,7 +99,6 @@ class Db extends Model
                 $model->voice_text_theme = $request[2];
                 $model->category_id = $request[3];
                 $model->sex = $request[4];
-                $model->status = $request[5];
                 $model->save();
                 $result = [
                     "id" => $request[0],
@@ -144,7 +143,7 @@ class Db extends Model
         //сохранение
         if ($type == 1){
             try {
-                $date = explode('/', $request[8]['value']);
+                $date = explode('/', $request[7]['value']);
                 $date = $date[2] . "-" . $date[0] . "-" . $date[1] . " 00:00:00";
 
                 $model = CardVoice::findOne(['id' => $request[0]['value']]);
@@ -153,8 +152,7 @@ class Db extends Model
                 $model->voice_text_theme = $request[3]['value'];
                 $model->voice_text_tags = $request[4]['value'];
                 $model->sex = $request[5]['value'];
-                $model->status = $request[6]['value'];
-                $model->category_id = $request[7]['value'];
+                $model->category_id = $request[6]['value'];
                 $model->voice_date = $date;
                 $model->save();
                 $result = [
@@ -174,7 +172,7 @@ class Db extends Model
         //добавление
         if ($type == 2){
             try {
-                $date = explode('/', $request[8]['value']);
+                $date = explode('/', $request[7]['value']);
                 $date = $date[2] . "-" . $date[0] . "-" . $date[1] . " 00:00:00";
 
                 $model = new CardVoice();
@@ -183,8 +181,7 @@ class Db extends Model
                 $model->voice_text_theme = $request[3]['value'];
                 $model->voice_text_tags = $request[4]['value'];
                 $model->sex = $request[5]['value'];
-                $model->status = $request[6]['value'];
-                $model->category_id = $request[7]['value'];
+                $model->category_id = $request[6]['value'];
                 $model->voice_date = $date;
                 $model->save();
                 $result = [

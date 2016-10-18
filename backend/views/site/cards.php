@@ -50,7 +50,7 @@ array_unshift($array_category, ['id' => '0', 'name' => "Не выбрано"] );
                 <?php $gridColumns = [
                     'id','url','mp3_id','voice_description','voice_keywords','voice_title',
                     'voice_text_h1','voice_text_description','voice_text_theme','voice_text_tags',
-                    'category.name','voice_date','sex','status'
+                    'category.name','voice_date','sex'
                 ];
                 echo ExportMenu::widget([
                     'dataProvider' => $dataProvider,
@@ -94,17 +94,6 @@ array_unshift($array_category, ['id' => '0', 'name' => "Не выбрано"] );
                 'buttons' => [
                     'link' => function ($url,$model,$key) {
                         return Html::activeDropDownList($model, 'sex', $model->DropSex,['class'=>'sex_'.$model->id]);
-                    },
-
-                ],
-            ],
-            [
-                'class' => 'yii\grid\ActionColumn',
-                'header'=>'Статус карточки',
-                'template' => '{link}',
-                'buttons' => [
-                    'link' => function ($url,$model,$key) {
-                        return Html::activeDropDownList($model, 'status', $model->DropStatus,['class'=>'status_'.$model->id]);
                     },
 
                 ],
