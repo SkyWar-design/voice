@@ -104,7 +104,7 @@ class SiteController extends Controller
                 ->joinWith('category')
                 ->orderBy('id'),
             'columns' => [
-                'id',
+                'mp3_id',
                 'url'
             ],
             'headers' => [
