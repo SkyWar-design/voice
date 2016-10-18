@@ -130,13 +130,13 @@ class Db extends Model
                 $model->voice_date = $date;
                 $model->save();
                 $result = [
-                    "id" => $request[1]['value'],
+                    "id" => $request[0]['value'],
                     "status" => "success",
                 ];
                 return $result;
             } catch (Exception $e) {
                 $result = [
-                    "id" => $request[1]['value'],
+                    "id" => $request[0]['value'],
                     "status" => "error",
                     "message" => $e
                 ];
@@ -160,13 +160,13 @@ class Db extends Model
                 $model->voice_date = $date;
                 $model->save();
                 $result = [
-                    "id" => $request[1]['value'],
+                    "id" => $request[0]['value'],
                     "status" => "success",
                 ];
                 return $result;
             } catch (Exception $e) {
                 $result = [
-                    "id" => $request[1]['value'],
+                    "id" => $request[0]['value'],
                     "status" => "error",
                     "message" => $e
                 ];
