@@ -19,7 +19,8 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
 	"yiisoft/yii2-bootstrap": "*",
-        "yiister/yii2-gentelella": "~1.0"
+        "yiister/yii2-gentelella": "~1.0",
+	"phpoffice/phpexcel": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
