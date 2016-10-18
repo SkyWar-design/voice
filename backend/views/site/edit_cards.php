@@ -46,6 +46,7 @@ $this->title = 'Заполнение карточек';
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">MP3 ID<span class="required">*</span>
                     </label>
                     <div class="col-md-3 col-sm-3 col-xs-6">
+                        <input type="text"  name="card_edit[id]" style="display: none"  value="<?=$card_array['id'] ?>" required="required" class="form-control col-md-7 col-xs-12">
                         <input type="text" id="last-name" name="card_edit[mp3_id]"  required="required" value="<?=$card_array['mp3_id'] ?>" required="required" class="form-control col-md-7 col-xs-12">
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-6">
