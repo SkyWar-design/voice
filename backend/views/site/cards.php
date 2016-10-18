@@ -52,6 +52,8 @@ array_unshift($array_category, ['id' => '0', 'name' => "Не выбрано"] );
 <div class="col-md-12 col-sm-12 col-xs-12">
 
 <?php
+ini_set('memory_limit', '1024M');
+
     $gridColumns = [
         'id','url','mp3_id','voice_description','voice_keywords','voice_title',
         'voice_text_h1','voice_text_description','voice_text_theme','voice_text_tags',
