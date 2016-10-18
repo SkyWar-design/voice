@@ -63,15 +63,15 @@ AppAsset::register($this);
                                 [
                                     "items" => [
                                         ["label" => "Статистика", "url" => "/", "icon" => "home"],
-                                        ["label" => "Карточки", "url" => ["/cards"], "icon" => "files-o"],
-                                        ["label" => "Заполнение карт", "url" => ["/edit_card"], "icon" => "files-o"],
+                                        ["label" => "Список карт", "url" => ["/cards"], "icon" => "files-o"],
                                         [
-                                            "label" => "Widgets",
+                                            "label" => "Управление данными",
                                             "icon" => "th",
                                             "url" => "#",
                                             "items" => [
-                                                ["label" => "Menu", "url" => ["site/menu"]],
-                                                ["label" => "Panel", "url" => ["site/panel"]],
+                                                ["label" => "Редактирование карт", "url" => ["/edit_card"]],
+                                                ["label" => "Добавление карт", "url" => ["/add_card"]],
+                                                ["label" => "Добавление категорий", "url" => ["/add_category"]],
                                             ],
                                         ],
                                     ],
