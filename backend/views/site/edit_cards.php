@@ -86,7 +86,7 @@ $this->title = 'Заполнение карточек';
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Пол</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <select class="form-control" name="card_edit[sex}">
+                        <select class="form-control" name="card_edit[status}">
                             <option value="1" <?php echo $card_array['status']  == 1 ? 'selected': '' ?> >Активна</option>
                             <option value="0" <?php echo $card_array['status']  == 0 ? 'selected': '' ?> >Неактивна</option>
                         </select>
