@@ -64,6 +64,7 @@ AppAsset::register($this);
                                     "items" => [
                                         ["label" => "Статистика", "url" => "/", "icon" => "home"],
                                         ["label" => "Список карточек", "url" => ["/cards"], "icon" => "files-o"],
+                                        ["label" => "Список страниц", "url" => ["/pages"], "icon" => "files-o"],
                                         [
                                             "label" => "Управление данными",
                                             "icon" => "th",
@@ -71,6 +72,8 @@ AppAsset::register($this);
                                             "items" => [
                                                 ["label" => "Редактирование карточки", "url" => ["/edit_card"]],
                                                 ["label" => "Добавление карточки", "url" => ["/add_card"]],
+                                                ["label" => "Редактирование страницы", "url" => ["/edit_page"]],
+                                                ["label" => "Добавление страницы", "url" => ["/add_page"]],
                                                 ["label" => "Добавление категорий", "url" => ["/add_category"]],
                                             ],
                                         ],

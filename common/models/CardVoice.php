@@ -66,10 +66,9 @@ class CardVoice extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'mp3_id', 'category_id', 'status'], 'integer'],
+            [['mp3_id', 'category_id', 'status'], 'integer'],
             [['voice_date'], 'safe'],
-            [['url'], 'string', 'max' => 300],
-            [['voice_description', 'voice_keywords', 'voice_title', 'voice_text_h1', 'voice_text_description', 'voice_text_theme', 'voice_text_tags'], 'string', 'max' => 3000],
+            [['voice_text_description', 'voice_text_theme', 'voice_text_tags'], 'string', 'max' => 3000],
             [['sex'], 'string', 'max' => 50],
         ];
     }
@@ -86,12 +85,7 @@ class CardVoice extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'url' => 'Url',
             'mp3_id' => 'Mp3 ID',
-            'voice_description' => 'Description страницы',
-            'voice_keywords' => 'Keywords страницы',
-            'voice_title' => 'Title страницы',
-            'voice_text_h1' => 'H1 страницы',
             'voice_text_description' => 'Текст карточки',
             'voice_text_theme' => 'Тематика карточки',
             'voice_text_tags' => 'Тэги карточки',
