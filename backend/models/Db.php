@@ -19,7 +19,7 @@ class Db extends Model
         $query = CardVoice::find()
             ->select('card_voice.*,category.name')
             ->joinWith('category')
-            ->orderBy('id')->all();
+            ->orderBy('id');
 
         if (!empty($filter) and $filter==3 and !empty($filter_category)){
             $query = CardVoice::find()
@@ -27,18 +27,18 @@ class Db extends Model
                 ->joinWith('category')
                 ->where(['<>','status', $filter])
                 ->andWhere(['=','category_id', $filter_category])
-                ->orderBy('id')->all();
+                ->orderBy('id');
         }
         if (!empty($filter) and $filter==1 and empty($filter_category)){
             $query = CardVoice::find()
                 ->where(['=','status', CardVoice::STATUS_ACTIVE])
-                ->orderBy('id')->all();
+                ->orderBy('id');
         }
 
         if (!empty($filter) and $filter==2 and empty($filter_category)){
             $query = CardVoice::find()
                 ->andWhere(['=','status', CardVoice::STATUS_DEACTIVE])
-                ->orderBy('id')->all();
+                ->orderBy('id');
         }
 
         if (!empty($filter) and $filter==1 and !empty($filter_category)){
@@ -47,7 +47,7 @@ class Db extends Model
                 ->joinWith('category')
                 ->where(['=','status', CardVoice::STATUS_ACTIVE])
                 ->andWhere(['=','category_id', $filter_category])
-                ->orderBy('id')->all();
+                ->orderBy('id');
         }
 
         if (!empty($filter) and $filter==2 and !empty($filter_category)){
@@ -56,7 +56,7 @@ class Db extends Model
                 ->joinWith('category')
                 ->where(['=','status', CardVoice::STATUS_DEACTIVE])
                 ->andWhere(['=','category_id', $filter_category])
-                ->orderBy('id')->all();
+                ->orderBy('id');
         }
         return $query;
     }

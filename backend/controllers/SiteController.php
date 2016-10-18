@@ -109,7 +109,7 @@ class SiteController extends Controller
         $model1 =  CardVoice::find()
             ->select('card_voice.*,category.name')
             ->joinWith('category')
-            ->orderBy('id')->all();
+            ->orderBy('id');
         $model = CardVoice::find()->all();
         
         \moonland\phpexcel\Excel::export([
