@@ -9,6 +9,8 @@
 /* @var $this yii\web\View */
 /* @var $filter */
 /* @var $filter_category */
+/* @var $dataProvider */
+
 
 use app\common\GridViewEditable;
 use yii\helpers\html;
@@ -16,7 +18,7 @@ use yii\helpers\ArrayHelper;
 use common\models\CardVoice;
 use common\models\Category;
 use yii\helpers\VarDumper;
-
+use kartik\export\ExportMenu;
 $this->title = 'Карточки';
 $array_category = Category::getDropName();
 array_unshift($array_category, ['id' => '0', 'name' => "Не выбрано"] );
@@ -48,6 +50,22 @@ array_unshift($array_category, ['id' => '0', 'name' => "Не выбрано"] );
     </div>
 </div>
 <div class="col-md-12 col-sm-12 col-xs-12">
+
+<?php
+    $gridColumns = [
+        ['class' => 'yii\grid\SerialColumn'],
+        'id',
+        'voice_title',
+        'voice_text_h1',
+        'publish_date',
+        'voice_text_description',
+        ['class' => 'yii\grid\ActionColumn'],
+    ];
+    echo ExportMenu::widget([
+    'dataProvider' => $dataProvider,
+    'columns' => $gridColumns
+    ]);
+?>
 <?=
 \yiister\gentelella\widgets\grid\GridView::widget(
     [

@@ -111,6 +111,7 @@ class SiteController extends Controller
             ->joinWith('category')
             ->orderBy('id')->all();
         echo '123';
+        
         \moonland\phpexcel\Excel::export([
             'models' => $model1,
             'columns' => [
