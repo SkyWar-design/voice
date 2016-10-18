@@ -96,14 +96,14 @@ class Db extends Model
             if($request[1]['value'])
             Yii::$app->db->createCommand('DELETE FROM card_voice where id=:id')
                 ->bindValue(':id', $request[1]['value'])
-                ->queryOne();
+                ->execute();
             $result = [
                 "id" => $request[1]['value'],
                 "status" => "success",
             ];
             return $result;
         }
-        
+
         catch (Exception $e) {
         $result = [
             "id" => $request[1]['value'],
