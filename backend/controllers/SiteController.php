@@ -109,7 +109,6 @@ class SiteController extends Controller
         \moonland\phpexcel\Excel::export([
             'models' => CardVoice::find()->all(),
             'columns' => ['id','url'], //without header working, because the header will be get label from attribute label.
-            'header' => ['id' => 'Header Column 1','url' => 'Header Column 2'],
         ]);
 
     }
