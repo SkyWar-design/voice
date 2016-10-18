@@ -166,8 +166,8 @@ class SiteController extends Controller
 
         //добавление страницы
         if($request)
-            return true;
-            return json_encode(Db::save_page($request,2), JSON_FORCE_OBJECT);
+//            return true;
+//            return json_encode(Db::save_page($request,2), JSON_FORCE_OBJECT);
 
 
         return $this->render('add_page',[
