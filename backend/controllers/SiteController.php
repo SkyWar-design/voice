@@ -96,16 +96,25 @@ class SiteController extends Controller
 
     public function actionAbout()
     {
-        $result = new Db();
+        $query = Db::get_card_all();
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 12,
+            ],
+        ]);
+
         \moonland\phpexcel\Excel::widget([
-            'models' => $result,
+            'models' => $dataProvider,
             'mode' => 'export', //default value as 'export'
             'columns' => ['id','voice_title'], //without header working, because the header will be get label from attribute label.
+            'header' => ['id' => 'Header Column 1','voice_title' => 'Header Column 2'],
         ]);
 
         \moonland\phpexcel\Excel::export([
-            'models' => $result,
+            'models' => $dataProvider,
             'columns' => ['id','voice_title'], //without header working, because the header will be get label from attribute label.
+            'header' => ['id' => 'Header Column 1','voice_title' => 'Header Column 2'],
         ]);
 
 
