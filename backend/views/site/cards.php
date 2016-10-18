@@ -177,11 +177,11 @@ array_unshift($array_category, ['id' => '0', 'name' => "Не выбрано"] );
                 if(item[0] == val){
                     //замена элементов массива
                     var value_category = $("#cardvoice-category_id.category_"+val).val();
-                    item.splice(5,1,value_category);
-                    var value_sex = $("#cardvoice-sex.sex_"+val).val();
-                    item.splice(6,1,value_sex);
-                    var value_status = $("#cardvoice-status.status_"+val).val();
-                    item.splice(7,1,value_status);
+//                    item.splice(3,1,value_category);
+//                    var value_sex = $("#cardvoice-sex.sex_"+val).val();
+//                    item.splice(4,1,value_sex);
+//                    var value_status = $("#cardvoice-status.status_"+val).val();
+//                    item.splice(5,1,value_status);
                     $.ajax({
                         type: "POST",
                         url: "/update",
