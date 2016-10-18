@@ -92,7 +92,7 @@ class Db extends Model
     }
     public static function save_card($request,$type){
         //сохранение
-        if ($type = 1){
+        if ($type == 1){
             try {
                 $date = explode('/', $request[12]['value']);
                 $date = $date[2] . "-" . $date[0] . "-" . $date[1] . " 00:00:00";
@@ -126,7 +126,7 @@ class Db extends Model
             }
         }
         //добавление
-        if ($type = 2){
+        if ($type == 2){
             try {
                 $date = explode('/', $request[12]['value']);
                 $date = $date[2] . "-" . $date[0] . "-" . $date[1] . " 00:00:00";
