@@ -118,6 +118,11 @@ $this->title = 'Страницы';
             goPage('edit_page?page_edit='+id);
         });
 
+        $('.radio_filtr').click(function (e) {
+            var id = $(this).attr("id");
+            var category = $("#category").val();
+            goPage('cards?filter='+id);
+        });
 
         $("#category").change(function (e) {
             var id = $(".radio_filtr.active").attr("id");

@@ -139,7 +139,6 @@ array_unshift($array_category, ['id' => '0', 'name' => "Не выбрано"] );
         });
 
         $('.radio_filtr').click(function (e) {
-            console.log('123');
             var id = $(this).attr("id");
             var category = $("#category").val();
             goPage('cards?filter='+id);
