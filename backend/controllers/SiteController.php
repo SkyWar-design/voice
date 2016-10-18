@@ -146,6 +146,28 @@ class SiteController extends Controller
         return $this->render('add_cards',[
         ]);
     }
+    public function actionEdit_page(){
+        $this->enableCsrfValidation = false;
+        $request = Yii::$app->request->post('page_array');
+        $card_edit = Yii::$app->request->get('page_edit');
+
+        //запись данных
+        if($request)
+            return json_encode(Db::save_page($request,1), JSON_FORCE_OBJECT);
+
+        //вывод данных
+        if($card_edit)
+            $result = Db::get_page_one($card_edit);
+        else{
+            $result = Db::get_random_page();
+        }
+
+        return $this->render('edit_page',[
+            'card_array'=>$result
+        ]);
+    }
+
+
     public function actionEdit_card()
     {
         $this->enableCsrfValidation = false;

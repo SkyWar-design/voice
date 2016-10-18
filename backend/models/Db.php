@@ -18,6 +18,13 @@ class Db extends Model
         return $result;
     }
 
+    public static function get_page_one($result){
+        $result = Yii::$app->db->createCommand('SELECT * FROM page limit 1')
+            ->bindValue(':id', $result)
+            ->queryOne();
+        return $result;
+    }
+
     public static function get_page_all($filter){
 
         $query = Page::find()
@@ -94,6 +101,11 @@ class Db extends Model
         return $result;
     }
 
+    public static function get_random_page(){
+        $result = Yii::$app->db->createCommand('SELECT * FROM page where status = 0 order by id limit 1')
+            ->queryOne();
+        return $result;
+    }
 
     public static function update_page($request){
         try{
@@ -212,6 +224,51 @@ class Db extends Model
                 $model->status = $request[6]['value'];
                 $model->category_id = $request[7]['value'];
                 $model->voice_date = $date;
+                $model->save();
+                $result = [
+                    "id" => $request[0]['value'],
+                    "status" => "success",
+                ];
+                return $result;
+            } catch (Exception $e) {
+                $result = [
+                    "id" => $request[0]['value'],
+                    "status" => "error",
+                    "message" => $e
+                ];
+                return $result;
+            }
+        }
+
+    }
+    public static function save_page($request,$type){
+        //сохранение
+        if ($type == 1){
+            try {
+                $model = CardVoice::findOne(['id' => $request[0]['value']]);
+
+                $model->save();
+                $result = [
+                    "id" => $request[0]['value'],
+                    "status" => "success",
+                ];
+                return $result;
+            } catch (Exception $e) {
+                $result = [
+                    "id" => $request[0]['value'],
+                    "status" => "error",
+                    "message" => $e
+                ];
+                return $result;
+            }
+        }
+        //добавление
+        if ($type == 2){
+            try {
+
+
+                $model = new CardVoice();
+
                 $model->save();
                 $result = [
                     "id" => $request[0]['value'],
