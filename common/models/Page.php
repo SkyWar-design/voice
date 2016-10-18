@@ -18,6 +18,8 @@ use Yii;
  */
 class Page extends \yii\db\ActiveRecord
 {
+    const STATUS_ACTIVE = 1;
+    const STATUS_DEACTIVE = 0;
     /**
      * @inheritdoc
      */
@@ -25,7 +27,13 @@ class Page extends \yii\db\ActiveRecord
     {
         return 'page';
     }
-
+    public function getDropStatus()
+    {
+        return array(
+            0=>'Неактивна',
+            1=>'Активна',
+        );
+    }
     /**
      * @inheritdoc
      */

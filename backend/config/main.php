@@ -49,11 +49,13 @@ return [
                 'login' => 'site/login',
                 'logout' => 'site/logout',
                 'cards' => 'site/cards',
+                'pages' => 'site/page',
                 'update' => 'site/update',
                 'about' => 'site/about',
                 'add_card' => 'site/add_card',
                 'edit_card' => 'site/edit_card',
-                'del_card' => 'site/del_card'
+                'del_card' => 'site/del_card',
+                'edit_page' => 'site/edit_page'
             ],
         ],
 

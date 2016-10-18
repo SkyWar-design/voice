@@ -10,6 +10,7 @@ use backend\models\Authorize;
 use yii\data\ActiveDataProvider;
 use common\models\CardVoice;
 use backend\models\Db;
+use common\models\Page;
 use yii\helpers\ArrayHelper;
 /**
  * Site controller
@@ -93,7 +94,27 @@ class SiteController extends Controller
             'filter_category'=>$filter_category
         ]);
     }
+    public function actionPages()
+    {
+        $this->enableCsrfValidation = false;
 
+        $filter = Yii::$app->request->get('filter');
+
+        $query = Db::get_page_all($filter);
+
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 12,
+            ],
+        ]);
+
+        return $this->render('pages',[
+            'dataProvider' => $dataProvider,
+            'filter' =>$filter
+        ]);
+    }
     public function actionAbout()
     {
     }

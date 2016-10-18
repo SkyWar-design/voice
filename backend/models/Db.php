@@ -1,9 +1,11 @@
 <?php
 namespace backend\models;
 
+
 use Yii;
 use yii\base\Model;
 use common\models\CardVoice;
+use common\models\Page;
 /**
  * Login form
  */
@@ -15,6 +17,31 @@ class Db extends Model
         ->queryOne();
         return $result;
     }
+
+    public static function get_page_all($filter){
+
+        $query = Page::find()
+            ->orderBy('id');
+
+        if (!empty($filter) and $filter==1){
+            $query = Page::find()
+                ->where(['=','status', Page::STATUS_ACTIVE])
+                ->orderBy('id');
+        }
+        if (!empty($filter) and $filter==2){
+            $query = CardVoice::find()
+                ->Where(['=','status', Page::STATUS_DEACTIVE])
+                ->orderBy('id');
+        }
+        if (!empty($filter) and $filter==3 and !empty($filter_category)){
+            $query = CardVoice::find()
+                ->where(['<>','status', $filter])
+                ->orderBy('id');
+        }
+
+        return $query;
+    }
+
     public static function get_card_all($filter,$filter_category){
         $query = CardVoice::find()
             ->select('card_voice.*,category.name')
