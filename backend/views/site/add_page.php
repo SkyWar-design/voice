@@ -21,7 +21,7 @@ $this->title = 'Заполнение карточек';
 <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
         <div class="x_title">
-            <h2>Заполнение страницы #<?=$card_array['id'] ?></h2>
+            <h2>Добавление новой страницы></h2>
             <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -46,54 +46,50 @@ $this->title = 'Заполнение карточек';
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Card ID<span class="required">*</span>
                     </label>
                     <div class="col-md-3 col-sm-3 col-xs-6">
-                        <input type="text"  name="card_edit[id]" style="display: none"  value="<?=$card_array['id'] ?>" required="required" class="form-control col-md-7 col-xs-12">
-                        <input type="text" id="last-name" name="card_edit[card_id]"  value="<?=$card_array['card_id'] ?>" required="required" class="form-control col-md-7 col-xs-12">
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                        <a class="btn btn-default" href="/edit_card?card_edit=<?=$card_array['card_id'] ?>" role="button">Link</a>
+                        <input type="text" id="last-name" name="card_edit[card_id]"  value="" required="required" class="form-control col-md-7 col-xs-12">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">URL<span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-6">
-                        <input type="text" id="last-name" name="card_edit[url]"  value="<?=$card_array['url'] ?>" required="required" class="form-control col-md-7 col-xs-12">
+                        <input type="text" id="last-name" name="card_edit[url]"  value="" required="required" class="form-control col-md-7 col-xs-12">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Description<span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <textarea class="form-control" name="card_edit[description]" rows="7" ><?=$card_array['description'] ?></textarea>
+                        <textarea class="form-control" name="card_edit[description]" rows="7" ></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Keywords<span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <textarea class="form-control" name="card_edit[keywords]" rows="3" ><?=$card_array['keywords'] ?></textarea>
+                        <textarea class="form-control" name="card_edit[keywords]" rows="3" ></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Title<span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <textarea class="form-control" name="card_edit[title]" rows="3" ><?=$card_array['title'] ?></textarea>
+                        <textarea class="form-control" name="card_edit[title]" rows="3" ></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">H1<span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <textarea class="form-control" name="card_edit[text_h1]" rows="3" ><?=$card_array['text_h1'] ?></textarea>
+                        <textarea class="form-control" name="card_edit[text_h1]" rows="3" ></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Статус</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <select class="form-control" name="card_edit[status}">
-                            <option value="1" <?php echo $card_array['status']  == 1 ? 'selected': '' ?> >Активна</option>
-                            <option value="0" <?php echo $card_array['status']  == 0 ? 'selected': '' ?> >Неактивна</option>
+                            <option value="1">Активна</option>
+                            <option value="0">Неактивна</option>
                         </select>
                     </div>
                 </div>
