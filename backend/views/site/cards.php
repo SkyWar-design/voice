@@ -74,10 +74,9 @@ array_unshift($array_category, ['id' => '0', 'name' => "Не выбрано"] );
         ],
         'columns' => [
             'id',
-            'voice_title',
-            'voice_text_h1',
             'voice_text_description',
             'voice_text_theme',
+            'voice_text_tags',
             [
                 'class' => 'yii\grid\ActionColumn',
                 'header'=>'Категория',
