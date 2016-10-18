@@ -1,6 +1,6 @@
 .table-striped > tbody > tr:nth-of-type(odd){
     background-color: white;
 }
-.url_link{
+#url_link{
     color: #2f6ee0;
 }
