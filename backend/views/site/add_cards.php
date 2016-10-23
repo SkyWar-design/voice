@@ -128,12 +128,9 @@ $this->title = 'Заполнение карточек';
 
         $('#demo-form2').click(function (){
             if($('#demo-form2').validatr()){
-
-            }else{
                 return false;
-                sendAjax();
-
-
+            }else{
+                sendAjax()
             }
         });
 
