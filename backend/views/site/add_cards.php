@@ -138,6 +138,17 @@ $this->title = 'Заполнение карточек';
         $('#send_form').click(function (){
             var data = $('#demo-form2').serializeArray();
             console.log(data);
+            data.forEach(function(item, i, arr) {
+                if (item.value == ""){
+                    new PNotify({
+                        title: 'Валидация',
+                        text: 'Не заполнены все необходимые поля',
+                        type: 'error',
+                        styling: 'bootstrap3'
+                    });
+                    return false;
+                }
+            };
             $.ajax({
                 type: "POST",
                 url: "/add_card",
