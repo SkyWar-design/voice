@@ -124,19 +124,17 @@ $this->title = 'Заполнение карточек';
     $(document).ready(function() {
 
         var token = $('meta[name=csrf-token]').attr("content");
-        $(function () {
-            $('#demo-form2').validatr();
-        });
 
-        $('#demo-form2').click(function (){
-            $('#demo-form2').validatr();
-        });
+
+      
+
         function goPage(url) {
             document.location.href = url;
             return false;
         }
 
-        $('#send_form').click(function (){
+        $('#demo-form2').click(function (){
+            $('#demo-form2').validatr();
             var data = $('#demo-form2').serializeArray();
             $.ajax({
                 type: "POST",
