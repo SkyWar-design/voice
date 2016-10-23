@@ -185,7 +185,8 @@ $this->title = 'Заполнение карточек';
 
         $('#send_form').click(function (){
             var data = $('#demo-form2').serializeArray();
-            var go = validate(data);
+            console.log(data);
+            validate(data);
         });
 
         $('#birthday').daterangepicker({
