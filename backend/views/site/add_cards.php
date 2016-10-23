@@ -148,7 +148,7 @@ $this->title = 'Заполнение карточек';
                     });
                     return false;
                 }
-            };
+            });
             $.ajax({
                 type: "POST",
                 url: "/add_card",
