@@ -47,7 +47,7 @@ $this->title = 'Заполнение карточек';
                     </label>
                     <div class="col-md-3 col-sm-3 col-xs-6">
                         <input type="text"  name="card_edit[id]" style="display: none"  value="1" required="required" class="form-control col-md-7 col-xs-12">
-                        <input type="text" id="last-name" name="card_edit[mp3_id]"  required="required" value="" required="required" class="form-control col-md-7 col-xs-12">
+                        <input type="text" id="last-name" name="card_edit[mp3_id]" value=""  class="form-control col-md-7 col-xs-12" name="number" required>
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-6">
                         <audio id="player"  src="" type="audio/mp3" ></audio>
@@ -57,7 +57,7 @@ $this->title = 'Заполнение карточек';
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Текст карточки<span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <textarea class="form-control" name="card_edit[voice_text_description]" rows="7" ></textarea>
+                        <textarea class="form-control" name="card_edit[voice_text_description]" rows="7" name="text" required></textarea>
                     </div>
                 </div>
                 <div class="form-group">
@@ -124,6 +124,9 @@ $this->title = 'Заполнение карточек';
     $(document).ready(function() {
 
         var token = $('meta[name=csrf-token]').attr("content");
+        $(function () {
+            $('#demo-form2').validatr();
+        });
 
         $('#demo-form2').click(function (){
             return false;
@@ -132,6 +135,7 @@ $this->title = 'Заполнение карточек';
             document.location.href = url;
             return false;
         }
+
         $('#send_form').click(function (){
             var data = $('#demo-form2').serializeArray();
             $.ajax({
