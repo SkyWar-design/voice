@@ -125,11 +125,9 @@ $this->title = 'Заполнение карточек';
 
         var token = $('meta[name=csrf-token]').attr("content");
 
-        $('form').submit(function (e) {
-            if($('#demo-form2').validatr()){
-            }else{
-                sendAjax();
-            }
+
+        $('#demo-form2').click(function (){
+            return false;
         });
 
         function goPage(url) {
@@ -137,8 +135,9 @@ $this->title = 'Заполнение карточек';
             return false;
         }
 
-        function sendAjax(){
+        $('#send_form').click(function (){
             var data = $('#demo-form2').serializeArray();
+            console.log(data);
             $.ajax({
                 type: "POST",
                 url: "/add_card",
@@ -165,7 +164,7 @@ $this->title = 'Заполнение карточек';
                     }
                 }
             });
-        }
+        });
 
         $('#birthday').daterangepicker({
             changeYear: false,
