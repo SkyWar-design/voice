@@ -131,6 +131,8 @@ $this->title = 'Заполнение карточек';
         });
 
         function validate(data) {
+            var success = 0;
+            var kol = data.length;
             data.forEach(function(item, i, arr) {
                 if (item.value == ""){
                     new PNotify({
@@ -140,8 +142,14 @@ $this->title = 'Заполнение карточек';
                         styling: 'bootstrap3'
                     });
                     return false;
+                }else{
+                    success++;
+                    if (success == kol){
+                        return true;
+                    }
                 }
             });
+
         }
         function goPage(url) {
             document.location.href = url;
