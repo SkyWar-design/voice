@@ -178,6 +178,8 @@ $this->title = 'Заполнение карточек';
                         }
                     }
                 });
+            }else{
+                console.log('false');
             }
         });
 
