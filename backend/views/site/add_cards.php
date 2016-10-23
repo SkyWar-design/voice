@@ -133,6 +133,7 @@ $this->title = 'Заполнение карточек';
         function validate(data) {
             var success = 0;
             var kol = data.length;
+            console.log(kol);
             data.forEach(function(item, i, arr) {
                 if (item.value == ""){
                     new PNotify({
@@ -144,6 +145,7 @@ $this->title = 'Заполнение карточек';
                     return false;
                 }else{
                     success++;
+                    console.log(success);
                     if (success == kol){
                         return true;
                     }
@@ -158,7 +160,7 @@ $this->title = 'Заполнение карточек';
 
         $('#send_form').click(function (){
             var data = $('#demo-form2').serializeArray();
-            console.log(data);
+            
             if(validate(data)){
                 $.ajax({
                     type: "POST",
