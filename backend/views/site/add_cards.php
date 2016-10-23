@@ -131,7 +131,7 @@ $this->title = 'Заполнение карточек';
         });
 
         function validate(data) {
-            var success = 1;
+            var success = 0;
             var kol = data.length;
             console.log(kol);
             data.forEach(function(item, i, arr) {
@@ -147,7 +147,32 @@ $this->title = 'Заполнение карточек';
                     success++;
                     console.log(success);
                     if (success == kol){
-                        console.log('yes');
+                        $.ajax({
+                            type: "POST",
+                            url: "/add_card",
+                            context: document.body,
+                            data: { csrf_backend: token, card_array: data },
+                            success: function(otvet){
+                                otvet = JSON.parse(otvet);
+                                if (otvet.status =="success"){
+                                    new PNotify({
+                                        title: 'Сохранение',
+                                        text: 'Карточка #'+otvet.id+' успешно сохранена. Переадресация...',
+                                        type: 'success',
+                                        styling: 'bootstrap3'
+                                    });
+                                    setTimeout(function(){goPage('add_card')}, 2400);
+                                }else{
+                                    console.log(otvet);
+                                    new PNotify({
+                                        title: 'Сохранение',
+                                        text: 'Не удалось сохранить карточку #'+otvet.id+' '+otvet.message,
+                                        type: 'error',
+                                        styling: 'bootstrap3'
+                                    });
+                                }
+                            }
+                        });
                     }
                 }
             });
@@ -161,37 +186,6 @@ $this->title = 'Заполнение карточек';
         $('#send_form').click(function (){
             var data = $('#demo-form2').serializeArray();
             var go = validate(data);
-            console.log(go);
-            if(go){
-                $.ajax({
-                    type: "POST",
-                    url: "/add_card",
-                    context: document.body,
-                    data: { csrf_backend: token, card_array: data },
-                    success: function(otvet){
-                        otvet = JSON.parse(otvet);
-                        if (otvet.status =="success"){
-                            new PNotify({
-                                title: 'Сохранение',
-                                text: 'Карточка #'+otvet.id+' успешно сохранена. Переадресация...',
-                                type: 'success',
-                                styling: 'bootstrap3'
-                            });
-                            setTimeout(function(){goPage('add_card')}, 2400);
-                        }else{
-                            console.log(otvet);
-                            new PNotify({
-                                title: 'Сохранение',
-                                text: 'Не удалось сохранить карточку #'+otvet.id+' '+otvet.message,
-                                type: 'error',
-                                styling: 'bootstrap3'
-                            });
-                        }
-                    }
-                });
-            }else{
-                console.log('false');
-            }
         });
 
         $('#birthday').daterangepicker({
