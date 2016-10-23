@@ -130,8 +130,9 @@ $this->title = 'Заполнение карточек';
             if($('#demo-form2').validatr()){
 
             }else{
-                sendAjax();
                 return false;
+                sendAjax();
+
 
             }
         });
