@@ -229,6 +229,7 @@
         backgroundColor: "#ffcbcb",
         border: "1px solid #e4a6af",
         padding: "2px 6px",
+        width: "150px",
         borderRadius: "2px"
     }, A = !1, q = function () {
     };

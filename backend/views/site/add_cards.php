@@ -127,8 +127,11 @@ $this->title = 'Заполнение карточек';
 
 
         $('#demo-form2').click(function (){
-            if($('#demo-form2').validatr()){}else{
-                return false;
+            if($('#demo-form2').validatr()){
+
+            }else{
+
+                sendAjax();
             }
         });
 
@@ -137,7 +140,7 @@ $this->title = 'Заполнение карточек';
             return false;
         }
 
-        $('#send_form').click(function (){
+        function sendAjax(){
             var data = $('#demo-form2').serializeArray();
             $.ajax({
                 type: "POST",
@@ -165,8 +168,8 @@ $this->title = 'Заполнение карточек';
                     }
                 }
             });
+        }
 
-        });
         $('#birthday').daterangepicker({
             changeYear: false,
             dateFormat: 'dd/mm',
