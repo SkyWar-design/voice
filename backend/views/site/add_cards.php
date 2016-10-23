@@ -129,7 +129,7 @@ $this->title = 'Заполнение карточек';
         });
 
         $('#demo-form2').click(function (){
-            return false;
+            $('#demo-form2').validatr();
         });
         function goPage(url) {
             document.location.href = url;
