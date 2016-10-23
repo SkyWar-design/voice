@@ -142,7 +142,7 @@ $this->title = 'Заполнение карточек';
                 if (item.value == ""){
                     new PNotify({
                         title: 'Валидация',
-                        text: 'Не заполнены все необходимые поля',
+                        text: 'Не заполнены поле'+item.name,
                         type: 'error',
                         styling: 'bootstrap3'
                     });
