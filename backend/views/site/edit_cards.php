@@ -169,16 +169,6 @@ $this->title = 'Заполнение карточек';
         });
         $('#send_form').click(function (){
             var data = $('#demo-form2').serializeArray();
-            var date = $('#birthday').val();
-            if(data.length < 5 ){
-                new PNotify({
-                    title: 'Ошибка',
-                    text: 'Не заполнено все необходимые поля',
-                    type: 'error',
-                    styling: 'bootstrap3'
-                });
-                return false;
-            }
             $.ajax({
                 type: "POST",
                 url: "/edit_card",

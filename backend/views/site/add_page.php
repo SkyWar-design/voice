@@ -115,36 +115,60 @@ $this->title = 'Заполнение карточек';
             document.location.href = url;
             return false;
         }
-        $('#send_form').click(function (){
-            var data = $('#demo-form2').serializeArray();
-            $.ajax({
-                type: "POST",
-                url: "/add_page",
-                context: document.body,
-                data: { csrf_backend: token, page_array: data },
-                success: function(otvet){
-                    otvet = JSON.parse(otvet);
-                    if (otvet.status =="success"){
-                        new PNotify({
-                            title: 'Сохранение',
-                            text: 'Страница успешно добавлена. Переадресация...',
-                            type: 'success',
-                            styling: 'bootstrap3'
-                        });
-                        setTimeout(function(){goPage('edit_card')}, 2400);
-                    }else{
-                        console.log(otvet);
-                        new PNotify({
-                            title: 'Сохранение',
-                            text: 'Не удалось добавить страницу #'+otvet.id+' '+otvet.message,
-                            type: 'error',
-                            styling: 'bootstrap3'
+
+        function validate(data) {
+            var success = 0;
+            var kol = data.length;
+            console.log(kol);
+            data.forEach(function(item, i, arr) {
+                if (item.value == ""){
+                    new PNotify({
+                        title: 'Валидация',
+                        text: 'Не заполнено поле '+item.name,
+                        type: 'error',
+                        styling: 'bootstrap3'
+                    });
+                    return false;
+                }else{
+                    success++;
+                    console.log(success);
+                    if (success == kol){
+                        $.ajax({
+                            type: "POST",
+                            url: "/add_page",
+                            context: document.body,
+                            data: { csrf_backend: token, page_array: data },
+                            success: function(otvet){
+                                otvet = JSON.parse(otvet);
+                                if (otvet.status =="success"){
+                                    new PNotify({
+                                        title: 'Сохранение',
+                                        text: 'Страница успешно добавлена. Переадресация...',
+                                        type: 'success',
+                                        styling: 'bootstrap3'
+                                    });
+                                    setTimeout(function(){goPage('edit_card')}, 2400);
+                                }else{
+                                    console.log(otvet);
+                                    new PNotify({
+                                        title: 'Сохранение',
+                                        text: 'Не удалось добавить страницу #'+otvet.id+' '+otvet.message,
+                                        type: 'error',
+                                        styling: 'bootstrap3'
+                                    });
+                                }
+                            }
                         });
                     }
                 }
             });
+        }
 
+        $('#send_form').click(function (){
+            var data = $('#demo-form2').serializeArray();
+            validate(data);
         });
+
         $('#birthday').daterangepicker({
             changeYear: false,
             dateFormat: 'dd/mm',

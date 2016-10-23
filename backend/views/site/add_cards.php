@@ -176,7 +176,6 @@ $this->title = 'Заполнение карточек';
                     }
                 }
             });
-
         }
         function goPage(url) {
             document.location.href = url;
@@ -185,7 +184,6 @@ $this->title = 'Заполнение карточек';
 
         $('#send_form').click(function (){
             var data = $('#demo-form2').serializeArray();
-            console.log(data);
             validate(data);
         });
 
