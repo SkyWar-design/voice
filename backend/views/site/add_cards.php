@@ -126,7 +126,6 @@ $this->title = 'Заполнение карточек';
         var token = $('meta[name=csrf-token]').attr("content");
 
         $('form').submit(function (e) {
-            e.preventDefault();
             if($('#demo-form2').validatr()){
             }else{
                 sendAjax();
