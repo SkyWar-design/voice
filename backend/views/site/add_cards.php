@@ -147,7 +147,7 @@ $this->title = 'Заполнение карточек';
                     success++;
                     console.log(success);
                     if (success == kol){
-                        return true;
+                        console.log('yes');
                     }
                 }
             });
