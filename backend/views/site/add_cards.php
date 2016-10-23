@@ -129,12 +129,11 @@ $this->title = 'Заполнение карточек';
             document.location.href = url;
             return false;
         }
-        $('#demo-form2').click(function (){
-            return false;
-        });
+
         $('#send_form').click(function (){
             if($('#demo-form2').validatr()){}else{
                 var data = $('#demo-form2').serializeArray();
+
                 $.ajax({
                     type: "POST",
                     url: "/add_card",
@@ -161,6 +160,7 @@ $this->title = 'Заполнение карточек';
                         }
                     }
                 });
+                return false;
             }
 
 
