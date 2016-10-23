@@ -125,44 +125,46 @@ $this->title = 'Заполнение карточек';
 
         var token = $('meta[name=csrf-token]').attr("content");
 
+
+        $('#demo-form2').click(function (){
+            if($('#demo-form2').validatr())else{
+                return false;
+            }
+        });
+
         function goPage(url) {
             document.location.href = url;
             return false;
         }
 
         $('#send_form').click(function (){
-            if($('#demo-form2').validatr()){}else{
-                var data = $('#demo-form2').serializeArray();
-
-                $.ajax({
-                    type: "POST",
-                    url: "/add_card",
-                    context: document.body,
-                    data: { csrf_backend: token, card_array: data },
-                    success: function(otvet){
-                        otvet = JSON.parse(otvet);
-                        if (otvet.status =="success"){
-                            new PNotify({
-                                title: 'Сохранение',
-                                text: 'Карточка #'+otvet.id+' успешно сохранена. Переадресация...',
-                                type: 'success',
-                                styling: 'bootstrap3'
-                            });
-                            setTimeout(function(){goPage('add_card')}, 2400);
-                        }else{
-                            console.log(otvet);
-                            new PNotify({
-                                title: 'Сохранение',
-                                text: 'Не удалось сохранить карточку #'+otvet.id+' '+otvet.message,
-                                type: 'error',
-                                styling: 'bootstrap3'
-                            });
-                        }
+            var data = $('#demo-form2').serializeArray();
+            $.ajax({
+                type: "POST",
+                url: "/add_card",
+                context: document.body,
+                data: { csrf_backend: token, card_array: data },
+                success: function(otvet){
+                    otvet = JSON.parse(otvet);
+                    if (otvet.status =="success"){
+                        new PNotify({
+                            title: 'Сохранение',
+                            text: 'Карточка #'+otvet.id+' успешно сохранена. Переадресация...',
+                            type: 'success',
+                            styling: 'bootstrap3'
+                        });
+                        setTimeout(function(){goPage('add_card')}, 2400);
+                    }else{
+                        console.log(otvet);
+                        new PNotify({
+                            title: 'Сохранение',
+                            text: 'Не удалось сохранить карточку #'+otvet.id+' '+otvet.message,
+                            type: 'error',
+                            styling: 'bootstrap3'
+                        });
                     }
-                });
-                return false;
-            }
-
+                }
+            });
 
         });
         $('#birthday').daterangepicker({
