@@ -130,7 +130,7 @@ $this->title = 'Заполнение карточек';
             return false;
         }
 
-        $('#demo-form2').click(function (){
+        $('#send_form').click(function (){
             if($('#demo-form2').validatr()){}else{
                 var data = $('#demo-form2').serializeArray();
                 $.ajax({
