@@ -131,7 +131,7 @@ $this->title = 'Заполнение карточек';
         });
 
         function validate(data) {
-            var success = 0;
+            var success = 1;
             var kol = data.length;
             console.log(kol);
             data.forEach(function(item, i, arr) {
@@ -160,8 +160,9 @@ $this->title = 'Заполнение карточек';
 
         $('#send_form').click(function (){
             var data = $('#demo-form2').serializeArray();
-            
-            if(validate(data)){
+            var go = validate(data);
+            console.log(go);
+            if(go){
                 $.ajax({
                     type: "POST",
                     url: "/add_card",
