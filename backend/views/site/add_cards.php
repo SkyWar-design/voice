@@ -125,12 +125,11 @@ $this->title = 'Заполнение карточек';
 
         var token = $('meta[name=csrf-token]').attr("content");
 
-
-        $('#demo-form2').click(function (){
+        $('form').submit(function (e) {
+            e.preventDefault();
             if($('#demo-form2').validatr()){
-                return false;
             }else{
-                sendAjax()
+                sendAjax();
             }
         });
 
