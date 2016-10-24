@@ -14,7 +14,7 @@ use yii\helpers\Html;
         <div class="col-xs-6 col-sm-4">
             <div class="card">
                 <div class="player">
-                        <audio id="player" style="display: none" src="mp3/<?= $cards['mpr3_id'] ?>.mp3" type="audio/mp3" controls="controls"></audio>
+                        <audio id="player" style="display: none" src="mp3/<?= $cards['mp3_id'] ?>.mp3" type="audio/mp3" controls="controls"></audio>
                 </div>
                 <div class="card-info">
                     <p class="name">
