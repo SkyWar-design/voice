@@ -49,7 +49,7 @@ $this->title = 'Заполнение карточек';
                         <input type="text" id="last-name" value="<?=$card_array['page_id'] ?>" required="required" class="form-control col-md-7 col-xs-12">
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-6">
-                        <a class="btn btn-default" href="/edit_page?card_edit=<?=$card_array['page_id'] ?>" role="button">Link</a>
+                        <a class="btn btn-default" href="/edit_page?page_edit=<?=$card_array['page_id'] ?>" role="button">Link</a>
                     </div>
                 </div>
                 <div class="form-group">
