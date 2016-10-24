@@ -46,6 +46,9 @@ $this->title = 'Заполнение карточек';
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Page ID<span class="required">*</span>
                     </label>
                     <div class="col-md-3 col-sm-3 col-xs-6">
+                        <input type="text" id="last-name" value="<?=$card_array['page_id'] ?>" required="required" class="form-control col-md-7 col-xs-12">
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-6">
                         <a class="btn btn-default" href="/edit_page?card_edit=<?=$card_array['page_id'] ?>" role="button">Link</a>
                     </div>
                 </div>
@@ -209,7 +212,7 @@ $this->title = 'Заполнение карточек';
                             type: 'success',
                             styling: 'bootstrap3'
                         });
-                        setTimeout(function(){goPage('edit_card')}, 2400);
+//                        setTimeout(function(){goPage('edit_card')}, 2400);
                     }else{
                         console.log(otvet);
                         new PNotify({
