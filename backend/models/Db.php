@@ -207,6 +207,9 @@ class Db extends Model
         //сохранение
         if ($type == 1){
             try {
+                if (empty($request[8]['value'])){
+                    $request[8]['value'] = '0000-00-00 00:00:00';
+                }
                 $date = explode('/', $request[8]['value']);
                 $date = $date[2] . "-" . $date[0] . "-" . $date[1] . " 00:00:00";
 
@@ -237,6 +240,9 @@ class Db extends Model
         //добавление
         if ($type == 2){
             try {
+                if (empty($request[8]['value'])){
+                    $request[8]['value'] = '0000-00-00 00:00:00';
+                }
                 $date = explode('/', $request[8]['value']);
                 $date = $date[2] . "-" . $date[0] . "-" . $date[1] . " 00:00:00";
 
