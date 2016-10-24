@@ -207,7 +207,8 @@ $this->title = 'Заполнение карточек';
 
         $('#birthday').daterangepicker({
             changeYear: false,
-            dateFormat: 'dd/mm',
+            format: 'YYYY-MM-DD h:mm:ss',
+            dateFormat: 'YYYY-MM-DD h:mm:ss',
             singleDatePicker: true,
             calender_style: "picker_4"
         }, function(start, end, label) {

@@ -210,8 +210,7 @@ class Db extends Model
                 if (empty($request[8]['value'])){
                     $date =  '0000-00-00 00:00:00';
                 }else{
-                    $date = explode('/', $request[8]['value']);
-                    $date = $date[2] . "-" . $date[0] . "-" . $date[1] . " 00:00:00";
+                    $date = $request[8]['value'];
                 }
 
                 $model = CardVoice::findOne(['id' => $request[0]['value']]);
@@ -244,8 +243,7 @@ class Db extends Model
                 if (empty($request[8]['value'])){
                     $date =  '0000-00-00 00:00:00';
                 }else{
-                    $date = explode('/', $request[8]['value']);
-                    $date = $date[2] . "-" . $date[0] . "-" . $date[1] . " 00:00:00";
+                    $date = $request[8]['value'];
                 }
                 $model = new CardVoice();
                 $model->mp3_id = $request[1]['value'];
