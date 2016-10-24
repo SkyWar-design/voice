@@ -104,9 +104,9 @@ $this->title = 'Заполнение карточек';
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-xs-offset-3">
                             <label>
-                                <input type="checkbox" class="js-switch" checked /> Нужна дата
+                                <input type="checkbox" name="card_edit[date_change]" class="js-switch" checked /> Нужна дата
                             </label>
                     </div>
                 </div>
@@ -189,6 +189,7 @@ $this->title = 'Заполнение карточек';
 
         $('#send_form').click(function (){
             var data = $('#demo-form2').serializeArray();
+            console.log(data);
             validate(data);
         });
 
