@@ -70,8 +70,8 @@ AppAsset::register($this);
                                             "icon" => "th",
                                             "url" => "#",
                                             "items" => [
-//                                                ["label" => "Редактирование карточки", "url" => ["/edit_card"]],
-                                                ["label" => "Добавление карточки", "url" => ["/add_card"]],
+                                                ["label" => "Редактирование карточки", "url" => ["/edit_card"]],
+//                                                ["label" => "Добавление карточки", "url" => ["/add_card"]],
                                                 ["label" => "Редактирование страницы", "url" => ["/edit_page"]],
 //                                                ["label" => "Добавление страницы", "url" => ["/add_page"]],
 //                                                ["label" => "Добавление категорий", "url" => ["/add_category"]],
