@@ -133,6 +133,9 @@ $this->title = 'Заполнение карточек';
         var token = $('meta[name=csrf-token]').attr("content");
 
 
+        $('.js-switch').click(function (){
+            alert(this.checked);
+        });
 
 
         function validate(data) {
