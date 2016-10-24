@@ -41,7 +41,7 @@ $this->title = 'Заполнение карточек';
         </div>
         <div class="x_content">
             <br />
-            <form  id="demo-form2" class="form-horizontal form-label-left"  novalidate>
+            <form  id="demo-form2" onsubmit="return false;" class="form-horizontal form-label-left"  novalidate>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">MP3 ID<span class="required">*</span>
                     </label>
@@ -133,7 +133,7 @@ $this->title = 'Заполнение карточек';
         var token = $('meta[name=csrf-token]').attr("content");
 
 
-        
+
 
         function validate(data) {
             var success = 0;
