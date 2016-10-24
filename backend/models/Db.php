@@ -208,7 +208,7 @@ class Db extends Model
         if ($type == 1){
             try {
                 if (empty($request[8]['value'])){
-                    $date =  'NULL';
+                    $date =  NULL;
                 }else{
                     $date = $request[8]['value'];
                 }
@@ -241,7 +241,7 @@ class Db extends Model
         if ($type == 2){
             try {
                 if (empty($request[8]['value'])){
-                    $date =  'NULL';
+                    $date =  NULL;
                 }else{
                     $date = $request[8]['value'];
                 }
