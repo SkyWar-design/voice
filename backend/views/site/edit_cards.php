@@ -46,7 +46,7 @@ $this->title = 'Заполнение карточек';
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Page ID<span class="required">*</span>
                     </label>
                     <div class="col-md-3 col-sm-3 col-xs-6">
-                        <a class="btn btn-default" href="/edit_page?card_edit=<?=$card_array['page.id'] ?>" role="button">Link</a>
+                        <a class="btn btn-default" href="/edit_page?card_edit=<?=$card_array['page_id'] ?>" role="button">Link</a>
                     </div>
                 </div>
                 <div class="form-group">
