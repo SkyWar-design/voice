@@ -182,6 +182,7 @@ $this->title = 'Заполнение карточек';
         });
         $('#send_form').click(function (){
             var data = $('#demo-form2').serializeArray();
+            console.log(data);
             $.ajax({
                 type: "POST",
                 url: "/edit_card",
