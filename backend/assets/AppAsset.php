@@ -15,6 +15,7 @@ class AppAsset extends AssetBundle
         'css/notify.buttons.css',
         'css/notify.css',
         'css/site.css',
+        'css/switchery.min.css'
     ];
 
     public $jsOptions = array(
@@ -43,7 +44,8 @@ class AppAsset extends AssetBundle
         'js/daterangepicker.js',
         'js/pnotify.js',
         'js/pnotify.buttons.js',
-        'js/validator.js'
+        'js/validator.js',
+        'js/switchery.min.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

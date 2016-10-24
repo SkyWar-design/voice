@@ -104,6 +104,13 @@ $this->title = 'Заполнение карточек';
                     </div>
                 </div>
                 <div class="form-group">
+                    <div class="">
+                        <label>
+                            <input type="checkbox" class="js-switch" checked /> Нужна дата
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Дата события<span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
