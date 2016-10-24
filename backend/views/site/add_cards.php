@@ -110,11 +110,11 @@ $this->title = 'Заполнение карточек';
                             </label>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" >
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Дата события<span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="birthday" name="card_edit[date]" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                        <input id="birthday" style="display: none" name="card_edit[date]" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
                     </div>
                 </div>
                 <div class="ln_solid"></div>
@@ -132,15 +132,18 @@ $this->title = 'Заполнение карточек';
 
         var token = $('meta[name=csrf-token]').attr("content");
 
-
         $('.js-switch').click(function (){
-            alert(this.checked);
+            if(this.checked){
+                $('#birthday').show();
+            }else{
+                $('#birthday').hide();
+            }
         });
 
 
         function validate(data) {
             var success = 0;
-            var kol = data.length;
+            var kol = data.length-1;
             console.log(kol);
             data.forEach(function(item, i, arr) {
                 if (item.value == ""){
