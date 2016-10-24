@@ -18,7 +18,7 @@ use yii\helpers\Html;
                 </div>
                 <div class="card-info">
                     <p class="name">
-                     <a href="/card/<?= Html::encode($cards['id']) ?>"><?= $cards['text_h1'] ?>!</a>
+                     <a href="/card/<?= Html::encode($cards['id']) ?>"></a>
                     </p>
                 </div>
                  <p class="send">

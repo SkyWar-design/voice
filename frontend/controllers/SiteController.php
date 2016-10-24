@@ -68,7 +68,7 @@ class SiteController extends Controller
     public function actionIndex()
     {
         //самый высокий рейтинг
-        $cards_rating = Yii::$app->db->createCommand('select * from card_voice order by rating desc limit 9')->queryAll();
+        $cards_rating = Yii::$app->db->createCommand('select * from card_voice order by id desc limit 9')->queryAll();
 
         return $this->render('index',[
             'cards_rating'=>$cards_rating
