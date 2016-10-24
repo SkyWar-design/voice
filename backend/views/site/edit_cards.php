@@ -212,7 +212,7 @@ $this->title = 'Заполнение карточек';
                             type: 'success',
                             styling: 'bootstrap3'
                         });
-//                        setTimeout(function(){goPage('edit_card')}, 2400);
+                        setTimeout(function(){goPage('edit_card')}, 2400);
                     }else{
                         console.log(otvet);
                         new PNotify({
