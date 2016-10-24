@@ -135,7 +135,7 @@ $this->title = 'Заполнение карточек';
                         <button type="submit" id="send_form" class="btn btn-primary">Сохранить и загрузить следующую</button>
                     </div>
                     <div class="col-md-2 col-sm-2 col-xs-12 col-md-offset-3">
-                        <button type="submit" id="del_form" class="btn btn-danger">Удалить</button>
+<!--                        <button type="submit" id="del_form" class="btn btn-danger">Удалить</button>-->
                     </div>
                 </div>
             </form>
