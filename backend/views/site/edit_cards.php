@@ -183,6 +183,11 @@ $this->title = 'Заполнение карточек';
         $('#send_form').click(function (){
             var data = $('#demo-form2').serializeArray();
             console.log(data);
+            if($('.js-switch').checked){
+
+            }else{
+                data.splice(8,1)
+            }
             $.ajax({
                 type: "POST",
                 url: "/edit_card",
