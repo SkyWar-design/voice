@@ -106,10 +106,17 @@ $this->title = 'Заполнение карточек';
                     </div>
                 </div>
                 <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-xs-offset-3">
+                        <label>
+                            <input type="checkbox" name="card_edit[date_change]" class="js-switch"  <?php echo strtotime($card_array['voice_date'])  > 1000 ? 'checked': '' ?>/> Нужна дата
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group" id="date_swith" <?php echo strtotime($card_array['voice_date'])  > 1000 ? '': 'style="display:none"' ?>>
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Дата события<span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="birthday" name="card_edit[date]" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                        <input id="birthday" name="card_edit[date]" value="<?php echo strtotime($card_array['voice_date'])  > 1000 ? $card_array['voice_date']: '' ?>" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
                     </div>
                 </div>
                 <div class="ln_solid"></div>
@@ -137,8 +144,17 @@ $this->title = 'Заполнение карточек';
             document.location.href = url;
             return false;
         }
+        $('.js-switch').click(function (){
+            if(this.checked){
+                $('#date_swith').show();
+            }else{
+                $('#date_swith').hide();
+            }
+        });
+
         $('#del_form').click(function (){
             var data = $('#demo-form2').serializeArray();
+            console.log(data);
             $.ajax({
                 type: "POST",
                 url: "/del_card",
