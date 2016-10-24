@@ -143,7 +143,11 @@ $this->title = 'Заполнение карточек';
 
         function validate(data) {
             var success = 0;
-            var kol = data.length-1;
+            if($('.js-switch').checked){
+                var kol = data.length-1;
+            }else{
+                var kol = data.length;
+            }
             console.log(kol);
             data.forEach(function(item, i, arr) {
                 if (item.value == ""){
