@@ -96,7 +96,7 @@ class Db extends Model
     }
 
     public static function get_random_card(){
-        $result = Yii::$app->db->createCommand('SELECT *, card_voice.id as card_voice_id FROM card_voice JOIN category on card_voice.category_id=category.id where status = 0 order by card_voice.id limit 1')
+        $result = Yii::$app->db->createCommand('SELECT *, card_voice.id as card_voice_id, page.id as page_id FROM card_voice JOIN category on card_voice.category_id=category.id join page on card_voice.id=page.card_id where status = 0 order by card_voice.id limit 1')
             ->queryOne();
         return $result;
     }
