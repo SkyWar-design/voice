@@ -173,7 +173,7 @@ $this->title = 'Заполнение карточек';
                             type: 'success',
                             styling: 'bootstrap3'
                         });
-//                        setTimeout(function(){goPage('edit_card')}, 2400);
+                        setTimeout(function(){goPage('edit_card')}, 2400);
                     }else{
                         console.log(otvet);
                         new PNotify({
@@ -209,7 +209,7 @@ $this->title = 'Заполнение карточек';
                             type: 'success',
                             styling: 'bootstrap3'
                         });
-//                        setTimeout(function(){goPage('edit_card')}, 2400);
+                        setTimeout(function(){goPage('edit_card')}, 2400);
                     }else{
                         console.log(otvet);
                         new PNotify({
@@ -225,7 +225,8 @@ $this->title = 'Заполнение карточек';
         });
         $('#birthday').daterangepicker({
             changeYear: false,
-            dateFormat: 'dd/mm',
+            format: 'YYYY-MM-DD h:mm:ss',
+            dateFormat: 'YYYY-MM-DD h:mm:ss',
             singleDatePicker: true,
             calender_style: "picker_4"
         }, function(start, end, label) {
