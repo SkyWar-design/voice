@@ -41,6 +41,7 @@ class CardVoice extends \yii\db\ActiveRecord
         return array(
             2=>'Для женщины',
             1=>'Для мужчины',
+            0=>'Неважно',
         );
     }
     public function getDropCategory()

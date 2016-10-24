@@ -93,6 +93,7 @@ $this->title = 'Заполнение карточек';
                         <select class="form-control" name="card_edit[sex}">
                             <option value="1" <?php echo $card_array['sex']  == 1 ? 'selected': '' ?> >Для мужчины</option>
                             <option value="2" <?php echo $card_array['sex']  == 2 ? 'selected': '' ?> >Для женщины</option>
+                            <option value="0" <?php echo $card_array['sex']  == 0 ? 'selected': '' ?> >Неважно</option>
                         </select>
                     </div>
                 </div>

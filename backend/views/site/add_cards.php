@@ -82,6 +82,7 @@ $this->title = 'Заполнение карточек';
                         <select class="form-control" name="card_edit[sex}">
                             <option value="1">Для мужчины</option>
                             <option value="2">Для женщины</option>
+                            <option value="0">Неважно</option>
                         </select>
                     </div>
                 </div>
