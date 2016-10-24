@@ -106,15 +106,15 @@ $this->title = 'Заполнение карточек';
                 <div class="form-group">
                     <div class="col-md-6 col-sm-6 col-xs-12 col-xs-offset-3">
                             <label>
-                                <input type="checkbox" name="card_edit[date_change]" class="js-switch" checked /> Нужна дата
+                                <input type="checkbox" name="card_edit[date_change]" class="js-switch"  /> Нужна дата
                             </label>
                     </div>
                 </div>
-                <div class="form-group" >
+                <div class="form-group" style="display: none" id="date_swith" >
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Дата события<span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="birthday" style="display: none" name="card_edit[date]" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                        <input id="birthday" name="card_edit[date]" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
                     </div>
                 </div>
                 <div class="ln_solid"></div>
@@ -134,9 +134,9 @@ $this->title = 'Заполнение карточек';
 
         $('.js-switch').click(function (){
             if(this.checked){
-                $('#birthday').show();
+                $('#date_swith').show();
             }else{
-                $('#birthday').hide();
+                $('#date_swith').hide();
             }
         });
 
