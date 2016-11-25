@@ -1,16 +1,13 @@
 <?php
 
-/* @var $this \yii\web\View */
-/* @var $content string */
-
-use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
+use yii\helpers\Url;
+use yii\helpers\Html;
+use yii\widgets\Menu;
 use frontend\assets\AppAsset;
-use common\widgets\Alert;
 
 AppAsset::register($this);
+$this->params['breadcrumbs'][] = ['label' => 'Подкатегория'];
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -24,65 +21,247 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-
-<div class="wrap">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-6 col-sm-4">
-              <div class="logo">
-                  <strong>Логотип</strong>
-                  <p class="pod_logo">подстрочник</p>
-              </div>
-            </div>
-            <div class="col-xs-6 col-sm-4">
-                <center><a href="/"><img src="/image/logo.png" alt="logo"></a></center>
-            </div>
-            <div class="col-xs-6 col-sm-4">
-                <div class="call-me">
-                    <div class="smalltext">Бесплатно по России</div>
-                    <div class="call-me-phone"><a href="tel:+78005557550" title="Контактный телефон">8 800 555 7 550</a></div>
-                    <div class="call-me-link"><a class="dotted popup-js popup-with-form6" title="Заказать обратный звонок" href="#call-me"><i class="fa fa-phone" aria-hidden="true"></i>Позвоните мне!</a></div>
+    <header>
+        <div class="container">
+            <a href="<?=Url::toRoute('site/index') ?>" class="logo">
+                <span class="logo-img"></span>
+                <div class="inline">
+                    <span class="title">Название</span>
+                    <span class="under-title">Голосовые открытки</span>
                 </div>
+            </a>
+            <br class="h-br">
+            <div class="header-inform-block">
+                <div class="social-buttons inline v-top p-hidden">
+                    <a href="#" class="social facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="#" class="social facebook"><i class="fa fa-vk" aria-hidden="true"></i></a>
+                    <a href="#" class="social twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href="#" class="social odnoklassniki"><i class="fa fa-odnoklassniki" aria-hidden="true"></i></a>
+                </div>
+                <div class="header-date inline v-top m-hidden p-b-hidden">2 ноября 2016</div>
+                <div class="about">
+                    <?=Menu::widget([
+                        'items' => [
+                            ['label' => 'О проекте', 'url' => ['site/index']],
+                            ['label' => 'Блог', 'url' => ['product/index']],
+                            ['label' => 'Личный кабинет', 'url' => ['site/login']],
+                        ],
+                    ]); ?>
+                </div>
+                <form action="/" method="get" class="header-search-form">
+                    <input type="text" placeholder="Поиск по сайту..." name="search">
+                    <button type="submit" class="search-submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
+            </div>
+            <br class="h-br">
+            <div class="header-contact">
+                <div>Служба поддержки:</div>
+                <div>8 800-554-55-43</div>
+                <a href="#" class="link">suport@site.ru</a>
+            </div>
+
+        </div>
+
+    </header>
+
+    <nav class="header-menu">
+        <?=Menu::widget([
+            'items' => [
+                ['label' => 'Каталог поздравлений', 'url' => ['site/index']],
+                ['label' => 'ХИТЫ', 'url' => ['product/index']],
+                ['label' => 'Новинки', 'url' => ['site/login']],
+                ['label' => 'Календарь праздников', 'url' => ['site/login']],
+                ['label' => 'СМС поздравления', 'url' => ['site/login']],
+            ],
+        ]); ?>
+    </nav>
+
+    <section>
+        <div class="container d-flex">
+            <?=Breadcrumbs::widget([
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            ]);?>
+        </div>
+        <div class="container d-flex-s-b p-b-60">
+
+
+
+            <div class="left-content">
+                <?= $content ?>
+            </div>
+            <div class="right-content">
+                <nav class="right-menu">
+                    <h4>Голосовые открытки по темам</h4>
+                    <hr class="grey-line">
+                    <div class="category-menu">
+
+                        <div class="category-row">
+                            <div class="category-title active">
+                                <span class="category-icon-min" id="happy-bth"></span>
+                                <span>С днем рождения</span>
+                                <span class="arrow"></span>
+                            </div>
+                            <ul>
+                                <li><a href="#">Музыкальные открытки</a></li>
+                                <li><a href="#">Музыкальные открытки</a></li>
+                                <li><a href="#">Музыкальные открытки</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="category-row">
+                            <div class="category-title">
+                                <span class="category-icon-min" id="celebration"></span>
+                                <span>С днем рождения</span>
+                                <span class="arrow"></span>
+                            </div>
+                        </div>
+
+                        <div class="category-row">
+                            <div class="category-title">
+                                <span class="category-icon-min" id="love"></span>
+                                <span>С днем рождения</span>
+                                <span class="arrow"></span>
+                            </div>
+                        </div>
+
+                        <div class="category-row">
+                            <div class="category-title">
+                                <span class="category-icon-min" id="funny"></span>
+                                <span>С днем рождения</span>
+                                <span class="arrow"></span>
+                            </div>
+                        </div>
+
+                        <div class="category-row">
+                            <div class="category-title">
+                                <span class="category-icon-min" id="song"></span>
+                                <span>С днем рождения</span>
+                                <span class="arrow"></span>
+                            </div>
+                        </div>
+
+                        <div class="category-row">
+                            <div class="category-title">
+                                <span class="category-icon-min" id="ever"></span>
+                                <span>С днем рождения</span>
+                                <span class="arrow"></span>
+                            </div>
+                        </div>
+
+                        <div class="category-row">
+                            <div class="category-title">
+                                <span class="category-icon-min" id="study"></span>
+                                <span>С днем рождения</span>
+                                <span class="arrow"></span>
+                            </div>
+                        </div>
+
+                        <div class="category-row">
+                            <div class="category-title">
+                                <span class="category-icon-min" id="profession"></span>
+                                <span>С днем рождения</span>
+                                <span class="arrow"></span>
+                            </div>
+                        </div>
+
+                        <div class="category-row">
+                            <div class="category-title">
+                                <span class="category-icon-min" id="mar"></span>
+                                <span>С днем рождения</span>
+                                <span class="arrow"></span>
+                            </div>
+                        </div>
+
+                        <div class="category-row">
+                            <div class="category-title">
+                                <span class="category-icon-min" id="feb"></span>
+                                <span>С днем рождения</span>
+                                <span class="arrow"></span>
+                            </div>
+                        </div>
+
+                        <div class="category-row">
+                            <div class="category-title">
+                                <span class="category-icon-min" id="svd"></span>
+                                <span>С днем рождения</span>
+                                <span class="arrow"></span>
+                            </div>
+                        </div>
+
+                        <div class="category-row">
+                            <div class="category-title">
+                                <span class="category-icon-min" id="new"></span>
+                                <span>С днем рождения</span>
+                                <span class="arrow"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </section>
+<div class="clear"></div>
+<footer>
+    <div class="container d-flex-s-b p-b-20">
+        <div class="footer-row">
+            <a href="<?=Url::toRoute('site/index') ?>" class="logo">
+                <span class="logo-img"></span>
+                <div class="inline">
+                    <span class="title">Название</span>
+                    <span class="under-title">Голосовые открытки</span>
+                </div>
+            </a>
+            <ul class="d-menu">
+                <li><a href="">Информация о стоимости услуг</a></li>
+                <li><a href="">Информация о стоимости услуг</a></li>
+                <li><a href="">Информация о стоимости услуг</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-row">
+            <div class="title-row">Название блока</div>
+            <ul>
+                <li><a href="">Информация о стоимости услуг</a></li>
+                <li><a href="">Информация о стоимости услуг</a></li>
+                <li><a href="">Информация о стоимости услуг</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-row">
+            <div class="title-row">Название блока</div>
+            <ul>
+                <li><a href="">Информация о стоимости услуг</a></li>
+                <li><a href="">Информация о стоимости услуг</a></li>
+                <li><a href="">Информация о стоимости услуг</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-row">
+            <div class="footer-contact">
+                <div>Служба поддержки:</div>
+                <div>8 800-554-55-43</div>
+                <a href="#" class="link">suport@site.ru</a>
+            </div>
+            <div class="social-buttons">
+                <a href="#" class="social facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="#" class="social facebook"><i class="fa fa-vk" aria-hidden="true"></i></a>
+                <a href="#" class="social twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="#" class="social odnoklassniki"><i class="fa fa-odnoklassniki" aria-hidden="true"></i></a>
+            </div>
+        </div>
+
+    </div>
+    <div class="end-footer">
+        <div class="container d-flex-s-b">
+            <div class="copy-title">&copy;&nbsp;Название <?= date('Y') ?></div>
+            <div class="payment-row">
+                <div class="copy-title inline m-r-10">Мы принимаем:</div>
+                <div class="payment"></div>
             </div>
         </div>
     </div>
-
-    <?php
-    NavBar::begin([
-        'options' => [
-            'class' => 'navbar navbar-default',
-        ],
-    ]);
-    $menuItems = [
-        ['label' => 'Каталог поздравлений', 'url' => ['site/catalog']],
-        ['label' => 'Хиты', 'url' => ['/site/the_best']],
-        ['label' => 'Новинки', 'url' => ['/site/contact']],
-        ['label' => 'Календарь праздников', 'url' => ['/site/contact']],
-        ['label' => 'Смс поздравления', 'url' => ['/site/contact']],
-        ['label' => 'Смс поздравления', 'url' => ['/site/contact']],
-    ];
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-left'],
-        'items' => $menuItems,
-    ]);
-    NavBar::end();
-    ?>
-
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
-    </div>
-</div>
-
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
+<!--        --><?//= date('Y') ?>
 </footer>
 
 <?php $this->endBody() ?>

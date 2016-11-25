@@ -9,11 +9,13 @@ use yii\web\AssetBundle;
  */
 class AppAsset extends AssetBundle
 {
-    public $basePath = '@webroot';
-    public $baseUrl = '@web';
+//    public $basePath = '@webroot';
+//    public $baseUrl = '@web';
     public $css = [
-        'css/mediaelementplayer.css',
+        'css/reset.min.css',
         'css/main.css',
+        'css/font-awesome.min.css'
+//        'css/mediaelementplayer.css',
 
     ];
     public $js = [
@@ -25,7 +27,7 @@ class AppAsset extends AssetBundle
     );
     public $depends = [
         'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset'
+//        'yii\bootstrap\BootstrapAsset'
     ];
 
 }
