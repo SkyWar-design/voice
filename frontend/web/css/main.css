@@ -91,6 +91,16 @@ header .container{
 }
 .calendar-image{
     background: url("/image/calendar.png") 0 0 no-repeat;
+    width: 68px;
+    float: left;
+    height: 68px;
+}
+.caption{
+    float: left;
+}
+.h1{
+    font-family: "MyriadProCondItalic";
+    font-size: 36px;
 }
 .under-title{
     font-size: 15px;
