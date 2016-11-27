@@ -40,9 +40,10 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'enableStrictParsing' => true,
+            'urlFormat'=>'path',
             'rules' => [
                 '/'=>'site/index',
-                'card/<param:.+>'=>'site/card',
+                '<action:\w+>'=>'site/<action>',
             ],
         ],
 
