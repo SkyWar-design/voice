@@ -7,7 +7,7 @@ use yii\widgets\Menu;
 use frontend\assets\AppAsset;
 
 AppAsset::register($this);
-$this->params['breadcrumbs'][] = ['label' => 'Подкатегория'];
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
