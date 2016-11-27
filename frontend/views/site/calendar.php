@@ -16,12 +16,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <div class="line1"></div>
 
+    <div class="calendar-list">
         <ul>
             <li>Item</li>
             <li>Item</li>
             <li>Item</li>
             <li>Item</li>
         </ul>
+    </div>
+       
 
         <div class="line2"></div>
 </div>

@@ -97,7 +97,7 @@ header .container{
     height: 68px;
 }
 .line1{
-    background: url("/image/lin1.png") 0 0 no-repeat;
+    background: url("/image/line1.png") 0 0 no-repeat;
     width: 849px;
     height: 50px;
     float: left;
