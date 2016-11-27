@@ -16,10 +16,18 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="line1"></div>
     <div class="calendar-list">
         <ul>
-            <li>Item</li>
-            <li>Item</li>
-            <li>Item</li>
-            <li>Item</li>
+            <li>Январь</li>
+            <li>Февраль</li>
+            <li>Март</li>
+            <li>Апрель</li>
+            <li>Май</li>
+            <li>Июнь</li>
+            <li>Июль</li>
+            <li>Август</li>
+            <li>Сентябрь</li>
+            <li>Октябрь</li>
+            <li>Ноябрь</li>
+            <li>Декабрь</li>
         </ul>
     </div>
     <div class="clear"></div>

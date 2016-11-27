@@ -99,7 +99,9 @@ header .container{
 .calendar-list{
     float: left;
 }
-
+.calendar-list li {
+    list-style-type: disc;
+}
 .line1{
     background: url("/image/line1.png") 0 0 no-repeat;
     width: 849px;
