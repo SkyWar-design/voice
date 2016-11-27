@@ -70,7 +70,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Подкатегория'];
                 ['label' => 'Каталог поздравлений', 'url' => ['site/index']],
                 ['label' => 'ХИТЫ', 'url' => ['product/index']],
                 ['label' => 'Новинки', 'url' => ['site/login']],
-                ['label' => 'Календарь праздников', 'url' => ['site/login']],
+                ['label' => 'Календарь праздников', 'url' => ['site/calendar']],
                 ['label' => 'СМС поздравления', 'url' => ['site/login']],
             ],
         ]); ?>

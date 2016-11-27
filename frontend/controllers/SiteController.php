@@ -78,7 +78,10 @@ class SiteController extends Controller
     {
         return $this->render('catalog');
     }
-
+    public function actionCalendar()
+    {
+        return $this->render('calendar');
+    }
     public function actionThe_best()
     {
         return $this->render('the_best');
