@@ -20,10 +20,16 @@ $this->params['breadcrumbs'][] = $this->title;
             <li>Февраль</li>
             <li>Март</li>
             <li>Апрель</li>
+        </ul>
+
+        <ul>
             <li>Май</li>
             <li>Июнь</li>
             <li>Июль</li>
             <li>Август</li>
+        </ul>
+
+        <ul>
             <li>Сентябрь</li>
             <li>Октябрь</li>
             <li>Ноябрь</li>
