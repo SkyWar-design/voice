@@ -98,7 +98,7 @@ header .container{
 .caption{
     float: left;
 }
-.h1{
+h1{
     font-family: "MyriadProCondItalic";
     font-size: 36px;
 }
