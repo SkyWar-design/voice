@@ -40,7 +40,6 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'enableStrictParsing' => true,
-            'urlFormat'=>'path',
             'rules' => [
                 '/'=>'site/index',
                 '<action:\w+>'=>'site/<action>',
