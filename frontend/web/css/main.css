@@ -96,6 +96,10 @@ header .container{
     float: left;
     height: 68px;
 }
+.calendar-list{
+    float: left;
+}
+
 .line1{
     background: url("/image/line1.png") 0 0 no-repeat;
     width: 849px;
