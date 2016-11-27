@@ -91,9 +91,10 @@ header .container{
 }
 .calendar-image{
     background: url("/image/calendar.png") 0 0 no-repeat;
-    background-size: 68px 68px;
-    float: left;
 
+    width: 68px;
+    float: left;
+    height: 68px;
 }
 .line1{
     background: url("/image/lin1.png") 0 0 no-repeat;
@@ -103,9 +104,9 @@ header .container{
 }
 .line2{
     background: url("/image/line2.png") 0 0 no-repeat;
-    width: 68px;
+    width: 771px;
+    height: 6px;
     float: left;
-    height: 68px;
 }
 .caption{
     float: left;
