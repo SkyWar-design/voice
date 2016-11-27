@@ -89,6 +89,9 @@ header .container{
     margin-left: 8px;
     font-family: "MyriadProCondRegular";
 }
+.calendar-image{
+    background: url("/image/calendar.png") 0 0 no-repeat;
+}
 .under-title{
     font-size: 15px;
     line-height:24px;

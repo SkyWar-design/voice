@@ -84,8 +84,6 @@ $this->params['breadcrumbs'][] = ['label' => 'Подкатегория'];
         </div>
         <div class="container d-flex-s-b p-b-60">
 
-
-
             <div class="left-content">
                 <?= $content ?>
             </div>
