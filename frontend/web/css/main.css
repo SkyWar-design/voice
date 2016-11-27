@@ -100,18 +100,21 @@ header .container{
     background: url("/image/line1.png") 0 0 no-repeat;
     width: 849px;
     height: 50px;
+    z-index: 1;
     float: left;
+    margin-top: -30px;
 }
 .line2{
     background: url("/image/line2.png") 0 0 no-repeat;
     width: 771px;
     height: 6px;
-    float: left;
+    float: right;
 }
 .caption{
     float: left;
     margin-left: 15px;
     margin-top: 15px;
+    z-index: 100;
 }
 h1{
     font-family: "MyriadProCondRegular";
