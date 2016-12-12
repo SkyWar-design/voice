@@ -108,16 +108,17 @@ class RunController extends Controller {
                     ->bindValue(':id', $item['id'])
                     ->query();
             }
+
             sleep(1);
 
         }
 
-        $ddb = Yii::$app->db->createCommand('select * from airport where status = 0')->queryAll();
+        $ddb = Yii::$app->db->createCommand('select * from airport where status = 0 limit 300')->queryAll();
         // Инициализируем курл
         $i = 0 ;
         foreach ($ddb as $item){
-
             $i++;
+            print_r($i);
             go_parse($item);
         }
 
