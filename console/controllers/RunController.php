@@ -48,6 +48,8 @@ class RunController extends Controller {
                     ->bindValue(':airport_names', $result['0']["PlaceName"])
                     ->bindValue(':lang', "ru")
                     ->query();
+            }else{
+                print_r($item['id'].' нет PlaceName');
             }
             if ($result['0']["CountryName"]){
                 Yii::$app->db->createCommand("insert into countries (id,countries,lang)VALUES (:id,:countries,:lang)")
@@ -55,6 +57,8 @@ class RunController extends Controller {
                     ->bindValue(':countries', $result['0']["CountryName"])
                     ->bindValue(':lang', "ru")
                     ->query();
+            }else{
+                print_r($item['id'].' нет CountryName');
             }
             if ($result['0']["CityName"]){
                 Yii::$app->db->createCommand("insert into cities (id,cities,lang)VALUES (:id,:cities,:lang)")
@@ -62,7 +66,10 @@ class RunController extends Controller {
                     ->bindValue(':cities', $result['0']["CityName"])
                     ->bindValue(':lang', "ru")
                     ->query();
+            }else{
+                print_r($item['id'].' нет CityName');
             }
+
             if ($result['0']["PlaceName"] and $result['0']["CountryName"] and $result['0']["CityName"] ){
                 Yii::$app->db->createCommand("update airport set status = 1 where id = :id")
                     ->bindValue(':id', $item['id'])
@@ -73,9 +80,10 @@ class RunController extends Controller {
 
         $ddb = Yii::$app->db->createCommand('select * from airport where status = 0 limit 200')->queryAll();
         // Инициализируем курл
-
+        $i = 0 ;
         foreach ($ddb as $item){
-            var_dump(go_parse($item));
+            $i++;
+            go_parse($item);
         }
 
 
