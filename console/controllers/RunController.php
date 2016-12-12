@@ -34,16 +34,15 @@ class RunController extends Controller {
             // Параметры курла
             curl_setopt ($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0");
             curl_setopt($ch, CURLOPT_HEADER, 0);
-            // Следующая опция необходима для того, чтобы функция curl_exec() возвращала значение а не выводила содержимое переменной на экран
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, '1');
-
             // Получаем html
             $text = curl_exec($ch);
 
             $result =  json_decode($text, true);
             // Отключаемся
             curl_close($ch);
-            return $result;
+
+            return($result['0']['"PlaceName"']);
         }
 
         $ddb = Yii::$app->db->createCommand('select * from airport where status = 0 limit 1')->queryAll();
