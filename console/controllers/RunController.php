@@ -30,7 +30,7 @@ class RunController extends Controller {
     public function actionIndex() {
 
         function go_parse($param){
-            $ch = curl_init('https://www.skyscanner.ru/dataservices/geo/v2.0/autosuggest/RU/ru-RU/'.$ddb['IATA'].'?isDestination=true&ccy=RUB');
+            $ch = curl_init('https://www.skyscanner.ru/dataservices/geo/v2.0/autosuggest/RU/ru-RU/'.$param.'?isDestination=true&ccy=RUB');
             // Параметры курла
             curl_setopt ($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0");
             curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -50,7 +50,7 @@ class RunController extends Controller {
         // Инициализируем курл
 
         foreach ($ddb as $item){
-            go_parse(123);
+            var_dump(go_parse($item['IATA']));
         }
 
 
