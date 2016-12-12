@@ -30,7 +30,7 @@ class RunController extends Controller {
     public function actionIndex() {
 
         function go_parse($item){
-            $ch = curl_init('https://www.skyscanner.ru/dataservices/geo/v2.0/autosuggest/RU/ru-RU/'.$item['IATA'].'?isDestination=true&ccy=RUB');
+            $ch = curl_init('https://www.skyscanner.ru/dataservices/geo/v2.0/autosuggest/RU/ru-RU/'.$item['IATA']);
             // Параметры курла
             curl_setopt ($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0");
             curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -49,10 +49,29 @@ class RunController extends Controller {
                     ->bindValue(':lang', "ru")
                     ->query();
             }
+            if ($result['0']["CountryName"]){
+                Yii::$app->db->createCommand("insert into countries (id,countries,lang)VALUES (:id,:countries,:lang)")
+                    ->bindValue(':id', $item['id'])
+                    ->bindValue(':countries', $result['0']["CountryName"])
+                    ->bindValue(':lang', "ru")
+                    ->query();
+            }
+            if ($result['0']["CityName"]){
+                Yii::$app->db->createCommand("insert into countries (id,cities,lang)VALUES (:id,:cities,:lang)")
+                    ->bindValue(':id', $item['id'])
+                    ->bindValue(':cities', $result['0']["CityName"])
+                    ->bindValue(':lang', "ru")
+                    ->query();
+            }
+            if ($result['0']["PlaceName"] and $result['0']["CountryName"] and $result['0']["CityName"] ){
+                Yii::$app->db->createCommand("update airport set status = 1 where id = :id")
+                    ->bindValue(':id', $item['id'])
+                    ->query();
+            }
 
         }
 
-        $ddb = Yii::$app->db->createCommand('select * from airport where status = 0 limit 1')->queryAll();
+        $ddb = Yii::$app->db->createCommand('select * from airport where status = 0 limit 200')->queryAll();
         // Инициализируем курл
 
         foreach ($ddb as $item){
