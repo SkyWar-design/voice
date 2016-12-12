@@ -42,7 +42,7 @@ class RunController extends Controller {
             // Отключаемся
             curl_close($ch);
 
-            return($result['0']['"PlaceName"']);
+            return($result['0']);
         }
 
         $ddb = Yii::$app->db->createCommand('select * from airport where status = 0 limit 1')->queryAll();
