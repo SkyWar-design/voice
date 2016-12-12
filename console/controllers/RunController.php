@@ -29,8 +29,8 @@ class RunController extends Controller {
 
     public function actionIndex() {
 
-        function go_parse($param){
-            $ch = curl_init('https://www.skyscanner.ru/dataservices/geo/v2.0/autosuggest/RU/ru-RU/'.$param.'?isDestination=true&ccy=RUB');
+        function go_parse($item){
+            $ch = curl_init('https://www.skyscanner.ru/dataservices/geo/v2.0/autosuggest/RU/ru-RU/'.$item['IATA'].'?isDestination=true&ccy=RUB');
             // Параметры курла
             curl_setopt ($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0");
             curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -42,14 +42,21 @@ class RunController extends Controller {
             // Отключаемся
             curl_close($ch);
 
-            return($result['0']["PlaceName"]);
+            if ($result['0']["PlaceName"]){
+                Yii::$app->db->createCommand("insert into airport_names (id,airport_names,lang)VALUES (:id,:airport_names,:lang)")
+                    ->bindValue(':id', $item['id'])
+                    ->bindValue(':airport_names', $result['0']["PlaceName"])
+                    ->bindValue(':lang', "ru")
+                    ->query();
+            }
+
         }
 
         $ddb = Yii::$app->db->createCommand('select * from airport where status = 0 limit 1')->queryAll();
         // Инициализируем курл
 
         foreach ($ddb as $item){
-            var_dump(go_parse($item['IATA']));
+            var_dump(go_parse($item));
         }
 
 
