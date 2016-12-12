@@ -10,7 +10,7 @@ use yii\console\Controller;
 class RunController extends Controller {
 
     public function actionIndex() {
-        $ddb = Yii::$app->BD->createCommand('select * from card order by rating desc limit 9')->queryAll();
+        $ddb = Yii::$app->BD->createCommand('select * from airport limit 9')->queryAll();
 
         var_dump($ddb);
     }
