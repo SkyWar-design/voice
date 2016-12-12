@@ -43,6 +43,14 @@ class RunController extends Controller {
             curl_close($ch);
 
             if ($result['0']["PlaceName"]){
+                $id_airport_names = Yii::$app->db->createCommand("select * from airport_names where id=:id")
+                    ->bindValue(':id', $item['id'])
+                    ->queryOne();
+                if ($id_airport_names){
+                    Yii::$app->db->createCommand("delete from airport_names where id=:id")
+                        ->bindValue(':id', $item['id'])
+                        ->query();
+                }
                 Yii::$app->db->createCommand("insert into airport_names (id,airport_names,lang)VALUES (:id,:airport_names,:lang)")
                     ->bindValue(':id', $item['id'])
                     ->bindValue(':airport_names', $result['0']["PlaceName"])
@@ -51,7 +59,17 @@ class RunController extends Controller {
             }else{
                 print_r($item['id'].' нет PlaceName');
             }
+
+
             if ($result['0']["CountryName"]){
+                $id_airport_names = Yii::$app->db->createCommand("select * from countries where id=:id")
+                    ->bindValue(':id', $item['id'])
+                    ->queryOne();
+                if ($id_airport_names){
+                     Yii::$app->db->createCommand("delete from countries where id=:id")
+                        ->bindValue(':id', $item['id'])
+                        ->query();
+                }
                 Yii::$app->db->createCommand("insert into countries (id,countries,lang)VALUES (:id,:countries,:lang)")
                     ->bindValue(':id', $item['id'])
                     ->bindValue(':countries', $result['0']["CountryName"])
@@ -60,7 +78,19 @@ class RunController extends Controller {
             }else{
                 print_r($item['id'].' нет CountryName');
             }
+
+
+
             if ($result['0']["CityName"]){
+                $id_airport_names = Yii::$app->db->createCommand("select * from cities where id=:id")
+                    ->bindValue(':id', $item['id'])
+                    ->queryOne();
+                if ($id_airport_names){
+                    Yii::$app->db->createCommand("delete from cities where id=:id")
+                        ->bindValue(':id', $item['id'])
+                        ->query();
+                }
+
                 Yii::$app->db->createCommand("insert into cities (id,cities,lang)VALUES (:id,:cities,:lang)")
                     ->bindValue(':id', $item['id'])
                     ->bindValue(':cities', $result['0']["CityName"])
@@ -70,18 +100,23 @@ class RunController extends Controller {
                 print_r($item['id'].' нет CityName');
             }
 
+
+
+
             if ($result['0']["PlaceName"] and $result['0']["CountryName"] and $result['0']["CityName"] ){
                 Yii::$app->db->createCommand("update airport set status = 1 where id = :id")
                     ->bindValue(':id', $item['id'])
                     ->query();
             }
+            sleep(1);
 
         }
 
-        $ddb = Yii::$app->db->createCommand('select * from airport where status = 0 limit 200')->queryAll();
+        $ddb = Yii::$app->db->createCommand('select * from airport where status = 0')->queryAll();
         // Инициализируем курл
         $i = 0 ;
         foreach ($ddb as $item){
+
             $i++;
             go_parse($item);
         }
