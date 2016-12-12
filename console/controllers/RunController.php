@@ -57,7 +57,7 @@ class RunController extends Controller {
                     ->query();
             }
             if ($result['0']["CityName"]){
-                Yii::$app->db->createCommand("insert into countries (id,cities,lang)VALUES (:id,:cities,:lang)")
+                Yii::$app->db->createCommand("insert into cities (id,cities,lang)VALUES (:id,:cities,:lang)")
                     ->bindValue(':id', $item['id'])
                     ->bindValue(':cities', $result['0']["CityName"])
                     ->bindValue(':lang', "ru")
