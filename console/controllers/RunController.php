@@ -117,7 +117,7 @@ class RunController extends Controller {
             {
 
             }else{
-                print_r($item["id"].' - Косячик');
+                print_r('Косячик ='.$item["id"]);
             };
         }
 
