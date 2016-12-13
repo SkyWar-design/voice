@@ -57,12 +57,20 @@ class RunController extends Controller {
                 ->bindValue(':lang', $lang)
                 ->query();
 
-            if ($result['0']["PlaceName"]){
+            if ($result['0']["LocalizedPlaceName"]){
                 Yii::$app->db->createCommand("insert into airport_names (id,airport_names,lang)VALUES (:id,:airport_names,:lang)")
                     ->bindValue(':id', $item['id'])
-                    ->bindValue(':airport_names', $result['0']["PlaceName"])
+                    ->bindValue(':airport_names', $result['0']["LocalizedPlaceName"])
                     ->bindValue(':lang', $lang)
                     ->query();
+            }else{
+                if ($result['0']["PlaceName"]){
+                    Yii::$app->db->createCommand("insert into airport_names (id,airport_names,lang)VALUES (:id,:airport_names,:lang)")
+                        ->bindValue(':id', $item['id'])
+                        ->bindValue(':airport_names', $result['0']["PlaceName"])
+                        ->bindValue(':lang', $lang)
+                        ->query();
+                }
             }
 
             if ($result['0']["CountryName"]){
@@ -73,14 +81,25 @@ class RunController extends Controller {
                     ->query();
             }
 
-
-            if ($result['0']["CityName"]){
-                Yii::$app->db->createCommand("insert into cities (id,cities,lang)VALUES (:id,:cities,:lang)")
-                    ->bindValue(':id', $item['id'])
-                    ->bindValue(':cities', $result['0']["CityName"])
-                    ->bindValue(':lang', $lang)
-                    ->query();
+            //если название города на латиннице
+            if(preg_match("/^[a-zA-Z]*$/", $result['0']["CityName"])){
+                if ($result['0']["ResultingPhrase"]){
+                    Yii::$app->db->createCommand("insert into cities (id,cities,lang)VALUES (:id,:cities,:lang)")
+                        ->bindValue(':id', $item['id'])
+                        ->bindValue(':cities', $result['0']["ResultingPhrase"])
+                        ->bindValue(':lang', $lang)
+                        ->query();
+                }
+            }else {
+                if ($result['0']["CityName"]){
+                    Yii::$app->db->createCommand("insert into cities (id,cities,lang)VALUES (:id,:cities,:lang)")
+                        ->bindValue(':id', $item['id'])
+                        ->bindValue(':cities', $result['0']["CityName"])
+                        ->bindValue(':lang', $lang)
+                        ->query();
+                }
             }
+
 
             Yii::$app->db->createCommand("update airport_parser set airport_names = :airport_names, countries =:countries, cities =:cities  where airport_id = :id")
                     ->bindValue(':id', $item['id'])
@@ -92,7 +111,7 @@ class RunController extends Controller {
             return true;
         }
 
-        $ddb = Yii::$app->db->createCommand('select * from airport')->queryAll();
+        $ddb = Yii::$app->db->createCommand('select * from airport limit 50')->queryAll();
         // Инициализируем курл
         $i = 0 ;
         foreach ($ddb as $item){
