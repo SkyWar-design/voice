@@ -70,7 +70,7 @@ class RunController extends Controller {
 
 
             if ($result["CompositeCompleterItem"]["Items"]["0"]["Name"]){
-                Yii::$app->db->createCommand("insert into airport_names (id,ru,lang)VALUES (:id,:ru)")
+                Yii::$app->db->createCommand("insert into airport_names (id,ru)VALUES (:id,:ru)")
                     ->bindValue(':id', $item['id'])
                     ->bindValue(':ru', $result["CompositeCompleterItem"]["Items"]["0"]["Name"])
                     ->query();
@@ -78,7 +78,7 @@ class RunController extends Controller {
 
 
             if ($result["CompositeCompleterItem"]["Items"]["0"]["CountryName"]){
-                Yii::$app->db->createCommand("insert into countries (id,ru,lang)VALUES (:id,:ru)")
+                Yii::$app->db->createCommand("insert into countries (id,ru)VALUES (:id,:ru)")
                     ->bindValue(':id', $item['id'])
                     ->bindValue(':ru', $result["CompositeCompleterItem"]["Items"]["0"]["CountryName"])
                     ->query();
@@ -86,7 +86,7 @@ class RunController extends Controller {
 
 
             if ($result["CompositeCompleterItem"]["Items"]["0"]["MainCityName"]){
-                Yii::$app->db->createCommand("insert into cities (id,ru,lang)VALUES (:id,:ru)")
+                Yii::$app->db->createCommand("insert into cities (id,ru)VALUES (:id,:ru)")
                     ->bindValue(':id', $item['id'])
                     ->bindValue(':ru', $result["CompositeCompleterItem"]["Items"]["0"]["MainCityName"])
                     ->query();
