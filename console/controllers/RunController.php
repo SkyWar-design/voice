@@ -30,7 +30,7 @@ class RunController extends Controller {
     public function actionIndex() {
 
         function go_parse($item, $lang){
-            $exist = Yii::$app->db->createCommand('select * from airport_parser where airport_id = :id and lang=:lang')
+            $exist = Yii::$app->db->createCommand('select * from airport_parser where airport_id = :airport_id and lang=:lang')
             ->bindValue(':airport_id', $item['id'])
             ->bindValue(':lang', $lang)
             ->queryAll();
