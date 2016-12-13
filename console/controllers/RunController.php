@@ -41,13 +41,9 @@ class RunController extends Controller {
             '8'  => ['lang' => 'nl-NL', 'code'=>'nl'],
 
         ];
-       var_dump(gopar($lang[0]));
-
-        function gopar($my_lang){
-            var_dump($my_lang);
-            return true;
-        }
+       var_dump($lang[0]);
         
+
     }
 
     public function actionIndex() {
