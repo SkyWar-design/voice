@@ -59,7 +59,7 @@ class RunController extends Controller {
             curl_close($ch);
 
 
-
+            return false;
             if (empty($result["CompositeCompleterItem"]["Items"]["0"]["Name"]) and empty($result["CompositeCompleterItem"]["Items"]["0"]["Code"]) or $result["CompositeCompleterItem"]["Items"]["0"]["Code"] != $item['IATA']){
                 Yii::$app->db->createCommand("update airport set status = 404 where id = :id")
                     ->bindValue(':id', $item['id'])
