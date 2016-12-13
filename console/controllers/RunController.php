@@ -35,7 +35,7 @@ class RunController extends Controller {
             ->bindValue(':lang', $lang)
             ->queryAll();
 
-
+            //проверяем птовторения
             if ($exist){
                 return false;
             }
@@ -51,6 +51,14 @@ class RunController extends Controller {
             $result =  json_decode($text, true);
             // Отключаемся
             curl_close($ch);
+
+            //проверяем результаты
+            if (empty($result['0']["LocalizedPlaceName"]) and empty($result['0']["ResultingPhrase"])){
+                Yii::$app->db->createCommand("update airport set status = 404 where id = :id")
+                    ->bindValue(':id', $item['id'])
+                    ->query();
+                return false;
+            }
 
             Yii::$app->db->createCommand("insert into airport_parser (airport_id,lang)VALUES (:airport_id,:lang)")
                 ->bindValue(':airport_id', $item['id'])
@@ -102,7 +110,7 @@ class RunController extends Controller {
             return true;
         }
 
-        $ddb = Yii::$app->db->createCommand('select * from airport ')->queryAll();
+        $ddb = Yii::$app->db->createCommand('select * from airport where status !=404 ')->queryAll();
         // Инициализируем курл
         $i = 0 ;
         foreach ($ddb as $item){
