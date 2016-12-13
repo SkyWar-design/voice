@@ -52,7 +52,7 @@ class RunController extends Controller {
             // Отключаемся
             curl_close($ch);
 
-            print_r($result);
+            return $result;
 
 
 
@@ -123,13 +123,13 @@ class RunController extends Controller {
             return true;
         }
 
-        $ddb = Yii::$app->db->createCommand('select * from airport where status !=404 limit 1')->queryAll();
+        $ddb = Yii::$app->db->createCommand('select * from airport where status !=404 limit 4')->queryAll();
         // Инициализируем курл
         $i = 0 ;
         foreach ($ddb as $item){
             $i++;
             print_r($i);
-            go_parse($item, $lang = "ru");
+            var_dump(go_parse($item, $lang = "ru"));
         }
 
 
