@@ -36,6 +36,7 @@ class RunController extends Controller {
     }
 
     public function actionIndex() {
+        die();
 
 
         function go_parse($item, $lang){
@@ -126,16 +127,6 @@ class RunController extends Controller {
         $lang = [
             'Китайский'  => ['zh-CN','zh'],
         ];
-
-        Китайский zh-CN zh
-        Французский fr-FR fr
-        Испанский es-ES es
-        Немецкий de-DE de
-        Португальский pt-PT pt
-        Русский ru-RU ru
-        Турецкий tr-TR tr
-        Итальянский it-IT it
-        Нидерландский nl-NL nl
         $i = 0 ;
         foreach ($ddb as $item){
             $i++;
