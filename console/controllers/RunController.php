@@ -100,13 +100,12 @@ class RunController extends Controller {
                 }
             }
 
-
             Yii::$app->db->createCommand("update airport_parser set airport_names = :airport_names, countries =:countries, cities =:cities  where airport_id = :id")
-                    ->bindValue(':id', $item['id'])
-                    ->bindValue(':airport_names', $result['0']["PlaceName"])
-                    ->bindValue(':countries', $result['0']["CountryName"])
-                    ->bindValue(':cities', $result['0']["CityName"])
-                    ->query();
+                ->bindValue(':id', $item['id'])
+                ->bindValue(':airport_names', $result['0']["LocalizedPlaceName"] ? $result['0']["LocalizedPlaceName"]:$result['0']["PlaceName"])
+                ->bindValue(':countries', $result['0']["CountryName"])
+                ->bindValue(':cities', $result['0']["CityName"])
+                ->query();
 
             return true;
         }
