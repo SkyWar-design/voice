@@ -29,6 +29,12 @@ class RunController extends Controller {
 
     public function actionIndex() {
 
+        Yii::$app->db->createCommand("delete from airport_parser")->query();
+        Yii::$app->db->createCommand("delete from countries")->query();
+        Yii::$app->db->createCommand("delete from cities")->query();
+        Yii::$app->db->createCommand("delete from airport_names")->query();
+
+
         function go_parse($item, $lang){
             $exist = Yii::$app->db->createCommand('select * from airport_parser where airport_id = :airport_id and lang=:lang')
             ->bindValue(':airport_id', $item['id'])
