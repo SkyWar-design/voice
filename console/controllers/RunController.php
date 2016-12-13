@@ -64,7 +64,7 @@ class RunController extends Controller {
                 Yii::$app->db->createCommand("update airport set status = 404 where id = :id")
                     ->bindValue(':id', $item['id'])
                     ->query();
-                return $item['id'].'Косячок';
+                return false;
             }
 
             Yii::$app->db->createCommand("insert into airport_parser (airport_id,lang)VALUES (:airport_id,:lang)")
@@ -113,7 +113,12 @@ class RunController extends Controller {
         foreach ($ddb as $item){
             $i++;
             print_r($i);
-            var_dump(go_parse($item, $lang = "ru"));
+            if(go_parse($item, $lang = "ru"))
+            {
+
+            }else{
+                print_r($item["id"].' - Косячик');
+            };
         }
 
 
