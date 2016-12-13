@@ -57,7 +57,7 @@ class RunController extends Controller {
                 ->bindValue(':lang', $lang)
                 ->query();
 
-            if (!empty($result['0']["LocalizedPlaceName"])){
+            if ($result['0']["LocalizedPlaceName"]){
                 Yii::$app->db->createCommand("insert into airport_names (id,airport_names,lang)VALUES (:id,:airport_names,:lang)")
                     ->bindValue(':id', $item['id'])
                     ->bindValue(':airport_names', $result['0']["LocalizedPlaceName"])
