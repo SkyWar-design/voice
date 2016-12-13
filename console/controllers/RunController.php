@@ -52,8 +52,6 @@ class RunController extends Controller {
             // Отключаемся
             curl_close($ch);
 
-             $result["CompositeCompleterItem"]["Items"]["0"];
-
 
 
             if (empty($result["CompositeCompleterItem"]["Items"]["0"]["Name"]) and empty($result["CompositeCompleterItem"]["Items"]["0"]["Code"]) or $result["CompositeCompleterItem"]["Items"]["0"]["Code"] != $item['IATA']){
