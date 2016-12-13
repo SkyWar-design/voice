@@ -36,9 +36,9 @@ class RunController extends Controller {
             ->queryAll();
 
             //проверяем птовторения
-            if ($exist){
-                return false;
-            }
+//            if ($exist){
+//                return false;
+//            }
 
             $ch = curl_init('http://www.momondo.ru/api/3.0/AutoCompleter?Query=THU&LocationLimits%5B0%5D%5Bkey%5D=1&LocationLimits%5B0%5D%5Bvalue%5D=10&Culture=ru-RU&IsFlexible=false');
             // Параметры курла
