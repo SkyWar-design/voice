@@ -81,7 +81,8 @@ class RunController extends Controller {
                 return false;
             }
 
-            Yii::$app->db->createCommand("insert into airport_parser (airport_id,lang)VALUES (:airport_id,:lang)")
+
+            Yii::$app->db->createCommand("insert into airport_parser (airport_id,lang) VALUES (:airport_id,:lang)")
                 ->bindValue(':airport_id', $item['id'])
                 ->bindValue(':lang', $lang['code'])
                 ->query();
@@ -155,7 +156,7 @@ class RunController extends Controller {
             return true;
         }
 
-        $ddb = Yii::$app->db->createCommand('select * from airport limit 2')->queryAll();
+        $ddb = Yii::$app->db->createCommand('select * from airport ')->queryAll();
 
 
         $langs = [
@@ -168,7 +169,6 @@ class RunController extends Controller {
             '6'  => ['lang' => 'tr-TR', 'code'=>'tr'],// Турецкий tr-TR tr
             '7'  => ['lang' => 'it-IT', 'code'=>'it'],// Итальянский it-IT it
             '8'  => ['lang' => 'nl-NL', 'code'=>'nl'],// Нидерландский nl-NL nl
-
         ];
 
 
