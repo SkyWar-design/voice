@@ -27,12 +27,15 @@ class RunController extends Controller {
 //lang varchar (50)
 //);
 
-    public function actionIndex() {
+    public function actionTest()
+    {
+        $lang = [
+            'Китайский'  => ['zh-CN','zh'],
+        ];
+        var_dump($lang);
+    }
 
-        Yii::$app->db->createCommand("delete from airport_parser")->query();
-        Yii::$app->db->createCommand("delete from countries")->query();
-        Yii::$app->db->createCommand("delete from cities")->query();
-        Yii::$app->db->createCommand("delete from airport_names")->query();
+    public function actionIndex() {
 
 
         function go_parse($item, $lang){
@@ -74,10 +77,21 @@ class RunController extends Controller {
 
 
             if ($result["CompositeCompleterItem"]["Items"]["0"]["Name"]){
+               $exist_airport_names =  Yii::$app->db->createCommand("select * from airport_names where id = :id")
+                    ->bindValue(':id', $item['id'])
+                    ->query();
+
+                if($exist_airport_names){
+                    Yii::$app->db->createCommand("update airport_names set  where id=:id")
+                        ->bindValue(':id', $item['id'])
+                        ->bindValue(':ru', $result["CompositeCompleterItem"]["Items"]["0"]["Name"])
+                        ->query();
+                }else{
                 Yii::$app->db->createCommand("insert into airport_names (id,ru)VALUES (:id,:ru)")
                     ->bindValue(':id', $item['id'])
                     ->bindValue(':ru', $result["CompositeCompleterItem"]["Items"]["0"]["Name"])
                     ->query();
+                }
             }
 
 
@@ -107,8 +121,21 @@ class RunController extends Controller {
             return true;
         }
 
-        $ddb = Yii::$app->db->createCommand('select * from airport where status !=404 ')->queryAll();
+        $ddb = Yii::$app->db->createCommand('select * from airport ')->queryAll();
         // Инициализируем курл
+        $lang = [
+            'Китайский'  => ['zh-CN','zh'],
+        ];
+
+        Китайский zh-CN zh
+        Французский fr-FR fr
+        Испанский es-ES es
+        Немецкий de-DE de
+        Португальский pt-PT pt
+        Русский ru-RU ru
+        Турецкий tr-TR tr
+        Итальянский it-IT it
+        Нидерландский nl-NL nl
         $i = 0 ;
         foreach ($ddb as $item){
             $i++;
