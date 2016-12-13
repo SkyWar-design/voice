@@ -81,36 +81,27 @@ class RunController extends Controller {
                     ->query();
             }
 
-            //если название города на латиннице
-            if(preg_match("/^[a-zA-Z]*$/", $result['0']["CityName"])){
-                if ($result['0']["ResultingPhrase"]){
-                    Yii::$app->db->createCommand("insert into cities (id,cities,lang)VALUES (:id,:cities,:lang)")
-                        ->bindValue(':id', $item['id'])
-                        ->bindValue(':cities', $result['0']["ResultingPhrase"])
-                        ->bindValue(':lang', $lang)
-                        ->query();
-                }
-            }else {
-                if ($result['0']["CityName"]){
-                    Yii::$app->db->createCommand("insert into cities (id,cities,lang)VALUES (:id,:cities,:lang)")
-                        ->bindValue(':id', $item['id'])
-                        ->bindValue(':cities', $result['0']["CityName"])
-                        ->bindValue(':lang', $lang)
-                        ->query();
-                }
+            if ($result['0']["CityName"]){
+                Yii::$app->db->createCommand("insert into cities (id,cities,lang)VALUES (:id,:cities,:lang)")
+                    ->bindValue(':id', $item['id'])
+                    ->bindValue(':cities', $result['0']["CityName"])
+                    ->bindValue(':lang', $lang)
+                    ->query();
             }
 
-            Yii::$app->db->createCommand("update airport_parser set airport_names = :airport_names, countries =:countries, cities =:cities  where airport_id = :id")
+
+            Yii::$app->db->createCommand("update airport_parser set airport_names = :airport_names, countries =:countries, cities =:cities, ResultingPhrase = :ResultingPhrase where airport_id = :id")
                 ->bindValue(':id', $item['id'])
                 ->bindValue(':airport_names', $result['0']["LocalizedPlaceName"] ? $result['0']["LocalizedPlaceName"]:$result['0']["PlaceName"])
                 ->bindValue(':countries', $result['0']["CountryName"])
                 ->bindValue(':cities', $result['0']["CityName"])
+                ->bindValue(':ResultingPhrase', $result['0']["ResultingPhrase"])
                 ->query();
 
             return true;
         }
 
-        $ddb = Yii::$app->db->createCommand('select * from airport where id=627')->queryAll();
+        $ddb = Yii::$app->db->createCommand('select * from airport limit 500')->queryAll();
         // Инициализируем курл
         $i = 0 ;
         foreach ($ddb as $item){
