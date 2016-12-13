@@ -81,6 +81,7 @@ class RunController extends Controller {
                     ->query();
             }
 
+
             if ($result['0']["CityName"]){
                 Yii::$app->db->createCommand("insert into cities (id,cities,lang)VALUES (:id,:cities,:lang)")
                     ->bindValue(':id', $item['id'])
@@ -101,7 +102,7 @@ class RunController extends Controller {
             return true;
         }
 
-        $ddb = Yii::$app->db->createCommand('select * from airport limit 500')->queryAll();
+        $ddb = Yii::$app->db->createCommand('select * from airport ')->queryAll();
         // Инициализируем курл
         $i = 0 ;
         foreach ($ddb as $item){
