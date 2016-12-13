@@ -30,15 +30,26 @@ class RunController extends Controller {
     public function actionTest()
     {
         $lang = [
-            'Китайский'  => ['zh-CN','zh'],
+            '0'  => ['lang' => 'zh-CN', 'code'=>'zh'],
+            '1'  => ['lang' => 'fr-FR', 'code'=>'fr'],
+            '2'  => ['lang' => 'es-ES', 'code'=>'es'],
+            '3'  => ['lang' => 'de-DE', 'code'=>'de'],
+            '4'  => ['lang' => 'pt-PT', 'code'=>'pt'],
+            '5'  => ['lang' => 'ru-RU', 'code'=>'ru'],
+            '6'  => ['lang' => 'tr-TR', 'code'=>'tr'],
+            '7'  => ['lang' => 'it-IT', 'code'=>'it'],
+            '8'  => ['lang' => 'nl-NL', 'code'=>'nl'],
+
         ];
-        var_dump($lang);
+       var_dump(gopars_e($lang[0]));
+        function gopars_e($my_lang){
+                var_dump($my_lang);
+        }
     }
 
     public function actionIndex() {
-        die();
 
-
+    die();
         function go_parse($item, $lang){
             $exist = Yii::$app->db->createCommand('select * from airport_parser where airport_id = :airport_id and lang=:lang')
             ->bindValue(':airport_id', $item['id'])
@@ -123,10 +134,31 @@ class RunController extends Controller {
         }
 
         $ddb = Yii::$app->db->createCommand('select * from airport ')->queryAll();
-        // Инициализируем курл
+
+//        Китайский zh-CN zh
+//        Французский fr-FR fr
+//        Испанский es-ES es
+//        Немецкий de-DE de
+//        Португальский pt-PT pt
+//        Русский ru-RU ru
+//        Турецкий tr-TR tr
+//        Итальянский it-IT it
+//        Нидерландский nl-NL nl
+
         $lang = [
-            'Китайский'  => ['zh-CN','zh'],
+            '0'  => ['lang' => 'zh-CN', 'code'=>'zh'],
+            '1'  => ['lang' => 'fr-FR', 'code'=>'fr'],
+            '2'  => ['lang' => 'es-ES', 'code'=>'es'],
+            '3'  => ['lang' => 'de-DE', 'code'=>'de'],
+            '4'  => ['lang' => 'pt-PT', 'code'=>'pt'],
+            '5'  => ['lang' => 'ru-RU', 'code'=>'ru'],
+            '6'  => ['lang' => 'tr-TR', 'code'=>'tr'],
+            '7'  => ['lang' => 'it-IT', 'code'=>'it'],
+            '8'  => ['lang' => 'nl-NL', 'code'=>'nl'],
+
         ];
+
+
         $i = 0 ;
         foreach ($ddb as $item){
             $i++;
