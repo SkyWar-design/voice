@@ -92,7 +92,7 @@ class RunController extends Controller {
             return true;
         }
 
-        $ddb = Yii::$app->db->createCommand('select * from airport where status = 0 limit 300')->queryAll();
+        $ddb = Yii::$app->db->createCommand('select * from airport')->queryAll();
         // Инициализируем курл
         $i = 0 ;
         foreach ($ddb as $item){
