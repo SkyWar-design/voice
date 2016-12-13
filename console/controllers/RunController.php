@@ -42,25 +42,25 @@ class RunController extends Controller {
 
         ];
        var_dump($lang[0]);
-        
+
 
     }
 
     public function actionIndex() {
 
-    die();
+
         function go_parse($item, $lang){
             $exist = Yii::$app->db->createCommand('select * from airport_parser where airport_id = :airport_id and lang=:lang')
             ->bindValue(':airport_id', $item['id'])
-            ->bindValue(':lang', $lang)
+            ->bindValue(':lang', $lang['code'])
             ->queryAll();
 
-            //проверяем птовторения
+            //проверяем повторения
             if ($exist){
                 return false;
             }
 
-            $ch = curl_init('http://www.momondo.ru/api/3.0/AutoCompleter?Query='.$item['IATA'].'&LocationLimits%5B0%5D%5Bkey%5D=1&LocationLimits%5B0%5D%5Bvalue%5D=10&Culture=ru-RU&IsFlexible=false');
+            $ch = curl_init('http://www.momondo.ru/api/3.0/AutoCompleter?Query='.$item['IATA'].'&LocationLimits%5B0%5D%5Bkey%5D=1&LocationLimits%5B0%5D%5Bvalue%5D=10&Culture='.$lang['lang'].'&IsFlexible=false');
             // Параметры курла
             curl_setopt ($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0");
             curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -83,7 +83,7 @@ class RunController extends Controller {
 
             Yii::$app->db->createCommand("insert into airport_parser (airport_id,lang)VALUES (:airport_id,:lang)")
                 ->bindValue(':airport_id', $item['id'])
-                ->bindValue(':lang', $lang)
+                ->bindValue(':lang', $lang['code'])
                 ->query();
 
 
@@ -93,32 +93,55 @@ class RunController extends Controller {
                     ->query();
 
                 if($exist_airport_names){
-                    Yii::$app->db->createCommand("update airport_names set  where id=:id")
+                    Yii::$app->db->createCommand("update airport_names set ".$lang['code']."=:param where id=:id")
                         ->bindValue(':id', $item['id'])
-                        ->bindValue(':ru', $result["CompositeCompleterItem"]["Items"]["0"]["Name"])
+                        ->bindValue(':param', $result["CompositeCompleterItem"]["Items"]["0"]["Name"])
                         ->query();
                 }else{
-                Yii::$app->db->createCommand("insert into airport_names (id,ru)VALUES (:id,:ru)")
-                    ->bindValue(':id', $item['id'])
-                    ->bindValue(':ru', $result["CompositeCompleterItem"]["Items"]["0"]["Name"])
-                    ->query();
+                    Yii::$app->db->createCommand("insert into airport_names (id,".$lang['code'].")VALUES (:id,:param)")
+                        ->bindValue(':id', $item['id'])
+                        ->bindValue(':param', $result["CompositeCompleterItem"]["Items"]["0"]["Name"])
+                        ->query();
                 }
             }
 
 
             if ($result["CompositeCompleterItem"]["Items"]["0"]["CountryName"]){
-                Yii::$app->db->createCommand("insert into countries (id,ru)VALUES (:id,:ru)")
+                $exist_countries =  Yii::$app->db->createCommand("select * from countries where id = :id")
                     ->bindValue(':id', $item['id'])
-                    ->bindValue(':ru', $result["CompositeCompleterItem"]["Items"]["0"]["CountryName"])
                     ->query();
+
+                if($exist_countries){
+                    Yii::$app->db->createCommand("update countries set ".$lang['code']."=:param where id=:id")
+                        ->bindValue(':id', $item['id'])
+                        ->bindValue(':param', $result["CompositeCompleterItem"]["Items"]["0"]["CountryName"])
+                        ->query();
+                }else{
+                    Yii::$app->db->createCommand("insert into countries (id,".$lang['code'].")VALUES (:id,:param")
+                        ->bindValue(':id', $item['id'])
+                        ->bindValue(':param', $result["CompositeCompleterItem"]["Items"]["0"]["CountryName"])
+                        ->query();
+                }
             }
 
 
             if ($result["CompositeCompleterItem"]["Items"]["0"]["MainCityName"]){
-                Yii::$app->db->createCommand("insert into cities (id,ru)VALUES (:id,:ru)")
+                $exist_cities =  Yii::$app->db->createCommand("select * from cities where id = :id")
                     ->bindValue(':id', $item['id'])
-                    ->bindValue(':ru', $result["CompositeCompleterItem"]["Items"]["0"]["MainCityName"])
                     ->query();
+
+                if($exist_cities){
+                    Yii::$app->db->createCommand("update cities set ".$lang['code']."=:param where id=:id")
+                        ->bindValue(':id', $item['id'])
+                        ->bindValue(':param', $result["CompositeCompleterItem"]["Items"]["0"]["MainCityName"])
+                        ->query();
+                }else{
+                    Yii::$app->db->createCommand("insert into cities (id,".$lang['code'].")VALUES (:id,:param)")
+                        ->bindValue(':id', $item['id'])
+                        ->bindValue(':param', $result["CompositeCompleterItem"]["Items"]["0"]["MainCityName"])
+                        ->query();
+                }
+
             }
 
 
@@ -132,28 +155,19 @@ class RunController extends Controller {
             return true;
         }
 
-        $ddb = Yii::$app->db->createCommand('select * from airport ')->queryAll();
+        $ddb = Yii::$app->db->createCommand('select * from airport limit 2')->queryAll();
 
-//        Китайский zh-CN zh
-//        Французский fr-FR fr
-//        Испанский es-ES es
-//        Немецкий de-DE de
-//        Португальский pt-PT pt
-//        Русский ru-RU ru
-//        Турецкий tr-TR tr
-//        Итальянский it-IT it
-//        Нидерландский nl-NL nl
 
-        $lang = [
-            '0'  => ['lang' => 'zh-CN', 'code'=>'zh'],
-            '1'  => ['lang' => 'fr-FR', 'code'=>'fr'],
-            '2'  => ['lang' => 'es-ES', 'code'=>'es'],
-            '3'  => ['lang' => 'de-DE', 'code'=>'de'],
-            '4'  => ['lang' => 'pt-PT', 'code'=>'pt'],
-            '5'  => ['lang' => 'ru-RU', 'code'=>'ru'],
-            '6'  => ['lang' => 'tr-TR', 'code'=>'tr'],
-            '7'  => ['lang' => 'it-IT', 'code'=>'it'],
-            '8'  => ['lang' => 'nl-NL', 'code'=>'nl'],
+        $langs = [
+            '0'  => ['lang' => 'zh-CN', 'code'=>'zh'],// Китайский zh-CN zh
+            '1'  => ['lang' => 'fr-FR', 'code'=>'fr'],// Французский fr-FR fr
+            '2'  => ['lang' => 'es-ES', 'code'=>'es'],// Испанский es-ES es
+            '3'  => ['lang' => 'de-DE', 'code'=>'de'],// Немецкий de-DE de
+            '4'  => ['lang' => 'pt-PT', 'code'=>'pt'],// Португальский pt-PT pt
+            '5'  => ['lang' => 'ru-RU', 'code'=>'ru'],// Русский ru-RU ru         ГОТОВО
+            '6'  => ['lang' => 'tr-TR', 'code'=>'tr'],// Турецкий tr-TR tr
+            '7'  => ['lang' => 'it-IT', 'code'=>'it'],// Итальянский it-IT it
+            '8'  => ['lang' => 'nl-NL', 'code'=>'nl'],// Нидерландский nl-NL nl
 
         ];
 
@@ -162,7 +176,7 @@ class RunController extends Controller {
         foreach ($ddb as $item){
             $i++;
             print_r($i);
-            if(go_parse($item, $lang = "ru"))
+            if(go_parse($item, $langs[0]))
             {
 
             }else{
