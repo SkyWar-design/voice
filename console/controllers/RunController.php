@@ -64,7 +64,7 @@ class RunController extends Controller {
                 Yii::$app->db->createCommand("update airport set status = 404 where id = :id")
                     ->bindValue(':id', $item['id'])
                     ->query();
-                return false;
+                return $item['id'].'Косячок';
             }
 
             Yii::$app->db->createCommand("insert into airport_parser (airport_id,lang)VALUES (:airport_id,:lang)")
