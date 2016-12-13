@@ -176,7 +176,7 @@ class RunController extends Controller {
         foreach ($ddb as $item){
             $i++;
             print_r($i);
-            if(go_parse($item, $langs[0]))
+            if(go_parse($item, $langs[1]))
             {
 
             }else{
