@@ -52,7 +52,7 @@ class RunController extends Controller {
             // Отключаемся
             curl_close($ch);
 
-            return $result;
+            return $result["CompositeCompleterItem"]["Items"]["0"];
 
 
 
