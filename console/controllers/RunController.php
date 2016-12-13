@@ -167,7 +167,7 @@ class RunController extends Controller {
             '4'  => ['lang' => 'pt-PT', 'code'=>'pt'],// Португальский pt-PT pt   ГОТОВО
             '5'  => ['lang' => 'ru-RU', 'code'=>'ru'],// Русский ru-RU ru         ГОТОВО
             '6'  => ['lang' => 'tr-TR', 'code'=>'tr'],// Турецкий tr-TR tr        ГОТОВО
-            '7'  => ['lang' => 'it-IT', 'code'=>'it'],// Итальянский it-IT it
+            '7'  => ['lang' => 'it-IT', 'code'=>'it'],// Итальянский it-IT it     ГОТОВО
             '8'  => ['lang' => 'nl-NL', 'code'=>'nl'],// Нидерландский nl-NL nl
         ];
 
@@ -176,7 +176,7 @@ class RunController extends Controller {
         foreach ($ddb as $item){
             $i++;
             print_r($i);
-            if(go_parse($item, $langs[7]))
+            if(go_parse($item, $langs[8]))
             {
 
             }else{
