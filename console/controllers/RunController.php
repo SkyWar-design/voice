@@ -29,33 +29,104 @@ class RunController extends Controller {
 
     public function actionTest()
     {
-        $ch = curl_init('http://www.momondo.ru/api/3.0/AutoCompleter?Query=MOW&LocationLimits%5B0%5D%5Bkey%5D=1&LocationLimits%5B0%5D%5Bvalue%5D=10&Culture=ru-RU&IsFlexible=false');
-        // Параметры курла
-        curl_setopt ($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0");
-        curl_setopt($ch, CURLOPT_HEADER, 0);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, '1');
-        // Получаем html
-        $text = curl_exec($ch);
 
-        $result =  json_decode($text, true);
-        // Отключаемся
-        curl_close($ch);
+        function go_parse($item, $lang){
+            $exist = Yii::$app->db->createCommand('select * from airport_parser where airport_id = :airport_id and lang=:lang')
+                ->bindValue(':airport_id', $item['id'])
+                ->bindValue(':lang', $lang['code'])
+                ->queryAll();
 
-        $lang = [
-            '0'  => ['lang' => 'zh-CN', 'code'=>'zh'],
-            '1'  => ['lang' => 'fr-FR', 'code'=>'fr'],
-            '2'  => ['lang' => 'es-ES', 'code'=>'es'],
-            '3'  => ['lang' => 'de-DE', 'code'=>'de'],
-            '4'  => ['lang' => 'pt-PT', 'code'=>'pt'],
-            '5'  => ['lang' => 'ru-RU', 'code'=>'ru'],
-            '6'  => ['lang' => 'tr-TR', 'code'=>'tr'],
-            '7'  => ['lang' => 'it-IT', 'code'=>'it'],
-            '8'  => ['lang' => 'nl-NL', 'code'=>'nl'],
+            //проверяем повторения
+            if ($exist){
+                return false;
+            }
 
+            $ch = curl_init('http://www.momondo.ru/api/3.0/AutoCompleter?Query='.$item['IATA'].'&LocationLimits%5B0%5D%5Bkey%5D=1&LocationLimits%5B0%5D%5Bvalue%5D=10&Culture='.$lang['lang'].'&IsFlexible=false');
+            // Параметры курла
+            curl_setopt ($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0");
+            curl_setopt($ch, CURLOPT_HEADER, 0);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, '1');
+            // Получаем html
+            $text = curl_exec($ch);
+
+            $result =  json_decode($text, true);
+            // Отключаемся
+            curl_close($ch);
+
+
+
+            if (empty($result["CompositeCompleterItem"]["Items"]["0"]["City"]['CountryName']) and empty($result["CompositeCompleterItem"]["Items"]["0"]["City"]['MainCityName'])){
+                return false;
+            }
+
+
+
+            if ($result["CompositeCompleterItem"]["Items"]["0"]["City"]['CountryName']){
+                $exist_countries =  Yii::$app->db->createCommand("select * from countries where id = :id")
+                    ->bindValue(':id', $item['id'])
+                    ->query();
+
+                if($exist_countries){
+                      return false;
+                }else{
+                    Yii::$app->db->createCommand("insert into countries (id,".$lang['code'].")VALUES (:id,:param")
+                        ->bindValue(':id', $item['id'])
+                        ->bindValue(':param', $result["CompositeCompleterItem"]["Items"]["0"]["City"]['CountryName'])
+                        ->query();
+                }
+            }
+
+
+            if ($result["CompositeCompleterItem"]["Items"]["0"]["City"]['MainCityName']){
+                $exist_cities =  Yii::$app->db->createCommand("select * from cities where id = :id")
+                    ->bindValue(':id', $item['id'])
+                    ->query();
+
+                if($exist_cities){
+                        return false;
+                }else{
+                    Yii::$app->db->createCommand("insert into cities (id,".$lang['code'].")VALUES (:id,:param)")
+                        ->bindValue(':id', $item['id'])
+                        ->bindValue(':param', $result["CompositeCompleterItem"]["Items"]["0"]["City"]['MainCityName'])
+                        ->query();
+                }
+
+            }
+
+
+            return true;
+        }
+
+        $ddb = Yii::$app->db->createCommand('select * from airport where status=404')->queryAll();
+
+
+        $langs = [
+            '0'  => ['lang' => 'zh-CN', 'code'=>'zh'],// Китайский zh-CN zh       ГОТОВО
+            '1'  => ['lang' => 'fr-FR', 'code'=>'fr'],// Французский fr-FR fr     ГОТОВО
+            '2'  => ['lang' => 'es-ES', 'code'=>'es'],// Испанский es-ES es       ГОТОВО
+            '3'  => ['lang' => 'de-DE', 'code'=>'de'],// Немецкий de-DE de        ГОТОВО
+            '4'  => ['lang' => 'pt-PT', 'code'=>'pt'],// Португальский pt-PT pt   ГОТОВО
+            '5'  => ['lang' => 'ru-RU', 'code'=>'ru'],// Русский ru-RU ru         ГОТОВО
+            '6'  => ['lang' => 'tr-TR', 'code'=>'tr'],// Турецкий tr-TR tr        ГОТОВО
+            '7'  => ['lang' => 'it-IT', 'code'=>'it'],// Итальянский it-IT it     ГОТОВО
+            '8'  => ['lang' => 'nl-NL', 'code'=>'nl'],// Нидерландский nl-NL nl
         ];
 
-        $result = $result["CompositeCompleterItem"]["Items"]["0"]["City"]['CountryName'];
-        var_dump($result);
+
+        $i = 0 ;
+        foreach ($ddb as $item){
+            $i++;
+            print_r($i);
+            if(go_parse($item, $langs[0]))
+            {
+
+            }else{
+                print_r('Косячик ='.$item["id"].' ');
+            };
+        }
+
+
+
 
     }
 
