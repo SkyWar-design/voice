@@ -69,7 +69,7 @@ class RunController extends Controller {
                     ->query();
 
                 if($exist_countries){
-                    print_r('не хватает $exist_countries');
+                    print_r($exist_countries);
                       return false;
                 }else{
                     Yii::$app->db->createCommand("insert into countries (id,".$lang['code'].")VALUES (:id,:param")
