@@ -68,7 +68,7 @@ class RunController extends Controller {
                     ->bindValue(':id', $item['id'])
                     ->query();
 
-                if($exist_countries){
+                if($exist_countries['id']){
                     print_r($exist_countries);
                       return false;
                 }else{
@@ -85,8 +85,8 @@ class RunController extends Controller {
                     ->bindValue(':id', $item['id'])
                     ->query();
 
-                if($exist_cities){
-                    print_r('не хватает $exist_cities');
+                if($exist_cities['id']){
+                    print_r($exist_cities);
                         return false;
                 }else{
                     Yii::$app->db->createCommand("insert into cities (id,".$lang['code'].")VALUES (:id,:param)")
