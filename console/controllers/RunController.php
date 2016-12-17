@@ -72,7 +72,7 @@ class RunController extends Controller {
                     print_r($exist_countries);
                       return false;
                 }else{
-                    Yii::$app->db->createCommand("insert into countries (id,".$lang['code'].")VALUES (:id,:param")
+                    Yii::$app->db->createCommand("insert into countries (id,".$lang['code'].")VALUES (:id,:param)")
                         ->bindValue(':id', $item['id'])
                         ->bindValue(':param', $result["CompositeCompleterItem"]["Items"]["0"]["City"]['CountryName'])
                         ->query();
