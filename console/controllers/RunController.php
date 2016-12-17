@@ -69,8 +69,10 @@ class RunController extends Controller {
                     ->queryOne();
 
                 if($exist_countries['id']){
-                    print_r($exist_countries);
-                      return false;
+                    Yii::$app->db->createCommand("update countries set ".$lang['code']."=:param where id=:id")
+                        ->bindValue(':id', $item['id'])
+                        ->bindValue(':param', $result["CompositeCompleterItem"]["Items"]["0"]["City"]['CountryName'])
+                        ->query();
                 }else{
                     Yii::$app->db->createCommand("insert into countries (id,".$lang['code'].")VALUES (:id,:param)")
                         ->bindValue(':id', $item['id'])
@@ -86,8 +88,10 @@ class RunController extends Controller {
                     ->queryOne();
 
                 if($exist_cities['id']){
-                    print_r($exist_cities);
-                        return false;
+                    Yii::$app->db->createCommand("update cities set ".$lang['code']."=:param where id=:id")
+                        ->bindValue(':id', $item['id'])
+                        ->bindValue(':param', $result["CompositeCompleterItem"]["Items"]["0"]["City"]['MainCityName'])
+                        ->query();
                 }else{
                     Yii::$app->db->createCommand("insert into cities (id,".$lang['code'].")VALUES (:id,:param)")
                         ->bindValue(':id', $item['id'])
