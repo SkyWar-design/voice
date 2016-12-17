@@ -66,7 +66,7 @@ class RunController extends Controller {
             if ($result["CompositeCompleterItem"]["Items"]["0"]["City"]['CountryName']){
                 $exist_countries =  Yii::$app->db->createCommand("select * from countries where id = :id")
                     ->bindValue(':id', $item['id'])
-                    ->query();
+                    ->queryOne();
 
                 if($exist_countries['id']){
                     print_r($exist_countries);
@@ -83,7 +83,7 @@ class RunController extends Controller {
             if ($result["CompositeCompleterItem"]["Items"]["0"]["City"]['MainCityName']){
                 $exist_cities =  Yii::$app->db->createCommand("select * from cities where id = :id")
                     ->bindValue(':id', $item['id'])
-                    ->query();
+                    ->queryOne();
 
                 if($exist_cities['id']){
                     print_r($exist_cities);
