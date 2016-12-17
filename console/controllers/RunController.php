@@ -117,7 +117,7 @@ class RunController extends Controller {
             '5'  => ['lang' => 'ru-RU', 'code'=>'ru'],// Русский ru-RU ru         ГОТОВО
             '6'  => ['lang' => 'tr-TR', 'code'=>'tr'],// Турецкий tr-TR tr        ГОТОВО
             '7'  => ['lang' => 'it-IT', 'code'=>'it'],// Итальянский it-IT it     ГОТОВО
-            '8'  => ['lang' => 'nl-NL', 'code'=>'nl'],// Нидерландский nl-NL nl
+            '8'  => ['lang' => 'nl-NL', 'code'=>'nl'],// Нидерландский nl-NL nl   ГОТОВО
         ];
 
 
@@ -125,7 +125,7 @@ class RunController extends Controller {
         foreach ($ddb as $item){
             $i++;
             print_r($i);
-            if(go_parse($item, $langs[7]))
+            if(go_parse($item, $langs[8]))
             {
 
             }else{
@@ -183,7 +183,7 @@ class RunController extends Controller {
             if ($result["CompositeCompleterItem"]["Items"]["0"]["Name"]){
                $exist_airport_names =  Yii::$app->db->createCommand("select * from airport_names where id = :id")
                     ->bindValue(':id', $item['id'])
-                    ->query();
+                    ->queryOne();
 
                 if($exist_airport_names){
                     Yii::$app->db->createCommand("update airport_names set ".$lang['code']."=:param where id=:id")
@@ -202,7 +202,7 @@ class RunController extends Controller {
             if ($result["CompositeCompleterItem"]["Items"]["0"]["CountryName"]){
                 $exist_countries =  Yii::$app->db->createCommand("select * from countries where id = :id")
                     ->bindValue(':id', $item['id'])
-                    ->query();
+                    ->queryOne();
 
                 if($exist_countries){
                     Yii::$app->db->createCommand("update countries set ".$lang['code']."=:param where id=:id")
@@ -210,7 +210,7 @@ class RunController extends Controller {
                         ->bindValue(':param', $result["CompositeCompleterItem"]["Items"]["0"]["CountryName"])
                         ->query();
                 }else{
-                    Yii::$app->db->createCommand("insert into countries (id,".$lang['code'].")VALUES (:id,:param")
+                    Yii::$app->db->createCommand("insert into countries (id,".$lang['code'].")VALUES (:id,:param)")
                         ->bindValue(':id', $item['id'])
                         ->bindValue(':param', $result["CompositeCompleterItem"]["Items"]["0"]["CountryName"])
                         ->query();
