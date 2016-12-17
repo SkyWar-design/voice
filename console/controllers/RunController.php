@@ -38,6 +38,7 @@ class RunController extends Controller {
 
             //проверяем повторения
             if ($exist){
+                print_r('повторение');
                 return false;
             }
 
@@ -55,7 +56,8 @@ class RunController extends Controller {
 
 
 
-            if (empty($result["CompositeCompleterItem"]["Items"]["0"]["City"]['CountryName']) and empty($result["CompositeCompleterItem"]["Items"]["0"]["City"]['MainCityName'])){
+            if (empty($result["CompositeCompleterItem"]["Items"]["0"]["City"]['CountryName']) and empty($result["CompositeCompleterItem"]["Items"]["0"]["City"]['MainCityName']) or $result["CompositeCompleterItem"]["Items"]["0"]["City"]["Code"] != $item['IATA'] ){
+                print_r('не хватает полей');
                 return false;
             }
 
@@ -67,6 +69,7 @@ class RunController extends Controller {
                     ->query();
 
                 if($exist_countries){
+                    print_r('не хватает $exist_countries');
                       return false;
                 }else{
                     Yii::$app->db->createCommand("insert into countries (id,".$lang['code'].")VALUES (:id,:param")
@@ -83,6 +86,7 @@ class RunController extends Controller {
                     ->query();
 
                 if($exist_cities){
+                    print_r('не хватает $exist_cities');
                         return false;
                 }else{
                     Yii::$app->db->createCommand("insert into cities (id,".$lang['code'].")VALUES (:id,:param)")
