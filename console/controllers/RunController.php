@@ -29,6 +29,18 @@ class RunController extends Controller {
 
     public function actionTest()
     {
+        $ch = curl_init('http://www.momondo.ru/api/3.0/AutoCompleter?Query=MOW&LocationLimits%5B0%5D%5Bkey%5D=1&LocationLimits%5B0%5D%5Bvalue%5D=10&Culture=ru-RU&IsFlexible=false');
+        // Параметры курла
+        curl_setopt ($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0");
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, '1');
+        // Получаем html
+        $text = curl_exec($ch);
+
+        $result =  json_decode($text, true);
+        // Отключаемся
+        curl_close($ch);
+
         $lang = [
             '0'  => ['lang' => 'zh-CN', 'code'=>'zh'],
             '1'  => ['lang' => 'fr-FR', 'code'=>'fr'],
@@ -41,8 +53,9 @@ class RunController extends Controller {
             '8'  => ['lang' => 'nl-NL', 'code'=>'nl'],
 
         ];
-       var_dump($lang[0]);
 
+        $result = $result["CompositeCompleterItem"]["Items"]["0"]["City"]['CountryName'];
+        var_dump($result);
 
     }
 
