@@ -9,7 +9,7 @@ use frontend\assets\AppAsset;
 AppAsset::register($this);
 
 $categories = $this->context->categories;
-$css_style_categories = $this->params['css_style_categories'];
+$css_style_categories = Yii::$app->params['css_style_categories'];
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -109,7 +109,7 @@ $css_style_categories = $this->params['css_style_categories'];
                                 </ul>
                             </div>
                         <?php endforeach; ?>
-                        
+
                         <div class="category-row">
                             <div class="category-title">
                                 <span class="category-icon-min" id="celebration"></span>
