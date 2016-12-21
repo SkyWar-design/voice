@@ -60,11 +60,233 @@ body{
 a{
     text-decoration: none;
 }
+h1{
+    font-family: "MyriadProCondRegular";
+    font-size: 36px;
+    line-height:24px;
+}
+h2{
+    font-size: 30px;
+    line-height:24px;
+    color: #464646;
+    text-indent: 12px;
+}
+p{
+    font-size: 18px;
+    line-height:24px;
+    color: #6a6a6a;
+    text-indent: 12px;
+}
+.staled-hr-bottom{
+    padding-bottom: 9px;
+    background: url("/image/staled_hr.png") 0 bottom no-repeat;
+}
 .container{
     max-width: 1170px;
     margin: 0 auto;
     padding: 0 15px;
     display: table;
+}
+.m-b-20{
+    margin-bottom:20px;
+}
+.m-b-30{
+    margin-bottom:30px;
+}
+.w-69-p{
+    width: 69%!important;
+}
+.l-h-42{
+    line-height:42px;
+}
+.h-2{
+    height: 2px!important;
+}
+.player-min {
+    width: 57px;
+    display: inline-block;
+    margin-right:6px;
+}
+.player-min-content{
+    margin-top:30px;
+}
+.player-min .mejs-container .mejs-controls{
+    position: relative;
+    height: 57px;
+    background: none!important;
+}
+.mejs-container{
+    background: none!important;
+}
+.player-min .mejs-container .mejs-controls div{
+    width: 57px;
+    height: 57px;
+}
+.player-min .mejs-controls .mejs-button button{
+    margin: 0;
+    padding: 0;
+    width: 57px;
+    height: 57px;
+    outline: none!important;
+}
+.player-min .mejs-controls .mejs-button.mejs-play button{
+    background: url("/image/player_min_icon.png") 0 0 no-repeat;
+}
+.player-min .mejs-controls .mejs-button.mejs-play button:hover{
+    background-position: 0 -57px;
+}
+.player-min .mejs-controls .mejs-button.mejs-pause button{
+    background: url("/image/player_min_icon.png") 0 -114px no-repeat;
+}
+.player-min .mejs-controls .mejs-button.mejs-pause button:hover{
+    background-position: 0 -171px;
+}
+.text-right{
+    text-align: right;
+}
+.card-preview{
+    width: 127px;
+    display: inline-block;
+}
+.small-text{
+    font-size: 14px;
+    line-height:24px;
+    color: #989898;
+}
+.w-100-p{
+    width: 100%!important;
+}
+.text-center{
+    text-align: center;
+}
+.link-to-category{
+    text-decoration: underline;
+    display: inline-block;
+    margin-top: 6px;
+}
+.link-to-category.celebration:before{
+    background-position: 0 -17px;
+}
+.link-to-category.love:before{
+    background-position: 0 -33px;
+}
+.link-to-category.funny:before{
+    background-position: 0 -49px;
+}
+.link-to-category.song:before{
+    background-position: 0 -66px;
+}
+.link-to-category.ever:before{
+    background-position: 0 -83px;
+}
+.link-to-category.study:before{
+    background-position: 0 -100px;
+}
+.link-to-category.profession:before{
+    background-position: 0 -116px;
+    height: 16px;
+}
+.link-to-category.mar:before{
+    background-position: 0 -132px;
+    height: 16px;
+}
+.link-to-category.feb:before{
+    background-position: 0 -149px;
+    height: 16px;
+}
+.link-to-category.svd:before{
+    background-position: 0 -166px;
+    height: 16px;
+}
+.link-to-category.new:before{
+    background-position: 0 -183px;
+    height: 16px;
+}
+.link-to-category:before{
+    background: url("/image/category_icon_small.png") 0 0 no-repeat;
+    display: inline-block;
+    width: 16px;
+    height: 17px;
+    content: "";
+    margin-right: 10px;
+}
+.styled-top-hr{
+    text-align: right;
+    width: 100%;
+    background: url("/image/styled_right_hr.png") 0 0 no-repeat;
+    padding: 22px 0 2px 0;
+}
+.m-t-10{
+    margin-top:10px;
+}
+.m-t-30{
+    margin-top:30px;
+}
+.link-to-top{
+    display: inline-block;
+    font-size: 16px;
+    line-height:16px;
+    color: #127ea6;
+}
+.link-to-top:after{
+    font-size: 24px;
+    content: "\00bb";
+    line-height: 13px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left:5px;
+}
+.card-preview .card-title{
+    font-size: 16px;
+    line-height:18px;
+    color: #464646;
+    text-decoration: underline;
+    display: inline-block;
+}
+.m-b-12{
+    margin-bottom:12px;
+}
+.button-yellow{
+    font-size: 14px;
+    color: #ffc801;
+    border: 2px solid #ffc801;
+    display: inline-block;
+    text-transform: uppercase;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    background: none;
+}
+.l-h-30{
+    line-height:30px;
+}
+.button-yellow:hover{
+    background: #ffc801!important;
+    color: #fff;
+}
+.button-yellow:active{
+    border: 2px solid #efbb00;
+    background: #efbb00!important;
+    color: #fff;
+}
+.player-min-content:nth-child(3n+3){
+    margin-right:0;
+}
+.order-card input[type="submit"]{
+    height: 50px;
+    line-height:46px;
+    width: auto;
+    font-size: 21px;
+    cursor: pointer;
+    padding: 0 30px;
+}
+.order-card .form-submit{
+    text-align: center;
+}
+.player-min-content{
+    width: 195px;
+    display: inline-block;
+    margin-right:98px;
 }
 header{
     background: url("/image/header_bg.png") center 0 no-repeat #f0f0f0;
@@ -88,43 +310,6 @@ header .container{
     display: block;
     margin-left: 8px;
     font-family: "MyriadProCondRegular";
-}
-.calendar-image{
-    background: url("/image/calendar.png") 0 0 no-repeat;
-
-    width: 68px;
-    float: left;
-    height: 68px;
-}
-.calendar-list{
-    float: left;
-}
-.calendar-list li {
-    list-style-type: disc;
-}
-.line1{
-    background: url("/image/line1.png") 0 0 no-repeat;
-    width: 849px;
-    height: 50px;
-    z-index: 1;
-    float: left;
-    margin-top: -30px;
-}
-.line2{
-    background: url("/image/line2.png") 0 0 no-repeat;
-    width: 771px;
-    height: 6px;
-    float: right;
-}
-.caption{
-    float: left;
-    margin-left: 15px;
-    margin-top: 15px;
-    z-index: 100;
-}
-h1{
-    font-family: "MyriadProCondRegular";
-    font-size: 36px;
 }
 .under-title{
     font-size: 15px;
@@ -215,7 +400,15 @@ header .logo .inline{
     padding-left:10px;
     display: inline-block;
     vertical-align: top;
-    margin-right: -3px;
+    margin: 0 -3px 0 0;
+    border-radius: 0;
+}
+.header-search-form input[type="text"]:focus{
+    border: none;
+}
+input[name="phone"]{
+    max-width: 352px;
+    width: 100%;
 }
 .header-search-form button[type="submit"]{
     border: none;
@@ -283,7 +476,7 @@ header .logo .inline{
     background: #ffc801;
     color: #464646;
 }
-.header-menu ul a.active{
+.header-menu ul li.active a{
     background: #ffc801;
     color: #464646;
 }
@@ -291,17 +484,20 @@ header .logo .inline{
     display: none;
 }
 .left-content{
-    max-width: 846px;
+    max-width: 849px;
     min-height: 1px;
     float: left;
+    width: 100%;
 }
 .right-content{
     width: 262px;
     float: right;
 }
+.m-b-25{
+    margin-bottom:25px;
+}
 .breadcrumb{
     margin-top:15px;
-    margin-bottom:25px;
 }
 .breadcrumb li{
     display: inline-block;
@@ -402,7 +598,13 @@ h4{
 hr{
     border: none;
     margin: 0;
+    height: 2px;
+    width: 100%;
 }
+.yellow-line{
+    background: #ffc801;
+}
+
 .category-menu{
     margin-top:10px;
 }
@@ -471,6 +673,7 @@ footer .logo{
 }
 #mar{
     background-position: 0 -323px;
+    height: 39px;
 }
 #feb{
     background-position: 0 -363px;
@@ -480,6 +683,18 @@ footer .logo{
 }
 #new{
     background-position: 0 -443px;
+}
+#calendar h1{
+    line-height: 36px;
+}
+#calendar h1:before{
+    content: "";
+    display: inline-block;
+    background: url(/image/calendar_big.png) 0 0 no-repeat;
+    width: 68px;
+    height: 68px;
+    vertical-align: middle;
+    margin-right: 15px;
 }
 .clear{
     clear: both;
@@ -523,9 +738,641 @@ footer .social{
 .m-r-10{
     margin-right:10px;
 }
+.star-block{
+    width: 263px;
+    background: #f0f0f0;
+    text-align: center;
+}
+.star-view{
+    height: 321px;
+    padding-bottom:10px;
+    margin: 0 10px;
+    overflow: auto;
+}
+.star-block{
+    padding-top:26px;
+}
+.star-block img{
+    width: 182px;
+    height: 182px;
+    border-radius: 91px;
+}
+.star-block h3{
+    font-size: 26px;
+    line-height:42px;
+    color: #464646;
+    font-family: "MyriadProCondRegular";
+    text-align: center;
+}
+.star-view::-webkit-scrollbar {
+    width: 6px;
+}
+
+.star-view::-webkit-scrollbar-track {
+   background: none;
+}
+
+.star-view::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: #c8c8c8;
+}
+.blog-img img{
+    width: 263px;
+    margin-right:30px;
+}
+.blog-img{
+    display: flex;
+    align-items: center;
+    height: 300px;
+    overflow: hidden;
+}
+.blog-text{
+    max-width: 555px;
+}
+.m-t-20{
+    margin-top:20px;
+}
+.blog-row{
+    width: 100%;
+}
+.blog-row .link-to-top{
+    display: block;
+}
+.blog-news{
+    max-width: 849px;
+}
+.blog-buttons a{
+    width: auto;
+    line-height:26px;
+    padding:0 23px;
+}
+.blog-buttons .button-yellow{
+    float: right;
+}
+.button-grey{
+
+}
+.button-grey{
+    font-size: 14px;
+    color: #bebebe;
+    border: 2px solid #bebebe;
+    display: inline-block;
+    text-transform: uppercase;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+}
+.button-grey:hover{
+    background: #cfcfcf;
+    border: 2px solid #cfcfcf;
+    color: #fff;
+}
+.button-grey:active{
+    border: 2px solid #bebebe;
+    background: #bebebe;
+    color: #fff;
+}
+#catalog h2,
+#category h1,
+#card h1{
+    font-family: "MyriadProCondRegular";
+    font-size: 36px;
+    line-height: 36px;
+    text-indent: 0;
+}
+#catalog h2:before,
+#category h1:before,
+#card h1:before{
+    content: "";
+    display: inline-block;
+    background: url("/image/category_icon_big.png") 0 0 no-repeat;
+    width: 68px;
+    height: 68px;
+    vertical-align: middle;
+    margin-right: 15px;
+}
+.player-big .mejs-button.mejs-playpause-button button{
+    width: 57px;
+    height: 57px;
+    background: url("/image/player_min_icon.png") 0 0 no-repeat;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    outline: none;
+}
+.player-big .mejs-button.mejs-playpause-button.mejs-play button:hover{
+    background-position: 0 -57px;
+}
+.player-big .mejs-button.mejs-playpause-button.mejs-pause button{
+    background-position: 0 -114px;
+}
+.player-big .mejs-button.mejs-playpause-button.mejs-pause button:hover{
+    background-position: 0 -171px;
+}
+.player-big .mejs-controls .mejs-button button:focus{
+    outline: none;
+}
+.mejs-container .mejs-controls .mejs-time{
+    font-family: "MyriadProCondRegular";
+    font-size: 21px;
+    line-height:24px;
+    color: #464646!important;
+}
+.mejs-container .mejs-controls .mejs-time{
+    height: 24px!important;
+    padding: 0!important;
+    position: relative;
+    margin: 0;
+}
+.player-big .mejs-button.mejs-playpause-button{
+    width: 57px;
+    height: 57px;
+}
+.player-big .mejs-container .mejs-controls{
+    position: relative;
+    background: none!important;
+    height: 92px!important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+.player-big .mejs-controls .mejs-time-rail .mejs-time-total{
+    width: 420px!important;
+    height: 27px!important;
+    background: #bebebe;
+    margin: 0;
+    outline: none;
+}
+.player-big{
+    text-align: center;
+}
+.mejs-controls div.mejs-time-rail{
+    width: 420px!important;
+    position: relative;
+    padding: 0!important;
+    margin: 0!important;
+}
+.mejs-controls .mejs-volume-button{
+    width: 20px!important;
+    height: 20px!important;
+    position: relative!important;
+    margin: 0!important;
+    padding: 0!important;
+}
+.player-big .mejs-controls .mejs-volume-button button{
+    width: 20px!important;
+    height: 20px!important;
+    position: relative!important;
+    margin: 0!important;
+    padding: 0!important;
+    background: url("/image/vol_icon.png") 0 0 no-repeat;
+}
+.mejs-mute button:hover{
+    background-position: 0 -20px!important;
+}
+.mejs-unmute button{
+    background-position: 0 -40px!important;
+}
+.mejs-unmute button:hover{
+    background-position: 0 -60px!important;
+}
+.mejs-controls a.mejs-horizontal-volume-slider{
+    position: relative;
+    width: 60px!important;
+    height: 51px!important;
+}
+.mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-total{
+    top:0!important;
+    width: 60px!important;
+    height: 51px!important;
+    background: url("/image/vol_control.png") 0 -51px no-repeat!important;
+}
+.mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-current{
+    top:0!important;
+    height: 51px!important;
+    background: url("/image/vol_control.png") 0 0 no-repeat!important;
+}
+.mejs-controls .mejs-time-rail .mejs-time-float-corner{
+    border-color: #000 transparent transparent!important;
+}
+.player-big .mejs-controls .mejs-time-rail .mejs-time-current{
+    height: 27px!important;
+    background: #ffc801!important;
+}
+.mejs-controls .mejs-time-rail .mejs-time-loaded{
+    display: none;
+}
+.player-big .mejs-container{
+    background: #f0f0f0!important;
+    display: inline-block;
+    margin-top:20px;
+}
+.m-t-40{
+    margin-top:40px;
+}
+.title-description{
+    font-family: "MyriadProCondRegular";
+    font-size: 19px;
+    line-height:24px;
+    color: #464646;
+    display: block;
+}
+.tags .button-grey {
+    padding: 0 14px;
+    line-height: 20px;
+    width: auto;
+    margin-bottom: 5px;
+}
+input[type="text"],
+input[type="email"]{
+    line-height:40px;
+    font-size: 26px;
+    color: #bebebe;
+    border: 1px solid #bebebe;
+    outline: none;
+    padding: 0 17px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+input[type="text"]:focus,
+input[type="email"]{
+    border: 1px solid #8b8b8b;
+}
+input[type="email"]{
+    width: 100%;
+    font-size: 16px;
+    line-height:30px;
+}
+.order-card input[type="submit"]{
+    outline: none;
+}
+.m-l-30{
+    margin-left:30px;
+}
+.m-b-10{
+    margin-bottom:10px;
+}
+.info-text{
+    font-size: 14px;
+    line-height:18px;
+    color: #989898;
+    margin-left:10px;
+}
+.category-description{
+    font-size: 16px;
+    line-height:21px;
+    color: #127ea6;
+    text-decoration: underline;
+}
+.category-description a{
+    font-size: 16px;
+    line-height:21px;
+    color: #127ea6;
+}
+.m-b-40{
+    margin-bottom:40px;
+}
+.description-card{
+    max-width: 360px;
+    display: inline-block;
+    padding: 30px 0;
+}
+.description-card p,
+.order-card p{
+    font-size: 15px;
+    line-height:18px;
+    color: #464646;
+    text-indent: 0;
+}
+.description-card h2,
+.order-card h2{
+    font-size: 26px;
+    line-height:24px;
+    font-family: "MyriadProCondRegular";
+    text-indent: 0;
+    text-align: center;
+}
+h2.love-big:before,
+h1.love-big:before{
+    background-position: 0 -68px!important;
+}
+h2.funny-big:before,
+h1.funny-big:before{
+    background-position: 0 -136px!important;
+}
+h2.song-big:before,
+h1.song-big:before{
+    background-position: 0 -204px!important;
+}
+h2.ever-big:before,
+h1.ever-big:before{
+    background-position: 0 -272px!important;
+}
+h2.work-big:before,
+h1.work-big:before{
+    background-position: 0 -340px!important;
+}
+h2.mar-big:before,
+h1.mar-big:before{
+    background-position: 0 -476px!important;
+}
+h2.feb-big:before,
+h1.feb-big:before{
+    background-position: 0 -544px!important;
+}
+h2.val-big:before,
+h1.val-big:before{
+    background-position: 0 -612px!important;
+}
+h2.new-big:before,
+h1.new-big:before{
+    background-position: 0 -680px!important;
+}
+.sub-category a span{
+    color: #d1d1d1;
+}
+.sub-category a:hover span{
+    color: #d1d1d1;
+}
+.sub-category a,
+.calendar-mou a{
+    width: 263px;
+    display: inline-block;
+    color: #898888;
+    font-size: 15px;
+    line-height: 23px;
+    margin-bottom:2px;
+}
+.sub-category a:hover,
+.calendar-mou a:hover{
+    color: #464646;
+}
+.sub-category,
+.calendar-mou{
+    max-width: 849px;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    margin-top:15px;
+}
+.sub-category a:before,
+.calendar-mou a:before{
+    content: '';
+    width: 4px;
+    height: 4px;
+    background-color: #bebebe;
+    border-radius: 2px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+#calendar .staled-hr-bottom,
+#category .staled-hr-bottom,
+#card .staled-hr-bottom{
+    padding-bottom:20px;
+}
+#catalog .grey-line,
+#calendar .grey-line,
+#category .grey-line{
+    height: 2px;
+    margin-top:1px;
+    width: 87%;
+    float: right;
+}
+.filter{
+    padding: 12px 0 0 0;
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    background: #f0f0f0;
+}
+#category .button-grey{
+    padding: 0 14px;
+    line-height:20px;
+    width: auto;
+    margin-left:10px;
+    margin-bottom:12px;
+}
+.button-grey.max-grey{
+    color: #fff;
+}
+.button-grey.max-grey{
+    background: #464646;
+    border: 2px solid #464646;
+}
+.button-grey.max-grey:hover{
+    background: #464646;
+    border: 2px solid #464646;
+}
+.button-grey.max-grey:active{
+    border: 2px solid #464646;
+    background: #464646;
+}
+.count-card{
+    margin-bottom:12px;
+}
+.count-card,
+.filter-how span{
+    font-size: 16px;
+    line-height:24px;
+    color: #bebebe;
+}
+.filter-how{
+    margin-bottom:12px;
+}
+.m-l-58{
+    margin-left:58px;
+}
+.m-l-10{
+    margin-left:10px;
+}
+label{
+    cursor: pointer;
+}
+input[type="radio"],
+input[type="checkbox"]{
+    display: none;
+}
+.radio,
+.checkbox{
+    font-size: 16px;
+    line-height:24px;
+    color: #464646;
+}
+.checkbox:before{
+    content: "";
+    display: inline-block;
+    vertical-align: top;
+    width: 21px;
+    height: 21px;
+    border-radius: 3px;
+    background: #fff;
+    border: 1px solid #c3c3c3;
+    margin-right: 5px;
+}
+input[type="checkbox"]:checked + .checkbox:before{
+    background: url("/image/checkbox_bg.png") center no-repeat #fff;
+}
+input[type="radio"]:checked + .radio:before{
+    background: url("/image/radio_bg.png") center no-repeat #fff;
+}
+.radio:before{
+    content: "";
+    display: inline-block;
+    vertical-align: top;
+    width: 21px;
+    height: 21px;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid #c3c3c3;
+    margin-right:5px;
+}
+.catalog-category:nth-child(1),
+.calendar-mou{
+    margin-top:0;
+}
+#calendar h2,
+#category h2{
+    text-indent: 12px;
+    font-size: 26px;
+    line-height:24px;
+    font-family: "MyriadProCondRegular";
+}
+.calendar-table{
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+.catalog-category,
+.calendar-mou{
+    display: table;
+    margin-top:10px;
+}
+.table-row:nth-child(1){
+    width: 122px;
+}
+.table-row:nth-child(1) .table-name{
+    width: 122px;
+}
+.table-row:last-child .table-name{
+    border-right: none;
+}
+.table-name{
+    width: 121px;
+    line-height:46px;
+    text-align: center;
+    background: #f0f0f0;
+    font-size: 16px;
+    color: #a8a7a7;
+    border-bottom: 1px solid #bebebe;
+    border-right: 1px solid #bebebe;
+}
+.im{
+    font-size: 16px;
+    line-height:24px;
+    font-family: "MyriadProCondRegular";
+    color: #989898;
+    display: block;
+}
+.celebration-day{
+    text-decoration: underline;
+    color: #127ea6;
+}
+.celebration-day a{
+    color: #127ea6;
+    font-size: 14px;
+    line-height:16px;
+    margin-bottom:10px;
+}
+.calendar-day{
+    border-left: 1px solid #bebebe;
+    border-bottom: 1px solid #bebebe;
+    height: 175px;
+    background: #f5f5f5;
+    padding:0 10px;
+}
+.holiday .date-day{
+    background: #eaafaf!important;
+}
+.holiday .calendar-day{
+    background: #f6dfdf;
+}
+.current .date-day{
+    background: #ffc801!important;
+}
+.current{
+    background: #dafeac!important;
+}
+.header-inform-block .about .active a{
+    text-decoration: underline;
+}
+.space-around{
+    justify-content: space-around;
+}
+.calendar-day .date-day{
+    line-height:24px;
+    font-size: 16px;
+    color: #fff;
+    padding-left:8px;
+    background: #c2c2c2;
+    width: 100px;
+    display: block;
+    margin-left: -10px;
+}
+.table-row{
+    width: 121px;
+}
+#catalog .yellow-line,
+#calendar .yellow-line,
+#category .yellow-line{
+    width: 90%;
+    float: right;
+}
+.mobile-preview{
+    margin: 30px auto 0 auto!important;
+    display: none;
+}
+.order-card{
+    max-width: 458px;
+    width: 100%;
+    background: #f0f0f0;
+    padding: 30px;
+}
+@media screen and (max-width: 425px){
+    .blog-buttons .button-yellow{
+        margin-top:20px;
+        float: none!important;
+    }
+    .blog-buttons .button-grey{
+        margin-right:20px;
+    }
+    .order-card input[type="submit"]{
+        font-size: 15px;
+    }
+}
 @media screen and (max-width: 639px){
     .m-hidden{
         display: none;
+    }
+    .player-min-content{
+        display: inline-block;
+        text-align: left;
+    }
+    .row-content{
+        /*display: inline-block;*/
+        justify-content: space-around;
+        text-align: center;
+        width: 100%;
+    }
+}
+@media screen and (max-width: 1160px){
+    .right-content{
+        display: none;
+    }
+    .main-content{
+        display: table;
     }
 }
 @media screen and (max-width: 1086px){
@@ -550,11 +1397,28 @@ footer .social{
     .right-content{
         display: none;
     }
+    .w-69-p{
+        width: 100%!important;
+    }
 }
 @media screen and (max-width: 915px){
+    .blog-text{
+        width: auto;
+        max-width: none;
+    }
+    .player-min-content{
+        margin-right:0;
+    }
+    .blog-img{
+        width: 100%;
+    }
+    .blog-img img{
+        margin: 0 auto;
+    }
     .footer-row:nth-child(3){
         display: none;
     }
+
     .p-hidden{
         display: none;
     }
@@ -572,9 +1436,14 @@ footer .social{
         padding: 0 10px;
     }
 }
+@media screen and (max-width: 850px){
+    .star-c.d-flex-s-b{
+        justify-content: space-around;
+    }
+}
 @media screen and (max-width: 713px){
     .m-menu{
-        display: block;
+        display: block!important;
     }
     .d-menu{
         display: none;

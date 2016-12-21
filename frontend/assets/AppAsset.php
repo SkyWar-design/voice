@@ -14,12 +14,13 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/reset.min.css',
         'css/main.css',
-        'css/font-awesome.min.css'
-//        'css/mediaelementplayer.css',
-
+        'css/font-awesome.min.css',
+        'css/mediaelementplayer.min.css'
     ];
     public $js = [
-
+        'js/mediaelement-and-player.min.js',
+        'js/main.js',
+        'js/jquery.mask.js'
     ];
     //приоритет закгрузки js скриптов в yii
     public $jsOptions = array(

@@ -42,7 +42,8 @@ return [
             'enableStrictParsing' => true,
             'rules' => [
                 '/'=>'site/index',
-                '<action:\w+>'=>'site/<action>',
+                'card/<param:.+>'=>'site/card',
+                '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
             ],
         ],
 

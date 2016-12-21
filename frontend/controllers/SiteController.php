@@ -7,7 +7,7 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use frontend\models\Authorize;
+use common\models\Authorize;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
@@ -69,11 +69,11 @@ class SiteController extends Controller
     {
         return $this->render('index');
     }
-    public function actionCard($param)
+    public function actionBlog()
     {
-        print_r($param);
-
+        return $this->render('blog');
     }
+
     public function actionCatalog()
     {
         return $this->render('catalog');
@@ -83,10 +83,18 @@ class SiteController extends Controller
     {
         return $this->render('calendar');
     }
-    public function actionThe_best()
+
+    public function actionCategory()
     {
-        return $this->render('the_best');
+        return $this->render('category');
     }
+
+    public function actionCard()
+    {
+        return $this->render('card');
+    }
+
+
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {

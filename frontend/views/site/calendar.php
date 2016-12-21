@@ -1,48 +1,192 @@
 <?php
-
-/* @var $this yii\web\View */
-
-use yii\helpers\Html;
-
-$this->title = 'Открытки к празднику';
+$this->title = 'Календарь';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-about">
-    <div class="calendar-image"></div>
-    <div class="caption">
-         <h1><?= Html::encode($this->title) ?></h1>
+
+<section id="calendar">
+    <h1 class="staled-hr-bottom m-b-20">Открытки к празднику</h1>
+    <div class="calendar-mou">
+        <a href="#">Январь</a>
+        <a href="#">Май</a>
+        <a href="#">Сентябрь</a>
+        <a href="#">Февраль</a>
+        <a href="#">Июнь</a>
+        <a href="#">Октябрь</a>
+        <a href="#">Март</a>
+        <a href="#">Июль</a>
+        <a href="#">Ноябрь</a>
+        <a href="#">Май</a>
+        <a href="#">Август</a>
+        <a href="#">Декабрь</a>
     </div>
-
-    <div class="line1"></div>
-    <div class="calendar-list">
-        <ul>
-            <li>Январь</li>
-            <li>Февраль</li>
-            <li>Март</li>
-            <li>Апрель</li>
-        </ul>
-
-        <ul>
-            <li>Май</li>
-            <li>Июнь</li>
-            <li>Июль</li>
-            <li>Август</li>
-        </ul>
-
-        <ul>
-            <li>Сентябрь</li>
-            <li>Октябрь</li>
-            <li>Ноябрь</li>
-            <li>Декабрь</li>
-        </ul>
-    </div>
+    <hr class="yellow-line m-t-20">
+    <hr class="grey-line">
     <div class="clear"></div>
-    <div class="line2"></div>
+    <h2 class="m-t-20 m-b-20">Праздники в октябре</h2>
 
-</div>
+    <div class="calendar-table">
+        <div class="table-row">
+            <div class="table-name">Понедельник</div>
+            <div class="calendar-day">
+                <span class="date-day">26 сентебря</span>
+                <span class="im">Именины:</span>
+                <div class="celebration-day">
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>
+                </div>
+            </div>
+            <div class="calendar-day">
+                <span class="date-day">26 сентебря</span>
+                <span class="im">Именины:</span>
+                <div class="celebration-day">
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>
+                </div>
+            </div>
+        </div>
+        <div class="table-row">
+            <div class="table-name">Вторник</div>
+            <div class="calendar-day">
+                <span class="date-day">26 сентебря</span>
+                <span class="im">Именины:</span>
+                <div class="celebration-day">
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>
+                </div>
+            </div>
+            <div class="calendar-day">
+                <span class="date-day">26 сентебря</span>
+                <span class="im">Именины:</span>
+                <div class="celebration-day">
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>
+                </div>
+            </div>
+        </div>
+        <div class="table-row">
+            <div class="table-name">Среда</div>
+            <div class="calendar-day">
+                <span class="date-day">26 сентебря</span>
+                <span class="im">Именины:</span>
+                <div class="celebration-day">
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>
+                </div>
+            </div>
+            <div class="calendar-day">
+                <span class="date-day">26 сентебря</span>
+                <span class="im">Именины:</span>
+                <div class="celebration-day">
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>
+                </div>
+            </div>
+        </div>
+        <div class="table-row">
+            <div class="table-name">Четверг</div>
+            <div class="calendar-day">
+                <span class="date-day">26 сентебря</span>
+                <span class="im">Именины:</span>
+                <div class="celebration-day">
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>
+                </div>
+            </div>
+            <div class="calendar-day">
+                <span class="date-day">26 сентебря</span>
+                <span class="im">Именины:</span>
+                <div class="celebration-day">
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>
+                </div>
+            </div>
+        </div>
+        <div class="table-row">
+            <div class="table-name">Пятница</div>
+            <div class="calendar-day">
+                <span class="date-day">26 сентебря</span>
+                <span class="im">Именины:</span>
+                <div class="celebration-day">
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>
+                </div>
+            </div>
+            <div class="calendar-day current">
+                <span class="date-day">26 сентебря</span>
+                <span class="im">Именины:</span>
+                <div class="celebration-day">
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>
+                </div>
+            </div>
+        </div>
+        <div class="table-row holiday">
+            <div class="table-name">Суббота</div>
+            <div class="calendar-day">
+                <span class="date-day">26 сентебря</span>
+                <span class="im">Именины:</span>
+                <div class="celebration-day">
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>
+                </div>
+            </div>
+            <div class="calendar-day">
+                <span class="date-day">26 сентебря</span>
+                <span class="im">Именины:</span>
+                <div class="celebration-day">
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>
+                </div>
+            </div>
+        </div>
+        <div class="table-row holiday">
+            <div class="table-name">Воскресенье</div>
+            <div class="calendar-day">
+                <span class="date-day">26 сентебря</span>
+                <span class="im">Именины:</span>
+                <div class="celebration-day">
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>
+                </div>
+            </div>
+            <div class="calendar-day">
+                <span class="date-day">26 сентебря</span>
+                <span class="im">Именины:</span>
+                <div class="celebration-day">
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>,
+                    <a href="#">Илья</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div id="smsaero_widget"></div>
-<script src='http://smsaero.ru/service/widget/js/P6lk9Tzduzm3TcCWkyrZwvo6It8BQX5C' type='text/javascript'></script>
-<script>
-    SMSAERO_WIDGET.init("smsaero_widget");
-</script>
+</section>
+

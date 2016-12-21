@@ -7,7 +7,6 @@ use yii\widgets\Menu;
 use frontend\assets\AppAsset;
 
 AppAsset::register($this);
-
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -43,7 +42,7 @@ AppAsset::register($this);
                     <?=Menu::widget([
                         'items' => [
                             ['label' => 'О проекте', 'url' => ['site/index']],
-                            ['label' => 'Блог', 'url' => ['product/index']],
+                            ['label' => 'Блог', 'url' => ['/site/blog']],
                             ['label' => 'Личный кабинет', 'url' => ['site/login']],
                         ],
                     ]); ?>
@@ -67,7 +66,7 @@ AppAsset::register($this);
     <nav class="header-menu">
         <?=Menu::widget([
             'items' => [
-                ['label' => 'Каталог поздравлений', 'url' => ['site/index']],
+                ['label' => 'Каталог поздравлений', 'url' => ['site/catalog']],
                 ['label' => 'ХИТЫ', 'url' => ['product/index']],
                 ['label' => 'Новинки', 'url' => ['site/login']],
                 ['label' => 'Календарь праздников', 'url' => ['site/calendar']],
@@ -77,12 +76,12 @@ AppAsset::register($this);
     </nav>
 
     <section>
-        <div class="container d-flex">
+        <div class="container d-flex m-b-25">
             <?=Breadcrumbs::widget([
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ]);?>
         </div>
-        <div class="container d-flex-s-b p-b-60">
+        <div class="container d-flex-s-b p-b-60 main-content space-around">
 
             <div class="left-content">
                 <?= $content ?>
