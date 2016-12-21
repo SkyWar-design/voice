@@ -7,6 +7,11 @@ $(document).ready(function () {
         features: ['playpause']
     });
     $('.category-title').on('click', function () {
+        $('.category-title').each(function () {
+            if( $(this).hasClass('active') )   {
+                $(this).removeClass('active').next().slideUp();
+            }
+        });
         if( !$(this).hasClass('active') ){
             $(this).addClass('active').next().slideDown();
         }
