@@ -9,11 +9,10 @@ use frontend\assets\AppAsset;
 AppAsset::register($this);
 
 $categories = $this->context->categories;
-
+$css_style_categories = Yii::$app->params['css_style_categories'];
 echo '<pre>';
-print_r(Yii::$app->params['css_style_categories']);
+print_r($categories);
 echo '</pre>';
-var_dump($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
