@@ -696,6 +696,9 @@ footer .logo{
     vertical-align: middle;
     margin-right: 15px;
 }
+.subcategories{
+    display: none;
+}
 .clear{
     clear: both;
 }

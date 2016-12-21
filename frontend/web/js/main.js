@@ -6,4 +6,12 @@ $(document).ready(function () {
         enableAutosize: false,
         features: ['playpause']
     });
+    $('.category-title').on('click', function () {
+        if( !$(this).hasClass('active') ){
+            $(this).addClass('active').parent().next().slideDown();
+        }
+        else{
+            $(this).removeClass('active').parent().next().slideUp();
+        }
+    })
 });

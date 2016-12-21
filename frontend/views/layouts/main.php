@@ -84,7 +84,7 @@ $css_style_categories = Yii::$app->params['css_style_categories'];
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ]);?>
         </div>
-        <div class="container d-flex-s-b p-b-60 main-content space-around">
+        <div class="container d-flex-s-b p-b-60 main-content">
 
             <div class="left-content">
                 <?= $content ?>
@@ -102,7 +102,7 @@ $css_style_categories = Yii::$app->params['css_style_categories'];
                                     <span><?=$category_subcategory['name_category'] ?></span>
                                     <span class="arrow"></span>
                                 </div>
-                                <ul>
+                                <ul class="subcategories">
                                     <?php foreach ( $category_subcategory['subcategories'] as $subcategories_id => $subcategories ): ?>
                                         <li><a href="<?=Url::toRoute('site/category/'.$subcategories_id) ?>"><?=$subcategories ?></a></li>
                                     <?php endforeach; ?>
