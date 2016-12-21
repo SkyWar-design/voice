@@ -59,35 +59,35 @@ class Category extends \yii\db\ActiveRecord
     public static function getListCategory(){
         $categories = self::find()->all();
         $list_categories = [];
-        echo '<pre>';
-        print_r($categories);
-        echo '</pre>';
-//        foreach ( $categories as $category ){
-//            if( $category->this_id == NULL ){
-//                if( isset($list_categories[$category->this_id]) ){
-//                    $list_categories[$category->id]['name_category'] = $category->name;
-//                }
-//                else{
-//                    $list_categories[$category->id] = [
-//                        'name_category' => $category->name,
-//                        'subcategories' => []
-//                    ];
-//                }
-//            }
-//            else{
-//                if( isset($list_categories[$category->this_id]) ){
-//                    $list_categories[$category->id]['subcategories'][$category->id] = $category->name;
-//                }
-//                else{
-//                    $list_categories[$category->id] = [
-//                        'name_category' => false,
-//                        'subcategories' => [
-//                            $category->id => $category->name
-//                        ]
-//                    ];
-//                }
-//            }
-//        }
+//        echo '<pre>';
+//        print_r($categories);
+//        echo '</pre>';
+        foreach ( $categories as $category ){
+            if( $category->this_id == NULL ){
+                if( isset($list_categories[$category->this_id]) ){
+                    $list_categories[$category->id]['name_category'] = $category->name;
+                }
+                else{
+                    $list_categories[$category->id] = [
+                        'name_category' => $category->name,
+                        'subcategories' => []
+                    ];
+                }
+            }
+            else{
+                if( isset($list_categories[$category->this_id]) ){
+                    $list_categories[$category->id]['subcategories'][$category->id] = $category->name;
+                }
+                else{
+                    $list_categories[$category->id] = [
+                        'name_category' => false,
+                        'subcategories' => [
+                            $category->id => $category->name
+                        ]
+                    ];
+                }
+            }
+        }
         return $list_categories;
     }
 }
