@@ -5,10 +5,13 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\widgets\Menu;
 use frontend\assets\AppAsset;
-use \common\models\Category;
+
 AppAsset::register($this);
+
+$categories = $this->context->categories;
+
 echo '<pre>';
-print_r($this->context->categories);
+print_r($this->context->params['css_style_categories']);
 echo '</pre>';
 var_dump($this);
 ?>
