@@ -7,9 +7,10 @@ use yii\widgets\Menu;
 use frontend\assets\AppAsset;
 use \common\models\Category;
 AppAsset::register($this);
-
-$category = Category::find();
-var_dump($category);
+$categories = Category::getListCategory();
+echo '<pre>';
+print_r($categories);
+echo '</pre>';
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

@@ -54,4 +54,37 @@ class Category extends \yii\db\ActiveRecord
             'count_card' => 'Count Card',
         ];
     }
+
+
+    public static function getListCategory(){
+        $categories = self::find()->select('*');
+        $list_categories = [];
+        foreach ( $categories as $category ){
+            if( $category->this_id == NULL ){
+                if( isset($list_categories[$category->this_id]) ){
+                    $list_categories[$category->id]['name_category'] = $category->name;
+                }
+                else{
+                    $list_categories[$category->id] = [
+                        'name_category' => $category->name,
+                        'subcategories' => []
+                    ];
+                }
+            }
+            else{
+                if( isset($list_categories[$category->this_id]) ){
+                    $list_categories[$category->id]['subcategories'][$category->id] = $category->name;
+                }
+                else{
+                    $list_categories[$category->id] = [
+                        'name_category' => false,
+                        'subcategories' => [
+                            $category->id => $category->name
+                        ]
+                    ];
+                }
+            }
+        }
+        return $list_categories;
+    }
 }
