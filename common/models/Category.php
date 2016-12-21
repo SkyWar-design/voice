@@ -76,10 +76,10 @@ class Category extends \yii\db\ActiveRecord
             }
             else{
                 if( isset($list_categories[$category->this_id]) ){
-                    $list_categories[$category->id]['subcategories'][$category->id] = $category->name;
+                    $list_categories[$category->this_id]['subcategories'][$category->id] = $category->name;
                 }
                 else{
-                    $list_categories[$category->id] = [
+                    $list_categories[$category->this_id] = [
                         'name_category' => false,
                         'subcategories' => [
                             $category->id => $category->name
