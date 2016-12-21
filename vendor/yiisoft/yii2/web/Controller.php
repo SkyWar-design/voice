@@ -10,7 +10,7 @@ namespace yii\web;
 use Yii;
 use yii\base\InlineAction;
 use yii\helpers\Url;
-
+use \common\models\Category;
 /**
  * Controller is the base class of web controllers.
  *
@@ -29,6 +29,11 @@ class Controller extends \yii\base\Controller
      */
     public $actionParams = [];
 
+    public $categories = [];
+
+    public function setCategories(){
+        $this->categories = Category::getListCategory();
+    }
 
     /**
      * Renders a view in response to an AJAX request.

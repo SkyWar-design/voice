@@ -7,9 +7,8 @@ use yii\widgets\Menu;
 use frontend\assets\AppAsset;
 use \common\models\Category;
 AppAsset::register($this);
-$categories = Category::getListCategory();
 echo '<pre>';
-print_r($categories);
+print_r($this->categories);
 echo '</pre>';
 var_dump($this);
 ?>
