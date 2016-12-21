@@ -8,7 +8,7 @@ use frontend\assets\AppAsset;
 use \common\models\Category;
 AppAsset::register($this);
 echo '<pre>';
-print_r($this->categories);
+print_r($this->context->categories);
 echo '</pre>';
 var_dump($this);
 ?>
