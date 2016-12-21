@@ -5,8 +5,11 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\widgets\Menu;
 use frontend\assets\AppAsset;
-
+use \common\models\Category;
 AppAsset::register($this);
+
+$category = Category::find();
+var_dump($category);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
