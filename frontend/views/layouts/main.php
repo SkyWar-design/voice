@@ -11,6 +11,7 @@ $categories = Category::getListCategory();
 echo '<pre>';
 print_r($categories);
 echo '</pre>';
+var_dump($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
