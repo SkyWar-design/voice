@@ -11,7 +11,7 @@ AppAsset::register($this);
 $categories = $this->context->categories;
 
 echo '<pre>';
-print_r($this->context->params['css_style_categories']);
+print_r(Yii::$app->params['css_style_categories']);
 echo '</pre>';
 var_dump($this);
 ?>
