@@ -8,10 +8,10 @@ $(document).ready(function () {
     });
     $('.category-title').on('click', function () {
         if( !$(this).hasClass('active') ){
-            $(this).addClass('active').parent().next().slideDown();
+            $(this).addClass('active').next().slideDown();
         }
         else{
-            $(this).removeClass('active').parent().next().slideUp();
+            $(this).removeClass('active').next().slideUp();
         }
     })
 });
