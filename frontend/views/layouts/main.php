@@ -9,10 +9,7 @@ use frontend\assets\AppAsset;
 AppAsset::register($this);
 
 $categories = $this->context->categories;
-$css_style_categories = Yii::$app->params['css_style_categories'];
-echo '<pre>';
-print_r($categories);
-echo '</pre>';
+$css_style_categories = $this->params['css_style_categories'];
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -98,102 +95,24 @@ echo '</pre>';
                     <hr class="grey-line">
                     <div class="category-menu">
 
-                        <div class="category-row">
-                            <div class="category-title active">
-                                <span class="category-icon-min" id="happy-bth"></span>
-                                <span>С днем рождения</span>
-                                <span class="arrow"></span>
+                        <?php foreach ( $categories as $main_category_id => $category_subcategory ): //add class active to category-row ?>
+                            <div class="category-row">
+                                <div class="category-title">
+                                    <span class="category-icon-min" id="<?=$css_style_categories[$main_category_id] ?>"></span>
+                                    <span><?=$category_subcategory['name_category'] ?></span>
+                                    <span class="arrow"></span>
+                                </div>
+                                <ul>
+                                    <?php foreach ( $category_subcategory['subcategories'] as $subcategories_id => $subcategories ): ?>
+                                        <li><a href="<?=Url::toRoute('site/category/'.$subcategories_id) ?>"><?=$subcategories ?></a></li>
+                                    <?php endforeach; ?>
+                                </ul>
                             </div>
-                            <ul>
-                                <li><a href="#">Музыкальные открытки</a></li>
-                                <li><a href="#">Музыкальные открытки</a></li>
-                                <li><a href="#">Музыкальные открытки</a></li>
-                            </ul>
-                        </div>
-
+                        <?php endforeach; ?>
+                        
                         <div class="category-row">
                             <div class="category-title">
                                 <span class="category-icon-min" id="celebration"></span>
-                                <span>С днем рождения</span>
-                                <span class="arrow"></span>
-                            </div>
-                        </div>
-
-                        <div class="category-row">
-                            <div class="category-title">
-                                <span class="category-icon-min" id="love"></span>
-                                <span>С днем рождения</span>
-                                <span class="arrow"></span>
-                            </div>
-                        </div>
-
-                        <div class="category-row">
-                            <div class="category-title">
-                                <span class="category-icon-min" id="funny"></span>
-                                <span>С днем рождения</span>
-                                <span class="arrow"></span>
-                            </div>
-                        </div>
-
-                        <div class="category-row">
-                            <div class="category-title">
-                                <span class="category-icon-min" id="song"></span>
-                                <span>С днем рождения</span>
-                                <span class="arrow"></span>
-                            </div>
-                        </div>
-
-                        <div class="category-row">
-                            <div class="category-title">
-                                <span class="category-icon-min" id="ever"></span>
-                                <span>С днем рождения</span>
-                                <span class="arrow"></span>
-                            </div>
-                        </div>
-
-                        <div class="category-row">
-                            <div class="category-title">
-                                <span class="category-icon-min" id="study"></span>
-                                <span>С днем рождения</span>
-                                <span class="arrow"></span>
-                            </div>
-                        </div>
-
-                        <div class="category-row">
-                            <div class="category-title">
-                                <span class="category-icon-min" id="profession"></span>
-                                <span>С днем рождения</span>
-                                <span class="arrow"></span>
-                            </div>
-                        </div>
-
-                        <div class="category-row">
-                            <div class="category-title">
-                                <span class="category-icon-min" id="mar"></span>
-                                <span>С днем рождения</span>
-                                <span class="arrow"></span>
-                            </div>
-                        </div>
-
-                        <div class="category-row">
-                            <div class="category-title">
-                                <span class="category-icon-min" id="feb"></span>
-                                <span>С днем рождения</span>
-                                <span class="arrow"></span>
-                            </div>
-                        </div>
-
-                        <div class="category-row">
-                            <div class="category-title">
-                                <span class="category-icon-min" id="svd"></span>
-                                <span>С днем рождения</span>
-                                <span class="arrow"></span>
-                            </div>
-                        </div>
-
-                        <div class="category-row">
-                            <div class="category-title">
-                                <span class="category-icon-min" id="new"></span>
                                 <span>С днем рождения</span>
                                 <span class="arrow"></span>
                             </div>
