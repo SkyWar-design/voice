@@ -57,7 +57,7 @@ class Category extends \yii\db\ActiveRecord
 
 
     public static function getListCategory(){
-        $categories = self::find()->select('*');
+        $categories = self::find()->all();
         $list_categories = [];
         echo '<pre>';
         print_r($categories);
