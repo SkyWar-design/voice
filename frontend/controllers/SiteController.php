@@ -25,20 +25,6 @@ class SiteController extends Controller
         $this->setCategories();//вызовем функцию для заполнения категорий
     }
 
-    //генерируем уникальный хэш для localstorage что бы запоминать пользователь на уровне браузера и в дальнейшем перенести пользователь со статистикой в личный кабинет
-    public function actionGetUserHash(){
-        if( Yii::$app->request->isAjax ){
-            $hash = '';
-            $random_letter = array_merge(range('A','Z'),range('a','z'),range('0','9'));
-            $c = count($random_letter);
-            for($i=0;$i<28;$i++) {$hash .= $random_letter[rand(0,$c)];}
-            echo json_encode(['result' => true, 'hash' => $hash]);
-        }
-        else{
-            $this->redirect('/');
-        }
-    }
-
     /**
      * @inheritdoc
      */
@@ -115,6 +101,19 @@ class SiteController extends Controller
         return $this->render('card');
     }
 
+    //генерируем уникальный хэш для localstorage что бы запоминать пользователь на уровне браузера и в дальнейшем перенести пользователь со статистикой в личный кабинет
+    public function actionGetUserHash(){
+        if( Yii::$app->request->isAjax ){
+            $hash = '';
+            $random_letter = array_merge(range('A','Z'),range('a','z'),range('0','9'));
+            $c = count($random_letter);
+            for($i=0;$i<28;$i++) {$hash .= $random_letter[rand(0,$c)];}
+            echo json_encode(['result' => true, 'hash' => $hash]);
+        }
+        else{
+            $this->redirect('/');
+        }
+    }
 
     public function actionLogin()
     {
