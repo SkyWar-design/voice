@@ -1,4 +1,24 @@
+var user = {
+    authorization: function () {
+        if( localStorage['user_hash'] == undefined ){
+            $.ajax({
+                url: '/user/get/hash',
+                type: 'post',
+                dataType: 'json',
+                success: function (xhr) {
+                    if( xhr.result ){
+                        localStorage['user_hash'] = xhr.hash;
+                    }
+                }
+            });
+        }
+    }    
+};
+
 $(document).ready(function () {
+    //авторизуем пользователя на уровне браузера
+    user.authorization();
+
     $('audio.min').mediaelementplayer({
         audioWidth: 57,
         audioHeight: 57,

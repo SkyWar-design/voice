@@ -41,6 +41,7 @@ return [
             'showScriptName' => false,
             'enableStrictParsing' => true,
             'rules' => [
+                'user/get/hash' => 'site/getUserHash',
                 '/'=>'site/index',
                 'card/<param:.+>'=>'site/card',
                 '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
