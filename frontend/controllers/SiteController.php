@@ -102,7 +102,8 @@ class SiteController extends Controller
     }
 
     //генерируем уникальный хэш для localstorage что бы запоминать пользователь на уровне браузера и в дальнейшем перенести пользователь со статистикой в личный кабинет
-    public function actionUserHash(){
+    public function actionHash(){
+        echo 1;
         if( Yii::$app->request->isAjax ){
             $hash = '';
             $random_letter = array_merge(range('A','Z'),range('a','z'),range('0','9'));
