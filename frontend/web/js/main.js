@@ -15,7 +15,9 @@ $(document).ready(function () {
             $this.removeClass('active').next().slideUp(100);
         }
         setTimeout(function () {
-            $this.on('click',right_menu($this));
+            $this.on('click',function () {
+                right_menu($this);
+            });
         },100)
     };
     $('.category-title').on('click', function () {
