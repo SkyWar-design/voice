@@ -6,15 +6,19 @@ $(document).ready(function () {
         enableAutosize: false,
         features: ['playpause']
     });
-    $('.category-title').on('click', function () {
-        $('.category-title').removeClass('active').next().slideUp();
+    var right_menu = function ($this) {
+        $this.unbind('click');
+        if( !$this.hasClass('active') ){
+            $this.addClass('active').next().slideDown(100);
+        }
+        else{
+            $this.removeClass('active').next().slideUp(100);
+        }
         setTimeout(function () {
-            if( !$(this).hasClass('active') ){
-                $(this).addClass('active').next().slideDown();
-            }
-            else{
-                $(this).removeClass('active').next().slideUp();
-            }
-        },50)
+            $this.on('click',right_menu($this));
+        },100)
+    };
+    $('.category-title').on('click', function () {
+        right_menu($(this));
     })
 });
