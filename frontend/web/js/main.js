@@ -8,11 +8,13 @@ $(document).ready(function () {
     });
     $('.category-title').on('click', function () {
         $('.category-title').removeClass('active').next().slideUp();
-        if( !$(this).hasClass('active') ){
-            $(this).addClass('active').next().slideDown();
-        }
-        else{
-            $(this).removeClass('active').next().slideUp();
-        }
+        setTimeout(function () {
+            if( !$(this).hasClass('active') ){
+                $(this).addClass('active').next().slideDown();
+            }
+            else{
+                $(this).removeClass('active').next().slideUp();
+            }
+        },50)
     })
 });
