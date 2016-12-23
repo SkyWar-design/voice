@@ -1102,6 +1102,9 @@ h1.new-big:before{
 .sub-category a:hover span{
     color: #d1d1d1;
 }
+.sub-category a.active{
+    color: #464646;
+}
 .sub-category a,
 .calendar-mou a{
     width: 263px;
