@@ -83,10 +83,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'itemView' => '_category_card',
         'layout' => "{items}\n{pager}",
         'pager' => [
-            'firstPageLabel' => '&laquo;',
-            'lastPageLabel' => '&raquo;',
-            'nextPageLabel' => '&rsaquo;',
-            'prevPageLabel' => '&lsaquo;',
+            'firstPageLabel' => '<i class="fa fa-angle-double-left fa-2" aria-hidden="true"></i>',
+            'lastPageLabel' => '<i class="fa fa-angle-double-right fa-2" aria-hidden="true"></i>',
+            'nextPageLabel' => '<i class="fa fa-angle-right fa-2" aria-hidden="true"></i>',
+            'prevPageLabel' => '<i class="fa fa-angle-left fa-2" aria-hidden="true"></i>',
             'maxButtonCount' => 12,
         ],
     ]);

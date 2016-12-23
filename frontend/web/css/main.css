@@ -618,6 +618,21 @@ hr{
     display: flex;
     justify-content: space-around;
     margin-top: 40px;
+    height: 68px;
+    background: #f0f0f0;
+    align-items: center;
+}
+ul.pagination li a,
+ul.pagination li span{
+    width: 34px;
+    height: 34px;
+    text-align: center;
+    background: #c2c2c2;
+    display: inline-block;
+    line-height: 34px;
+    border-radius: 17px;
+    font-size: 18px;
+    color: #fff;
 }
 .category-icon-min{
     display: inline-block;
