@@ -1104,6 +1104,7 @@ h1.new-big:before{
 }
 .sub-category a.active{
     color: #464646;
+    text-decoration: underline;
 }
 .sub-category a,
 .calendar-mou a{
