@@ -24,6 +24,7 @@ class SiteController extends Controller
 {
     public $session;
     public $db;
+    public $css_style;
 
     public function init()
     {
@@ -130,11 +131,13 @@ class SiteController extends Controller
 
         $categories = $this->categories;
         $css_style_categories = Yii::$app->params['css_style_categories'];
+
+        $this->css_style = $css_style_categories[$main_category->id];
+
         return $this->render('category',[
             'current_category' => $current_category,
             'main_category' => $main_category,
             'categories' => $categories,
-            'css_style_categories' => $css_style_categories,
             'dataProvider' => $dataProvider
         ]);
     }
