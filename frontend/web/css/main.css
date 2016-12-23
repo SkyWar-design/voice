@@ -626,7 +626,7 @@ ul.pagination li.active a{
     background: #464646;
 }
 ul.pagination li span{
-    background: #dfdfdf;
+    background: #dfdfdf!important;
 }
 ul.pagination li a,
 ul.pagination li span{
