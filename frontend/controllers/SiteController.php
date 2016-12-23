@@ -105,6 +105,7 @@ class SiteController extends Controller
 
     public function actionCard()
     {
+        var_dump($this->session['user_id']);
         return $this->render('card');
     }
 
@@ -138,7 +139,7 @@ class SiteController extends Controller
                     ->queryOne();
                 $this->session['user_id'] = $user_id['id'];
                 Yii::$app->response->format = Response::FORMAT_JSON;
-                return ['result' => true, 'hash' => $hash];
+                return ['result' => true, 'hash' => $this->session['user_id']];
             }
             else{
                 return $this->redirect('/');
