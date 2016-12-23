@@ -81,7 +81,7 @@ class CardVoice extends \yii\db\ActiveRecord
     }
 
     public function getPage(){
-        return $this->hasOne(Page::className(), ['id' => 'card_id']);
+        return $this->hasOne(Page::className(), ['card_id' => 'id']);
     }
 
     /**
