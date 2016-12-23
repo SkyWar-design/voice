@@ -613,6 +613,12 @@ hr{
     font-size: 21px;
     line-height:40px;
 }
+.pagination{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
 .category-icon-min{
     display: inline-block;
     width: 40px;

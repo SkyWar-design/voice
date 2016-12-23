@@ -82,6 +82,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'itemView' => '_category_card',
         'layout' => "{items}\n{pager}",
+        'pager' => [
+            'firstPageLabel' => '&laquo;',
+            'lastPageLabel' => '&raquo;',
+            'nextPageLabel' => '&rsaquo;',
+            'prevPageLabel' => '&lsaquo;',
+            'maxButtonCount' => 12,
+        ],
     ]);
 
     ?>
