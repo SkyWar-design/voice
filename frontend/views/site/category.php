@@ -81,6 +81,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?=ListView::widget([
         'dataProvider' => $dataProvider,
         'itemView' => '_category_card',
+        'layout' => "{items}\n{pager}",
     ]);
 
     ?>

@@ -621,14 +621,16 @@ hr{
     vertical-align: top;
     margin-right: 10px;
 }
-.d-flex-s-b,
-.list-view{
+.d-flex-s-b{
     display: flex;
     justify-content: space-between;
     flex-flow: row wrap;
 }
 .list-view{
     width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
 }
 .list-view > div{
     width: 195px;
