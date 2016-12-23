@@ -123,7 +123,7 @@ class SiteController extends Controller
                 ->one();
         }
         else{
-            $add_condition = ' OR (category_id IN ('.implode(', ',array_keys($categories[$current_category->id]['subcategories'])).'))';
+            $add_condition = ' OR category_id IN ('.implode(', ',array_keys($categories[$current_category->id]['subcategories'])).'))';
             $main_category = $current_category;
         }
 
