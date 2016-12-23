@@ -632,6 +632,10 @@ hr{
 }
 .list-view > div{
     width: 195px;
+    margin-right: 98px;
+}
+.list-view > div:nth-child(3n+3) {
+    margin-right: 0;
 }
 .footer-row{
     margin-top:18px;

@@ -77,7 +77,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
     <hr class="grey-line m-b-20 w-100-p">
-    
+
     <?=ListView::widget([
         'dataProvider' => $dataProvider,
         'itemView' => '_category_card',
