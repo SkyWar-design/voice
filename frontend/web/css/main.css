@@ -656,12 +656,11 @@ ul.pagination li span{
 .list-view{
     width: 100%;
     display: flex;
-    justify-content: space-around;
     flex-flow: row wrap;
 }
 .list-view > div{
     width: 195px;
-    margin-right: 98px;
+    margin-right: 105px;
 }
 .list-view > div:nth-child(3n+3) {
     margin-right: 0;
