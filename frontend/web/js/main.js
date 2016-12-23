@@ -16,7 +16,10 @@ var user = {
             $.ajax({
                 url: '/user/set/hash',
                 type: 'post',
-                dataType: 'json'
+                dataType: 'json',
+                data: {
+                    hash: localStorage['user_hash']
+                }
             });
         }
     }    
