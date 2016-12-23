@@ -1,4 +1,5 @@
 <div class="player-min-content d-flex-s-b">
+    <?php var_dump($css_style) ?>
     <div class="player-min">
         <audio src="/mp3/test.mp3" class="min"></audio>
         <span class="small-text w-100-p text-center inline">слушать</span>
