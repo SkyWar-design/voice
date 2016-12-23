@@ -660,7 +660,7 @@ ul.pagination li span{
 }
 .list-view > div{
     width: 195px;
-    margin-right: 105px;
+    margin-right: 132px;
 }
 .list-view > div:nth-child(3n+3) {
     margin-right: 0;
