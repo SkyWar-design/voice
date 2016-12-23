@@ -44,7 +44,7 @@ return [
                 '/'=>'site/index',
                 'user/get/hash' => 'site/hash',
                 'user/set/hash' => 'site/session',
-                'category/<param:.+>'=>'site/category',
+                'category/<id:.+>'=>'site/category',
                 '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
             ],
         ],
