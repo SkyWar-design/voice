@@ -622,7 +622,7 @@ hr{
     background: #f0f0f0;
     align-items: center;
 }
-ul.pagination li a.active{
+ul.pagination li.active a{
     background: #464646;
 }
 ul.pagination li span{
