@@ -12,6 +12,13 @@ var user = {
                 }
             });
         }
+        else{
+            $.ajax({
+                url: '/user/set/hash',
+                type: 'post',
+                dataType: 'json'
+            });
+        }
     }    
 };
 

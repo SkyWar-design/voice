@@ -20,9 +20,15 @@ use yii\web\Response;
  */
 class SiteController extends Controller
 {
+    public $session;
+    public $db;
+
     public function init()
     {
         parent::init();
+        $this->session = Yii::$app->session; //создаем сесию
+        $this->session->open();
+        $this->db = Yii::$app->db;
         $this->setCategories();//вызовем функцию для заполнения категорий
     }
 
@@ -102,7 +108,7 @@ class SiteController extends Controller
         return $this->render('card');
     }
 
-    //генерируем уникальный хэш для localstorage что бы запоминать пользователь на уровне браузера и в дальнейшем перенести пользователь со статистикой в личный кабинет
+    //генерируем уникальный хэш для localstorage что бы запоминать пользователь на уровне браузера и в дальнейшем перенести пользователя со статистикой в личный кабинет
     public function actionHash(){
         if( Yii::$app->request->isAjax ){
             $hash = '';
@@ -111,8 +117,32 @@ class SiteController extends Controller
             for($i=0;$i<28;$i++) {
                 $hash .= $random_letter[rand(0,$c)];
             }
+            $this->db->createCommand('INSERT INTO users(local_storage_hash) VALUES (:hash)')
+                ->bindValue(':hash', $hash)
+                ->execute();
+            $this->session['user_id'] = $this->db->getLastInsertID();
             Yii::$app->response->format = Response::FORMAT_JSON;
             return ['result' => true, 'hash' => $hash];
+        }
+        else{
+            return $this->redirect('/');
+        }
+    }
+    //если hash у пользователя уже есть запомним его
+    public function actionSession(){
+        if( Yii::$app->request->isAjax ){
+            $hash = Yii::$app->request->post('hash', false);
+            if( $hash ){
+                $user_id = $this->db->createCommand('SELECT id FROM users WHERE local_storage_hash=:hash')
+                    ->bindValue(':hash', $hash)
+                    ->queryOne();
+                $this->session['user_id'] = $user_id['id'];
+                Yii::$app->response->format = Response::FORMAT_JSON;
+                return ['result' => true, 'hash' => $hash];
+            }
+            else{
+                return $this->redirect('/');
+            }
         }
         else{
             return $this->redirect('/');

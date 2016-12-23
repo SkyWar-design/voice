@@ -42,6 +42,7 @@ return [
             'enableStrictParsing' => true,
             'rules' => [
                 'user/get/hash' => 'site/hash',
+                'user/set/hash' => 'site/session',
                 '/'=>'site/index',
                 'card/<param:.+>'=>'site/card',
                 '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
