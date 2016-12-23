@@ -1406,7 +1406,8 @@ input[type="radio"]:checked + .radio:before{
     .m-hidden{
         display: none;
     }
-    .player-min-content{
+    .player-min-content,
+    .list-view > div{
         display: inline-block;
         text-align: left;
     }
@@ -1456,7 +1457,8 @@ input[type="radio"]:checked + .radio:before{
         width: auto;
         max-width: none;
     }
-    .player-min-content{
+    .player-min-content,
+    .list-view > div{
         margin-right:0;
     }
     .blog-img{
