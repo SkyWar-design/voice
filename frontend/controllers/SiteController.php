@@ -106,7 +106,8 @@ class SiteController extends Controller
 
     public function actionCategory($id)
     {
-        var_dump($id);
+        $category = Category::find()->where(['=','id', $id]);
+        var_dump($category);
 //        $dataProvider = new ActiveDataProvider([
 //            'query' => News::find()->where(['visibility'=>1])->orderBy('date DESC'),
 //            'pagination' => [

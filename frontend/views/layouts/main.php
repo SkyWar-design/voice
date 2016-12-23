@@ -104,7 +104,7 @@ $css_style_categories = Yii::$app->params['css_style_categories'];
                                 </div>
                                 <ul class="subcategories">
                                     <?php foreach ( $category_subcategory['subcategories'] as $subcategories_id => $subcategories ): ?>
-                                        <li><a href="<?=Url::toRoute('site/category/'.$subcategories_id) ?>"><?=$subcategories ?></a></li>
+                                        <li><a href="<?=Url::toRoute(['site/category/', 'id' => $subcategories_id]) ?>"><?=$subcategories ?></a></li>
                                     <?php endforeach; ?>
                                 </ul>
                             </div>

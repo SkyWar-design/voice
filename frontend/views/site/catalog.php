@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <a href="<?=Url::toRoute(['site/category/', 'id' => $main_category_id]) ?>"><h2 class="<?=$css_style_categories[$main_category_id] ?>-big"><?=$category_subcategory['name_category'] ?></h2></a>
             <div class="sub-category">
                 <?php foreach( $category_subcategory['subcategories'] as $subcategories_id => $subcategories  ): ?>
-                    <a href="<?=Url::toRoute('site/category/'.$subcategories_id) ?>"><?=$subcategories ?></a>
+                    <a href="<?=Url::toRoute(['site/category/', 'id' => $subcategories_id]) ?>"><?=$subcategories ?></a>
                 <?php endforeach; ?>
             </div>
             <hr class="yellow-line m-t-30">
