@@ -627,6 +627,12 @@ hr{
     justify-content: space-between;
     flex-flow: row wrap;
 }
+.list-view{
+    width: 100%;
+}
+.list-view > div{
+    width: 195px;
+}
 .footer-row{
     margin-top:18px;
 }
