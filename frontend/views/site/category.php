@@ -1,23 +1,16 @@
 <?php
-$this->title = 'Название категории';
+use yii\helpers\Url;
+
+$this->title = $current_category->name;
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <section id="category">
-    <h1 class="staled-hr-bottom">Поздравительные открытки с днем рождения</h1>
+    <h1 class="staled-hr-bottom"><?=$main_category->name ?></h1>
     <div class="sub-category">
-        <a href="/site/category">Подкатегория <span>(251)</span></a>
-        <a href="#">Подкатегория <span>(251)</span></a>
-        <a href="#">Подкатегория <span>(251)</span></a>
-        <a href="#">Подкатегория <span>(251)</span></a>
-        <a href="#">Подкатегория <span>(251)</span></a>
-        <a href="#">Подкатегория <span>(251)</span></a>
-        <a href="#">Подкатегория <span>(251)</span></a>
-        <a href="#">Подкатегория <span>(251)</span></a>
-        <a href="#">Подкатегория <span>(251)</span></a>
-        <a href="#">Подкатегория <span>(251)</span></a>
-        <a href="#">Подкатегория <span>(251)</span></a>
-        <a href="#">Подкатегория <span>(251)</span></a>
+        <?php foreach ( $categories[$main_category->id]['subcategories'] as $subcategory_id => $subcategory ): ?>
+            <a href="<?=Url::toRoute(['site/category/', 'id' => $subcategory_id]) ?>"><?=$subcategory; ?></a>
+        <?php endforeach; ?>
     </div>
     <hr class="yellow-line m-t-30">
     <hr class="grey-line">

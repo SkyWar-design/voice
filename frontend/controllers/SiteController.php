@@ -106,17 +106,32 @@ class SiteController extends Controller
 
     public function actionCategory($id)
     {
-        $category = Category::find()
+        $current_category = Category::find()
             ->where(['=','id', $id])
             ->one();
-        var_dump($category);
+        if( !is_null($current_category->this_id) ){
+            $main_category = Category::find()
+                ->where(['=','id', $current_category->this_id])
+                ->one();
+        }
+        else{
+            $main_category = $current_category;
+        }
+
 //        $dataProvider = new ActiveDataProvider([
 //            'query' => News::find()->where(['visibility'=>1])->orderBy('date DESC'),
 //            'pagination' => [
 //                'pageSize' => 20,
 //            ],
 //        ]);
-        return $this->render('category');
+        $categories = $this->categories;
+        $css_style_categories = Yii::$app->params['css_style_categories'];
+        return $this->render('category',[
+            'current_category' => $current_category,
+            'main_category' => $main_category,
+            'categories' => $categories,
+            'css_style_categories' => $css_style_categories
+        ]);
     }
 
     public function actionCard()
