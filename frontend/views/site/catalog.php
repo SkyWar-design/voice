@@ -1,4 +1,5 @@
 <?php
+use yii\helpers\Url;
 
 $this->title = 'Каталог';
 $this->params['breadcrumbs'][] = $this->title;
@@ -7,226 +8,18 @@ $this->params['breadcrumbs'][] = $this->title;
 <h1 class="m-b-30">Каталог</h1>
 
 <section id="catalog">
-    <div class="catalog-category">
-        <h2>С Днем Рождения</h2>
-        <div class="sub-category">
-            <a href="/site/category">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
+    <?php foreach( $categories as $main_category_id => $category_subcategory ): ?>
+        <div class="catalog-category">
+            <a href="<?=Url::toRoute('site/catalog/'.$main_category_id) ?>"><h2 class="<?=$css_style_categories[$css_style_categories] ?>-big"><?=$category_subcategory['name_category'] ?></h2></a>
+            <div class="sub-category">
+                <?php foreach( $category_subcategory['subcategories'] as $subcategories_id => $subcategories  ): ?>
+                    <a href="<?=Url::toRoute('site/catalog/'.$subcategories_id) ?>"><?=$subcategories ?></a>
+                <?php endforeach; ?>
+            </div>
+            <hr class="yellow-line m-t-30">
+            <hr class="grey-line">
         </div>
-        <hr class="yellow-line m-t-30">
-        <hr class="grey-line">
-    </div>
-
-    <div class="catalog-category">
-        <h2 class="love-big">С Днем Рождения</h2>
-        <div class="sub-category">
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-        </div>
-        <hr class="yellow-line m-t-30">
-        <hr class="grey-line">
-    </div>
-
-    <div class="catalog-category">
-        <h2 class="funny-big">С Днем Рождения</h2>
-        <div class="sub-category">
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-        </div>
-        <hr class="yellow-line m-t-30">
-        <hr class="grey-line">
-    </div>
-
-    <div class="catalog-category">
-        <h2 class="song-big">С Днем Рождения</h2>
-        <div class="sub-category">
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-        </div>
-        <hr class="yellow-line m-t-30">
-        <hr class="grey-line">
-    </div>
-
-    <div class="catalog-category">
-        <h2 class="ever-big">С Днем Рождения</h2>
-        <div class="sub-category">
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-        </div>
-        <hr class="yellow-line m-t-30">
-        <hr class="grey-line">
-    </div>
-
-    <div class="catalog-category">
-        <h2 class="work-big">С Днем Рождения</h2>
-        <div class="sub-category">
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-        </div>
-        <hr class="yellow-line m-t-30">
-        <hr class="grey-line">
-    </div>
-
-    <div class="catalog-category">
-        <h2 class="professional-big">С Днем Рождения</h2>
-        <div class="sub-category">
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-        </div>
-        <hr class="yellow-line m-t-30">
-        <hr class="grey-line">
-    </div>
-
-    <div class="catalog-category">
-        <h2 class="mar-big">С Днем Рождения</h2>
-        <div class="sub-category">
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-        </div>
-        <hr class="yellow-line m-t-30">
-        <hr class="grey-line">
-    </div>
-
-    <div class="catalog-category">
-        <h2 class="feb-big">С Днем Рождения</h2>
-        <div class="sub-category">
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-        </div>
-        <hr class="yellow-line m-t-30">
-        <hr class="grey-line">
-    </div>
-
-    <div class="catalog-category">
-        <h2 class="val-big">С Днем Рождения</h2>
-        <div class="sub-category">
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-        </div>
-        <hr class="yellow-line m-t-30">
-        <hr class="grey-line">
-    </div>
-
-    <div class="catalog-category">
-        <h2 class="new-big">С Днем Рождения</h2>
-        <div class="sub-category">
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-            <a href="#">Подкатегория <span>(251)</span></a>
-        </div>
-        <hr class="yellow-line m-t-30">
-        <hr class="grey-line">
-    </div>
-
+    <?php endforeach; ?>
 </section>
 
 <style>

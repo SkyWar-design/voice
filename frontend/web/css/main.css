@@ -1073,9 +1073,12 @@ h2.ever-big:before,
 h1.ever-big:before{
     background-position: 0 -272px!important;
 }
-h2.work-big:before,
-h1.work-big:before{
+h2.study-big:before,
+h1.study-big:before{
     background-position: 0 -340px!important;
+}
+.profession-big:before{
+    background-position: 0 -408px!important;
 }
 h2.mar-big:before,
 h1.mar-big:before{
@@ -1085,8 +1088,8 @@ h2.feb-big:before,
 h1.feb-big:before{
     background-position: 0 -544px!important;
 }
-h2.val-big:before,
-h1.val-big:before{
+h2.svd-big:before,
+h1.svd-big:before{
     background-position: 0 -612px!important;
 }
 h2.new-big:before,
