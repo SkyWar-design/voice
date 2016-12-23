@@ -1,5 +1,7 @@
 <?php
 use yii\helpers\Url;
+use \yii\widgets\ListView;
+
 $this->title = $current_category->name;
 if( !is_null($current_category->this_id) ){
     $this->params['breadcrumbs'][] = ['label' => $main_category->name, 'url' => ['site/category', 'id' => $main_category->id]];
@@ -75,5 +77,13 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
     <hr class="grey-line m-b-20 w-100-p">
+
+
+    <?=ListView::widget([
+        'dataProvider' => $dataProvider,
+        'itemView' => '_category_card',
+    ]);
+
+    ?>
 
 </section>

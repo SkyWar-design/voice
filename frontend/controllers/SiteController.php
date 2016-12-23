@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\CardVoice;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -118,12 +119,14 @@ class SiteController extends Controller
             $main_category = $current_category;
         }
 
-//        $dataProvider = new ActiveDataProvider([
-//            'query' => News::find()->where(['visibility'=>1])->orderBy('date DESC'),
-//            'pagination' => [
-//                'pageSize' => 20,
-//            ],
-//        ]);
+
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => CardVoice::find()->where(['=','category_id', $current_category->id])->all(),
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+        ]);
 
         $categories = $this->categories;
         $css_style_categories = Yii::$app->params['css_style_categories'];
@@ -131,7 +134,8 @@ class SiteController extends Controller
             'current_category' => $current_category,
             'main_category' => $main_category,
             'categories' => $categories,
-            'css_style_categories' => $css_style_categories
+            'css_style_categories' => $css_style_categories,
+            'dataProvider' => $dataProvider
         ]);
     }
 
