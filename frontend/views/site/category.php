@@ -10,7 +10,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <section id="category">
-    <h1 class="staled-hr-bottom <?=$this->css_style ?>-big"><?=$main_category->name ?></h1>
+    <h1 class="staled-hr-bottom <?=$this->context->css_style ?>-big"><?=$main_category->name ?></h1>
     <div class="sub-category">
         <?php foreach ( $categories[$main_category->id]['subcategories'] as $subcategory_id => $subcategory ): ?>
             <a href="<?=Url::toRoute(['site/category', 'id' => $subcategory_id]) ?>" <?=(Url::current()=='/category/'.$subcategory_id?'class="active"':'') ?>><?=$subcategory; ?></a>

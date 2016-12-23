@@ -7,5 +7,5 @@
         <a href="#" class="card-title m-b-12">2 октября - С днем рождения!</a>
         <a href="#" class="button-yellow l-h-30">Отправить</a>
     </div>
-    <a class="link-to-category small-text <?=$this->css_style ?>" href="#">С Днем Рождения</a>
+    <a class="link-to-category small-text <?=$this->context->css_style ?>" href="#">С Днем Рождения</a>
 </div>
