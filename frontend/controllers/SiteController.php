@@ -150,7 +150,7 @@ class SiteController extends Controller
                     }
                 }
                 else{
-                    return ['result' => true, 'test' => 'asd'];
+                    return ['result' => true];
                 }
             }
             else{
