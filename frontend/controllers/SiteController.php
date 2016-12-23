@@ -123,13 +123,13 @@ class SiteController extends Controller
                 ->one();
         }
         else{
-            $add_condition .= ' AND category_id IN ('.implode(', ',array_keys($categories[$current_category->id]['subcategories'])).')';
+            $add_condition .= ' OR (category_id IN ('.implode(', ',array_keys($categories[$current_category->id]['subcategories'])).'))';
             $main_category = $current_category;
         }
 
         $dataProvider = new ActiveDataProvider([
             'query' => CardVoice::find()
-                ->where('status=1'.$add_condition),
+                ->where('status=1 AND category_id=:category_id'.$add_condition,[':category_id' => $current_category->id]),
             'pagination' => [
                 'pageSize' => 18,
             ],
