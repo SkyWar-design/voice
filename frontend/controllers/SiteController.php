@@ -125,8 +125,7 @@ class SiteController extends Controller
 
         $dataProvider = new ActiveDataProvider([
             'query' => CardVoice::find()
-                ->where(['=','category_id', $current_category->id])
-                ->where(['=','status', 1]),
+                ->where('category_id=:category_id',[':category_id' => $current_category->id]),
             'pagination' => [
                 'pageSize' => 18,
             ],
