@@ -124,6 +124,7 @@ class SiteController extends Controller
 //                'pageSize' => 20,
 //            ],
 //        ]);
+
         $categories = $this->categories;
         $css_style_categories = Yii::$app->params['css_style_categories'];
         return $this->render('category',[

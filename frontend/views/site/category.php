@@ -1,6 +1,6 @@
 <?php
 use yii\helpers\Url;
-
+var_dump(Url::home());
 $this->title = $current_category->name;
 $this->params['breadcrumbs'][] = $this->title;
 ?>
