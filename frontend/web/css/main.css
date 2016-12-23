@@ -621,7 +621,8 @@ hr{
     vertical-align: top;
     margin-right: 10px;
 }
-.d-flex-s-b{
+.d-flex-s-b,
+.list-view{
     display: flex;
     justify-content: space-between;
     flex-flow: row wrap;
