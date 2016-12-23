@@ -209,6 +209,7 @@ p{
     height: 17px;
     content: "";
     margin-right: 10px;
+    vertical-align: text-bottom;
 }
 .styled-top-hr{
     text-align: right;
