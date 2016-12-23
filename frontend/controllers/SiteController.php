@@ -109,6 +109,11 @@ class SiteController extends Controller
 
     public function actionCategory($id)
     {
+        $add_condition = '';
+        $categories = $this->categories;
+        $css_style_categories = Yii::$app->params['css_style_categories'];
+
+
         $current_category = Category::find()
             ->where(['=','id', $id])
             ->one();
@@ -118,21 +123,19 @@ class SiteController extends Controller
                 ->one();
         }
         else{
+            $add_condition .= ' AND category_id IN ('.implode(', ',array_keys($categories[$current_category->id]['subcategory'])).')';
             $main_category = $current_category;
         }
 
-
-
         $dataProvider = new ActiveDataProvider([
             'query' => CardVoice::find()
-                ->where('category_id=:category_id AND status in (1,2)',[':category_id' => $current_category->id]),
+                ->where('category_id=:category_id AND status=1'.$add_condition,[':category_id' => $current_category->id]),
             'pagination' => [
                 'pageSize' => 18,
             ],
         ]);
 
-        $categories = $this->categories;
-        $css_style_categories = Yii::$app->params['css_style_categories'];
+
 
         $this->css_style = $css_style_categories[$main_category->id];
         $this->main_category = [
