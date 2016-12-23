@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Url;
+var_dump($model->page);
 ?>
 <div class="player-min-content d-flex-s-b">
     <div class="player-min">
