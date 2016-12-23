@@ -117,6 +117,7 @@ class SiteController extends Controller
             for($i=0;$i<28;$i++) {
                 $hash .= $random_letter[rand(0,$c)];
             }
+            //создаем нового пользователя
             $this->db->createCommand('INSERT INTO users(local_storage_hash) VALUES (:hash)')
                 ->bindValue(':hash', $hash)
                 ->execute();
@@ -128,17 +129,29 @@ class SiteController extends Controller
             return $this->redirect('/');
         }
     }
-    //если hash у пользователя уже есть запомним его
+    //если hash у пользователя уже есть залогинем его
     public function actionSession(){
         if( Yii::$app->request->isAjax ){
             $hash = Yii::$app->request->post('hash', false);
             if( $hash ){
-                $user_id = $this->db->createCommand('SELECT id FROM users WHERE local_storage_hash=:hash')
-                    ->bindValue(':hash', $hash)
-                    ->queryOne();
-                $this->session['user_id'] = $user_id['id'];
                 Yii::$app->response->format = Response::FORMAT_JSON;
-                return ['result' => true];
+                if( !isset($this->session['user_id']) ){
+                    if(
+                    $user_id = $this->db->createCommand('SELECT id FROM users WHERE local_storage_hash=:hash')
+                        ->bindValue(':hash', $hash)
+                        ->queryOne()
+                    )
+                    {
+                        $this->session['user_id'] = $user_id['id'];
+                        return ['result' => true];
+                    }
+                    else{
+                        return ['result' => false];
+                    }
+                }
+                else{
+                    return ['result' => true, 'test' => 'asd'];
+                }
             }
             else{
                 return $this->redirect('/');
