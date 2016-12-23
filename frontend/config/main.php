@@ -41,10 +41,10 @@ return [
             'showScriptName' => false,
             'enableStrictParsing' => true,
             'rules' => [
+                '/'=>'site/index',
                 'user/get/hash' => 'site/hash',
                 'user/set/hash' => 'site/session',
-                '/'=>'site/index',
-                'card/<param:.+>'=>'site/card',
+                'category/<param:.+>'=>'site/category',
                 '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
             ],
         ],

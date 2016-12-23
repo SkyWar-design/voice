@@ -14,6 +14,7 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use \common\models\Category;
 use yii\web\Response;
+use yii\data\ActiveDataProvider;
 
 /**
  * Site controller
@@ -103,8 +104,15 @@ class SiteController extends Controller
         return $this->render('calendar');
     }
 
-    public function actionCategory()
+    public function actionCategory($id)
     {
+        var_dump($id);
+//        $dataProvider = new ActiveDataProvider([
+//            'query' => News::find()->where(['visibility'=>1])->orderBy('date DESC'),
+//            'pagination' => [
+//                'pageSize' => 20,
+//            ],
+//        ]);
         return $this->render('category');
     }
 
