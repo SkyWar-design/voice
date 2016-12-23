@@ -81,7 +81,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <?=ListView::widget([
         'dataProvider' => $dataProvider,
         'itemView' => '_category_card',
-        'viewData' => ['css_style' => $css_style_categories[$main_category->id]],
         'layout' => "{items}\n{pager}",
         'pager' => [
             'firstPageLabel' => '<i class="fa fa-angle-double-left fa-2" aria-hidden="true"></i>',
