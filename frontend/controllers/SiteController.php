@@ -90,7 +90,7 @@ class SiteController extends Controller
 
     public function actionCatalog()
     {
-        $categories = $this->context->categories;
+        $categories = $this->categories;
         $css_style_categories = Yii::$app->params['css_style_categories'];
         return $this->render('catalog', [
             'categories' => $categories,
