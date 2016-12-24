@@ -45,6 +45,9 @@ $request = Yii::$app->request->get();
                 else if( $(this).attr('data-filter') == 'all' ){
                     $('.search-form').find('input[type="hidden"]').remove();
                 }
+                else{
+                    $('#'+$(this).attr('for')).prop('checked', true);
+                }
                 $('.search-form').submit();
             })
         })
