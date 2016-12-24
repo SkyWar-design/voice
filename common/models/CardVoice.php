@@ -124,6 +124,8 @@ class CardVoice extends \yii\db\ActiveRecord
         if( isset($params['card_voice']['sex']) ){
             $query->andFilterWhere(['=', 'sex',$params['card_voice']['sex']]);
         }
+        
+        $query->andFilterWhere(['=', 'status', 1]);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
