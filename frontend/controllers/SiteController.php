@@ -112,7 +112,12 @@ class SiteController extends Controller
         $add_condition = ')';
         $categories = $this->categories;
         $css_style_categories = Yii::$app->params['css_style_categories'];
-        var_dump(Yii::$app->request->queryParams);
+
+        $params = [
+            'card_voice' => [
+                'category' => false
+            ]
+        ];
 
         $current_category = Category::find()
             ->where(['=','id', $id])
@@ -121,19 +126,30 @@ class SiteController extends Controller
             $main_category = Category::find()
                 ->where(['=','id', $current_category->this_id])
                 ->one();
+            $params['card_voice']['category'] = $current_category->id;
         }
         else{
-            $add_condition = ' OR category_id IN ('.implode(', ',array_keys($categories[$current_category->id]['subcategories'])).'))';
+            $params['card_voice']['category'] = explode(',',implode(',',array_keys($categories[$current_category->id]['subcategories'])));
             $main_category = $current_category;
         }
 
-        $dataProvider = new ActiveDataProvider([
-            'query' => CardVoice::find()
-                ->where('status=1 AND (category_id=:category_id'.$add_condition,[':category_id' => $current_category->id]),
-            'pagination' => [
-                'pageSize' => 18,
-            ],
-        ]);
+        $card_voice = new CardVoice(['scenario' => 'search']);
+
+        $order = false;
+        if( Yii::$app->request->isGet ){
+            $request = Yii::$app->request->get();
+            if( isset($request['sort']) ){
+                $order = $request['sort'];
+            }
+            if( isset($request['card_voice']) ){
+                array_push($params['card_voice'], $request['card_voice']);
+            }
+        }
+
+        var_dump($params);
+        exit();
+
+//        $dataProvider = $card_voice->searchCard_voice();
 
 
 

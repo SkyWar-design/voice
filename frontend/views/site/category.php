@@ -36,6 +36,7 @@ $request = Yii::$app->request->get();
             </div>
         </div>
     </form>
+
     <script>
         $(document).ready(function () {
             $('.filter-type').on('click', function () {

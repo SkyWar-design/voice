@@ -72,6 +72,7 @@ class CardVoice extends \yii\db\ActiveRecord
             [['voice_text_description', 'voice_text_theme'], 'string', 'max' => 3000],
             [['voice_text_tags'], 'string', 'max' => 2000],
             [['sex'], 'string', 'max' => 50],
+            [['sex','category_id'], 'safe', 'on' => 'search']
         ];
     }
 
@@ -104,44 +105,32 @@ class CardVoice extends \yii\db\ActiveRecord
     }
 
     //условия поиска для вывода списка карточек
-//    public function searchCategory($params, $order = false){
-//        $query = self::find();
-//        if( $order ){
-//            $query->addOrderBy([$order => SORT_DESC]);
-//        }
-//
-//        $this->load($params);
-//
-//        $dataProvider = new ActiveDataProvider([
-//            'query' => $query,
-//            'sort'=>[
-//                'defaultOrder'=>[
-//                    'id' => SORT_DESC,
-//                ],
-//            ],
-//            'pagination' => [
-//                'pageSize' => 18,
-//            ],
-//        ]);
-//
-//
-//
-//        if ( !$this->validate() ) {
-//            return $dataProvider;
-//        }
-//
-//        $query->andFilterWhere([
-//            'object.id' => $this->id,
-//            'object.active'=>$this->active,
-//            'object.isRent'=>$this->isRent,
-//            'object.type'=>$this->type,
-//        ]);
-//
-//        $query->andFilterWhere(['like', 'address', $this->address]);
-//        $query->andFilterWhere(['like', 'desc', $this->desc]);
-//        $query->andFilterWhere(['like', 'slug', $this->slug]);
-//
-//        return $dataProvider;
-//    }
+    public function searchCard_voice($params, $order = false){
+        $query = self::find();
+        if( $order ){
+            $query->addOrderBy([$order => SORT_DESC]);
+        }
+
+        $this->load($params);
+
+        $query->andFilterWhere(['=','category_id',$this->category_id,]);
+
+        $query->andFilterWhere(['=', 'sex', $this->sex]);
+
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'sort'=>[
+                'defaultOrder'=>[
+                    'id' => SORT_DESC,
+                ],
+            ],
+            'pagination' => [
+                'pageSize' => 18,
+            ],
+        ]);
+
+        return $dataProvider;
+    }
 
 }
