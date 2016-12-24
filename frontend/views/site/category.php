@@ -7,7 +7,7 @@ if( !is_null($current_category->this_id) ){
     $this->params['breadcrumbs'][] = ['label' => $this->context->main_category['name'], 'url' => ['site/category', 'id' => $this->context->main_category['id']]];
 }
 $this->params['breadcrumbs'][] = $this->title;
-var_dump(Yii::$app->request->get());
+$request = Yii::$app->request->get();
 ?>
 
 <section id="category">
@@ -23,7 +23,7 @@ var_dump(Yii::$app->request->get());
     <div class="filter">
         <form method="get" class="search-form" action="<?=Url::toRoute(['site/category', 'id' => $current_category->id]) ?>">
             <a href="#" class="button-grey max-grey filter-type">Показать все</a>
-            <?=(Yii::$app->request->get('card_voice[sex]',false)?'<input type="hidden" name="card_voice[sex]" value="'.Yii::$app->request->get('sex',false).'">':'') ?>
+            <?=(isset($request['card_voice'])?'<input type="hidden" name="card_voice[sex]" value="'.$request['card_voice'].'">':'') ?>
             <a href="#" class="button-grey filter-type" data-filter="card_voice[sex]" data-val="2">Для девушек</a>
             <a href="#" class="button-grey filter-type" data-filter="card_voice[sex]" data-val="1">Для парней</a>
             <span class="count-card m-l-58">2528 открыток.</span>
