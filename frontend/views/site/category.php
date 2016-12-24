@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1 class="staled-hr-bottom <?=$this->context->main_category['css_style'] ?>-big"><?=$this->context->main_category['name'] ?></h1>
     <div class="sub-category">
         <?php foreach ( $categories[$this->context->main_category['id']]['subcategories'] as $subcategory_id => $subcategory ): ?>
-            <a href="<?=Url::toRoute(['site/category', 'id' => $subcategory_id]) ?>" <?=(Url::current()=='/category/'.$subcategory_id?'class="active"':'') ?>><?=$subcategory; ?></a>
+            <a href="<?=Url::toRoute(['site/category', 'id' => $subcategory_id]) ?>" <?=(preg_match('\'/category/\''.$subcategory_id, Url::current())?'class="active"':'') ?>><?=$subcategory; ?></a>
         <?php endforeach; ?>
     </div>
     <hr class="yellow-line m-t-30">
