@@ -146,6 +146,7 @@ class SiteController extends Controller
             }
         }
 
+        var_dump($request['card_voice']);
         var_dump($params);
         exit();
 
