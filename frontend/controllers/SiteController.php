@@ -141,8 +141,8 @@ class SiteController extends Controller
             if( isset($request['sort']) ){
                 $order = $request['sort'];
             }
-            if( isset($request['card_voice']) ){
-                array_merge($params['card_voice'], $request['card_voice']);
+            if( isset($request['card_voice']['sex']) ){
+                $params['card_voice']['sex'] = $request['card_voice']['sex'];
             }
         }
 
