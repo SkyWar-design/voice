@@ -112,7 +112,7 @@ class SiteController extends Controller
         $add_condition = ')';
         $categories = $this->categories;
         $css_style_categories = Yii::$app->params['css_style_categories'];
-
+        var_dump(Yii::$app->request->queryParams);
 
         $current_category = Category::find()
             ->where(['=','id', $id])

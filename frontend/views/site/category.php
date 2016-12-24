@@ -20,18 +20,33 @@ $this->params['breadcrumbs'][] = $this->title;
     <hr class="grey-line">
     <div class="clear"></div>
     <div class="filter">
-        <a href="#" class="button-grey max-grey">Показать все</a>
-        <a href="#" class="button-grey">Для девушек</a>
-        <a href="#" class="button-grey">Для парней</a>
-        <span class="count-card m-l-58">2528 открыток.</span>
-        <div class="filter-how m-l-10">
-            <span>Сначала:&nbsp;</span>
-            <input type="radio" checked name="how" value="1" id="new">
-            <label for="new" class="radio">Новые</label>&nbsp;&nbsp;
-            <input type="radio" name="how" value="2" id="popular">
-            <label for="popular" class="radio">Популярные</label>
-        </div>
+        <form method="get" class="search-form" action="<?=Url::toRoute(['site/category', 'id' => $current_category->id]) ?>">
+            <a href="#" class="button-grey max-grey filter-type">Показать все</a>
+            <a href="#" class="button-grey filter-type" data-filter="card_voice[sex]" data-val="2">Для девушек</a>
+            <a href="#" class="button-grey filter-type" data-filter="card_voice[sex]" data-val="1">Для парней</a>
+            <span class="count-card m-l-58">2528 открыток.</span>
+            <div class="filter-how m-l-10">
+                <span>Сначала:&nbsp;</span>
+                <input type="radio" checked name="sort" value="new" id="new">
+                <label for="new" class="radio filter-type">Новые</label>&nbsp;&nbsp;
+                <input type="radio" name="sort" value="popular" id="popular">
+                <label for="popular" class="radio filter-type">Популярные</label>
+            </div>
+        </form>
     </div>
+
+    <script>
+        $(document).ready(function () {
+            $('.filter-type').on('click', function () {
+                if( $(this).attr('data-filter') != undefined ){
+                    $('.search-form').appendTo('<input type="hidden" name="'+$(this).attr('data-filter')+'" value="'+$(this).attr('data-val')+'">').submit();
+                }
+                else{
+                    $('.search-form').submit()
+                }
+            })
+        })
+    </script>
 
     <h2 class="m-t-20">Тем кто родился сегодня, 12 октября</h2>
 

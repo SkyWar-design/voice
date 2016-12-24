@@ -3,7 +3,7 @@
 namespace common\models;
 
 use Yii;
-
+use yii\data\ActiveDataProvider;
 /**
  * This is the model class for table "card_voice".
  *
@@ -102,4 +102,46 @@ class CardVoice extends \yii\db\ActiveRecord
             'category.name' => 'Категория'
         ];
     }
+
+    //условия поиска для вывода списка карточек
+//    public function searchCategory($params, $order = false){
+//        $query = self::find();
+//        if( $order ){
+//            $query->addOrderBy([$order => SORT_DESC]);
+//        }
+//
+//        $this->load($params);
+//
+//        $dataProvider = new ActiveDataProvider([
+//            'query' => $query,
+//            'sort'=>[
+//                'defaultOrder'=>[
+//                    'id' => SORT_DESC,
+//                ],
+//            ],
+//            'pagination' => [
+//                'pageSize' => 18,
+//            ],
+//        ]);
+//
+//
+//
+//        if ( !$this->validate() ) {
+//            return $dataProvider;
+//        }
+//
+//        $query->andFilterWhere([
+//            'object.id' => $this->id,
+//            'object.active'=>$this->active,
+//            'object.isRent'=>$this->isRent,
+//            'object.type'=>$this->type,
+//        ]);
+//
+//        $query->andFilterWhere(['like', 'address', $this->address]);
+//        $query->andFilterWhere(['like', 'desc', $this->desc]);
+//        $query->andFilterWhere(['like', 'slug', $this->slug]);
+//
+//        return $dataProvider;
+//    }
+
 }
