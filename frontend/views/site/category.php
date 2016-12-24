@@ -20,9 +20,9 @@ $request = Yii::$app->request->get();
     <hr class="yellow-line m-t-30">
     <hr class="grey-line">
     <div class="clear"></div>
-    <div class="filter">
-        <form method="get" class="search-form" action="<?=Url::toRoute(['site/category', 'id' => $current_category->id]) ?>">
-            <a href="#" class="button-grey filter-type <?=(!isset($request['card_voice']['sex'])?' max-grey':'') ?>">Показать все</a>
+    <form method="get" class="search-form" action="<?=Url::toRoute(['site/category', 'id' => $current_category->id]) ?>">
+        <div class="filter">
+            <a href="#" class="button-grey filter-type <?=(!isset($request['card_voice']['sex'])?' max-grey':'') ?>" data-filter="all">Показать все</a>
             <?=(isset($request['card_voice']['sex'])?'<input type="hidden" name="card_voice[sex]" value="'.$request['card_voice']['sex'].'">':'') ?>
             <a href="#" class="button-grey filter-type<?=($request['card_voice']['sex']==2?' max-grey':'') ?>"  data-filter="card_voice[sex]" data-val="2">Для девушек</a>
             <a href="#" class="button-grey filter-type<?=($request['card_voice']['sex']==1?' max-grey':'') ?>" data-filter="card_voice[sex]" data-val="1">Для парней</a>
@@ -34,19 +34,18 @@ $request = Yii::$app->request->get();
                 <input type="radio" name="sort" value="popular" id="popular">
                 <label for="popular" class="radio filter-type">Популярные</label>
             </div>
-        </form>
-    </div>
-
+        </div>
+    </form>
     <script>
         $(document).ready(function () {
             $('.filter-type').on('click', function () {
-                if( $(this).attr('data-filter') != undefined ){
+                if( $(this).attr('data-filter') != 'all' && $(this).attr('data-filter') != undefined ){
                     $(this).after('<input type="hidden" name="'+$(this).attr('data-filter')+'" value="'+$(this).attr('data-val')+'">');
-                    $('.search-form').submit();
                 }
-                else{
-                    $('.search-form').submit()
+                else if( $(this).attr('data-filter') == 'all' ){
+                    $('.search-form').find('input[type="hidden"]').remove();
                 }
+                $('.search-form').submit();
             })
         })
     </script>
