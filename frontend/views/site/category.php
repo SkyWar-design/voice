@@ -22,10 +22,10 @@ $request = Yii::$app->request->get();
     <div class="clear"></div>
     <div class="filter">
         <form method="get" class="search-form" action="<?=Url::toRoute(['site/category', 'id' => $current_category->id]) ?>">
-            <a href="#" class="button-grey max-grey filter-type">Показать все</a>
+            <a href="#" class="button-grey filter-type <?=(!isset($request['card_voice']['sex'])?' max-grey':'') ?>">Показать все</a>
             <?=(isset($request['card_voice']['sex'])?'<input type="hidden" name="card_voice[sex]" value="'.$request['card_voice']['sex'].'">':'') ?>
-            <a href="#" class="button-grey filter-type" data-filter="card_voice[sex]" data-val="2">Для девушек</a>
-            <a href="#" class="button-grey filter-type" data-filter="card_voice[sex]" data-val="1">Для парней</a>
+            <a href="#" class="button-grey filter-type<?=($request['card_voice']['sex']==2?' max-grey':'') ?>"  data-filter="card_voice[sex]" data-val="2">Для девушек</a>
+            <a href="#" class="button-grey filter-type<?=($request['card_voice']['sex']==1?' max-grey':'') ?>" data-filter="card_voice[sex]" data-val="1">Для парней</a>
             <span class="count-card m-l-58">2528 открыток.</span>
             <div class="filter-how m-l-10">
                 <span>Сначала:&nbsp;</span>
