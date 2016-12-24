@@ -7,6 +7,7 @@ if( !is_null($current_category->this_id) ){
     $this->params['breadcrumbs'][] = ['label' => $this->context->main_category['name'], 'url' => ['site/category', 'id' => $this->context->main_category['id']]];
 }
 $this->params['breadcrumbs'][] = $this->title;
+var_dump(Yii::$app->request->get());
 ?>
 
 <section id="category">
