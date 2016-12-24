@@ -142,7 +142,7 @@ class SiteController extends Controller
                 $order = $request['sort'];
             }
             if( isset($request['card_voice']) ){
-                array_push($params['card_voice'], $request['card_voice']);
+                array_merge($params['card_voice'], $request['card_voice']);
             }
         }
 
