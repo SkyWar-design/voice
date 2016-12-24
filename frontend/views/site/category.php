@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
         $(document).ready(function () {
             $('.filter-type').on('click', function () {
                 if( $(this).attr('data-filter') != undefined ){
-                    $('.search-form').appendTo('<input type="hidden" name="'+$(this).attr('data-filter')+'" value="'+$(this).attr('data-val')+'">');
+                    $('.search-form').append('<input type="hidden" name="'+$(this).attr('data-filter')+'" value="'+$(this).attr('data-val')+'">');
                 }
                 else{
                     $('.search-form').submit()
