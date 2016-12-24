@@ -108,6 +108,12 @@ class CardVoice extends \yii\db\ActiveRecord
     public function searchCard_voice($params, $order = false){
         $query = self::find();
         if( $order ){
+            if( $order == 'popular' ){
+                $order = 'count_order';
+            }
+            else{
+                $order = 'publish_date';
+            }
             $query->addOrderBy([$order => SORT_DESC]);
         }
 

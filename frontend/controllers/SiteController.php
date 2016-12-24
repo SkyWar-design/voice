@@ -147,7 +147,7 @@ class SiteController extends Controller
         }
 
         $dataProvider = $card_voice->searchCard_voice($params, $order);
-        
+
         $this->css_style = $css_style_categories[$main_category->id];
         $this->main_category = [
             'id' => $main_category->id,
