@@ -29,9 +29,9 @@ $request = Yii::$app->request->get();
             <span class="count-card m-l-58">2528 открыток.</span>
             <div class="filter-how m-l-10">
                 <span>Сначала:&nbsp;</span>
-                <input type="radio" checked name="sort" value="new" id="new">
+                <input type="radio" <?=((!isset($request['sort']) || $request['sort'] == 'new')?'checked':'') ?>" name="sort" value="new" id="new">
                 <label for="new" class="radio filter-type">Новые</label>&nbsp;&nbsp;
-                <input type="radio" name="sort" value="popular" id="popular">
+                <input type="radio" <?=((isset($request['sort']) && $request['sort'] == 'popular')?'checked':'') ?> name="sort" value="popular" id="popular">
                 <label for="popular" class="radio filter-type">Популярные</label>
             </div>
         </div>
