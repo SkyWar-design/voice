@@ -117,13 +117,10 @@ class CardVoice extends \yii\db\ActiveRecord
             $query->addOrderBy([$order => SORT_DESC]);
         }
 
-        $this->load($params);
+        $query->andFilterWhere(['IN','category_id',$params['card_voice']['category']]);
 
-        $query->andFilterWhere(['=','category_id',$this->category_id,]);
-
-        $query->andFilterWhere(['=', 'sex', $this->sex]);
-
-
+        $query->andFilterWhere(['=', 'sex', $params['card_voice']['sex']]);
+        
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'sort'=>[
