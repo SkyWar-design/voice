@@ -46,6 +46,10 @@ class Page extends \yii\db\ActiveRecord
         ];
     }
 
+    public function getCardVoice(){
+        return $this->hasOne(CardVoice::className(), ['id' => 'card_id']);
+    }
+
     /**
      * @inheritdoc
      */

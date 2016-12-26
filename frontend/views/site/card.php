@@ -1,18 +1,30 @@
 <?php
-$this->title = 'Название карточки';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = $model->title;
+
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => $model->cardVoice->voice_text_description
+]);
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => $model->keywords
+]);
+
+$voice_theme = explode(',',$model->cardVoice->voice_text_theme);
+$voice_tags = explode(',',$model->cardVoice->voice_text_tags);
+$this->params['breadcrumbs'][] = $this->card_name;
 ?>
 
 <section id="card">
-    <h1 class="staled-hr-bottom">Путин поздравляет с днем рождения</h1>
+    <h1 class="staled-hr-bottom"><?=$model->text_h1?></h1>
     <div class="player-big d-menu">
-        <audio src="/mp3/test.mp3" class="big"></audio>
+        <audio src="/mp3/<?=$model->cardVoice->mp3_id ?>.mp3" class="big"></audio>
     </div>
 
 
     <div class="player-min-content d-flex-s-b m-menu mobile-preview">
         <div class="player-min">
-            <audio src="/mp3/test.mp3" class="min"></audio>
+            <audio src="/mp3/<?=$model->cardVoice->mp3_id ?>.mp3" class="min"></audio>
             <span class="small-text w-100-p text-center inline">слушать</span>
         </div>
         <div class="card-preview">
@@ -25,18 +37,18 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="d-flex-s-b m-t-40 space-around">
         <div class="description-card">
             <h2 class="m-b-20">Текст открытки</h2>
-            <p class="m-b-40">Здравствуйте, это Владимир Путин. Меня убедительно попросил... очень достойный человек Вам позвонить. Я отказать не смог, хотя конечно очень занят. Поздравляю Вас с днем рождения, от души! А в подарок от меня - жёлтая Лада Калина и второй ЙотаФон. Курьер Вам доставит... Хочу предложить вам отправиться со мной полетать со стерхами, на дельтаплане. Стерхи - красивые ребята. Почувствуете себя в роли вожака. В воздухе адреналин гуляет, чувство приятное! Я распоряжусь, вам выдадут пилотское свидетельство... Или давайте понаблюдаем за амурскими тиграми, проведем время наедине... с тайгой. Мне кажется это очень романтично - побыть в день рождения вдали от цивилизации. Можем еще позаниматься дзюдо. Научу коронным приемам и присвою вам восьмой дан... Сегодня я прерву свой напряженный рабочий график, специально для Вас. Пусть всё невозможное становится возможным! Желаю сбываться всем вашим мечтам, идеям и планам! Удачи.</p>
+            <p class="m-b-40"><?=$model->description ?></p>
             <div class="title-description">Тема открытки:</div>
             <div class="category-description m-b-40">
-                <a href="#">Поздравления с днем рождения от знаменитостей</a>,
-                <a href="#">Прикольные поздравления с днем рождения</a>
+                <?php foreach ( $voice_theme as $theme ): ?>
+                    <a href="#"><?=$theme; ?></a>
+                <?php endforeach; ?>
             </div>
             <div class="title-description">Теги:</div>
             <div class="tags d-flex-s-b">
-                <a href="#" class="button-grey">Для девушек</a>
-                <a href="#" class="button-grey">Для девушек</a>
-                <a href="#" class="button-grey">Для девушек</a>
-                <a href="#" class="button-grey">Для девушек</a>
+                <?php foreach ( $voice_tags as $tag ): ?>
+                    <a href="#" class="button-grey"><?=$tag; ?></a>
+                <?php endforeach; ?>
             </div>
         </div>
 

@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use common\models\CardVoice;
+use common\models\Page;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -164,8 +165,10 @@ class SiteController extends Controller
 
     public function actionCard($url)
     {
-        echo $url;
-//        return $this->render('card');
+        $model = Page::find()->where(['=','url',$url])->one();
+        return $this->render('card',[
+            'model' => $model
+        ]);
     }
 
     //генерируем уникальный хэш для localstorage что бы запоминать пользователь на уровне браузера и в дальнейшем перенести пользователя со статистикой в личный кабинет
