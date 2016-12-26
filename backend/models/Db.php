@@ -222,7 +222,6 @@ class Db extends Model
                 $model->status = $request[6]['value'];
                 $model->category_id = $request[7]['value'];
                 $model->voice_date = $date;
-                $model->card_name = $request[9]['value'];
                 $model->save();
                 $result = [
                     "id" => $request[0]['value'],
@@ -285,6 +284,7 @@ class Db extends Model
                 $model->title = $request[5]['value'];
                 $model->text_h1 = $request[6]['value'];
                 $model->status = $request[7]['value'];
+                $model->card_name = $request[8]['value'];
                 $model->save();
                 $result = [
                     "id" => $request[0]['value'],
@@ -311,6 +311,7 @@ class Db extends Model
                 $model->title = $request[4]['value'];
                 $model->text_h1 = $request[5]['value'];
                 $model->status = $request[6]['value'];
+                $model->card_name = $request[7]['value'];
                 $model->save();
                 $result = [
                     "id" => $request[0]['value'],

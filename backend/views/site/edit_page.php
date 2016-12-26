@@ -97,6 +97,13 @@ $this->title = 'Заполнение карточек';
                         </select>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Название карточки<span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <textarea class="form-control" name="card_edit[card_name]" rows="2" ><?=$card_array['card_name'] ?></textarea>
+                    </div>
+                </div>
                 <div class="ln_solid"></div>
                 <div class="form-group">
                     <div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-3">
