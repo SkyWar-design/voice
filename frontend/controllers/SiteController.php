@@ -162,9 +162,10 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionCard()
+    public function actionCard($url)
     {
-        return $this->render('card');
+        echo $url;
+//        return $this->render('card');
     }
 
     //генерируем уникальный хэш для localstorage что бы запоминать пользователь на уровне браузера и в дальнейшем перенести пользователя со статистикой в личный кабинет
