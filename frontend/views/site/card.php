@@ -45,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php endforeach; ?>
             </div>
             <div class="title-description">Теги:</div>
-            <div class="tags d-flex-s-b">
+            <div class="tags">
                 <?php foreach ( $voice_tags as $tag ): ?>
                     <a href="#" class="button-grey"><?=$tag; ?></a>
                 <?php endforeach; ?>
