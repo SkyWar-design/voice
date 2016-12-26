@@ -12,7 +12,7 @@ $this->registerMetaTag([
 
 $voice_theme = explode(',',$model->cardVoice->voice_text_theme);
 $voice_tags = explode(',',$model->cardVoice->voice_text_tags);
-$this->params['breadcrumbs'][] = $this->card_name;
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <section id="card">
