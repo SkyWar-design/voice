@@ -37,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="d-flex-s-b m-t-40 space-around">
         <div class="description-card">
             <h2 class="m-b-20">Текст открытки</h2>
-            <p class="m-b-40"><?=$model->description ?></p>
+            <p class="m-b-40"><?=$model->cardVoice->voice_text_description ?></p>
             <div class="title-description">Тема открытки:</div>
             <div class="category-description m-b-40">
                 <?php foreach ( $voice_theme as $theme ): ?>
