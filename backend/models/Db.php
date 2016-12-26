@@ -222,6 +222,7 @@ class Db extends Model
                 $model->status = $request[6]['value'];
                 $model->category_id = $request[7]['value'];
                 $model->voice_date = $date;
+                $model->card_name = $request[9]['value'];
                 $model->save();
                 $result = [
                     "id" => $request[0]['value'],
