@@ -40,12 +40,17 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'enableStrictParsing' => true,
+
             'rules' => [
                 '/'=>'site/index',
                 'user/get/hash' => 'site/hash',
                 'user/set/hash' => 'site/session',
-                'card/<url:.+>' => 'site/card',
+                'calendar/<month:.+>' => 'site/calendar',
+                'tag/<name:.+>' => 'site/tag',
+                'name/<name:.+>' => 'site/name',
+                'card/<id:.+>/<url:.+>' => 'site/card',
                 'category/<id:.+>'=>'site/category',
+                '<action:(calendar|catalog|about)>' => 'site/<action>',
                 '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
             ],
         ],

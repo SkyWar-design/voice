@@ -14,9 +14,11 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use frontend\models\Gate_sms;
+use frontend\models\Calendar;
 use \common\models\Category;
 use yii\web\Response;
-use yii\data\ActiveDataProvider;
+
 
 /**
  * Site controller
@@ -42,6 +44,7 @@ class SiteController extends Controller
      */
     public function behaviors()
     {
+
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -84,6 +87,19 @@ class SiteController extends Controller
         ];
     }
 
+    public function actionCall()
+    {
+        $gate = new Gate_sms();
+
+        $send = $gate->call_send("79040752185", "<file 1>", 0, 0, [
+            "/var/www/voice_git/frontend/web/mp3/125689.mp3"
+        ]);
+
+//        $send = $gate->get_status(43,79040752185,0);
+//        array(4) { [0]=> string(2) "44" [1]=> string(2) "14" [2]=> string(4) "3.36" [3]=> string(4) "85.9" }
+//        array(4) { [0]=> string(1) "1" [1]=> string(10) "1486752562" [2]=> string(1) "0" [3]=> string(1) "1" }
+
+    }
     public function actionIndex()
     {
         return $this->render('index');
@@ -95,23 +111,56 @@ class SiteController extends Controller
 
     public function actionCatalog()
     {
-        $categories = $this->categories;
+        $categories =  Category::getListCategory();
         $css_style_categories = Yii::$app->params['css_style_categories'];
         return $this->render('catalog', [
             'categories' => $categories,
             'css_style_categories' => $css_style_categories
         ]);
     }
-
-    public function actionCalendar()
+    public function actionCalendar($month = 0)
     {
-        return $this->render('calendar');
+        if ($month ==0)$month = date('m');
+        $calendar = new Calendar();
+        $month_ru_name = $calendar->month_now($month);
+        $ru_month = $calendar->russian_date($month);
+        $date_now = date('d');
+        $calendar_build =  $calendar->build_calendar($month,date('y'));
+
+
+
+
+        return $this->render('calendar',[
+            'month_now' =>$month,
+            'month_ru_name'=>$month_ru_name,
+            'calendar_build'=>$calendar_build,
+            'ru_month' => $ru_month,
+            'date_now'=> $date_now
+        ]);
+    }
+    public function actionCalendar_search($month)
+    {
+
+        $calendar = new Calendar();
+        $month_ru_name = $calendar->month_now($month);
+        $ru_month = $calendar->russian_date($month);
+        $calendar_build =  $calendar->build_calendar($month,date('y'));
+
+
+
+
+        return $this->render('calendar',[
+            'month_now' =>$month,
+            'month_ru_name'=>$month_ru_name,
+            'calendar_build'=>$calendar_build,
+            'ru_month' => $ru_month
+        ]);
     }
 
     public function actionCategory($id)
     {
         $add_condition = ')';
-        $categories = $this->categories;
+        $categories = Category::getListCategory();
         $css_style_categories = Yii::$app->params['css_style_categories'];
 
         $params = [
@@ -162,10 +211,31 @@ class SiteController extends Controller
             'dataProvider' => $dataProvider
         ]);
     }
-
-    public function actionCard($url)
+    public function actionTag($name)
     {
-        $model = Page::find()->where(['=','url',$url])->one();
+
+        $dataProvider = CardVoice::searchTag($name);
+
+        return $this->render('tag_search',[
+            'dataProvider' => $dataProvider
+        ]);
+
+    }
+    public function actionName($name)
+    {
+
+        $dataProvider = CardVoice::searchName($name);
+
+        return $this->render('tag_search',[
+            'dataProvider' => $dataProvider
+        ]);
+
+    }
+
+    public function actionCard($id)
+    {
+
+        $model = Page::find()->where(['=','id',$id])->one();
         return $this->render('card',[
             'model' => $model
         ]);

@@ -8,6 +8,13 @@ use frontend\assets\AppAsset;
 
 AppAsset::register($this);
 
+//говнокод
+$rus_months = array('января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря');
+$newDatetime = new Datetime();
+$month = $newDatetime->format('n');
+$album_data = $newDatetime->format('j '.$rus_months[$month-1].' ');
+$album_data .= $newDatetime->format('Y');
+
 $categories = $this->context->categories;
 $css_style_categories = Yii::$app->params['css_style_categories'];
 ?>
@@ -28,7 +35,7 @@ $css_style_categories = Yii::$app->params['css_style_categories'];
             <a href="<?=Url::toRoute('site/index') ?>" class="logo">
                 <span class="logo-img"></span>
                 <div class="inline">
-                    <span class="title">Название</span>
+                    <span class="title">Surprice</span>
                     <span class="under-title">Голосовые открытки</span>
                 </div>
             </a>
@@ -40,11 +47,11 @@ $css_style_categories = Yii::$app->params['css_style_categories'];
                     <a href="#" class="social twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                     <a href="#" class="social odnoklassniki"><i class="fa fa-odnoklassniki" aria-hidden="true"></i></a>
                 </div>
-                <div class="header-date inline v-top m-hidden p-b-hidden">2 ноября 2016</div>
+                <div class="header-date inline v-top m-hidden p-b-hidden"><?=$album_data?></div>
                 <div class="about">
                     <?=Menu::widget([
                         'items' => [
-                            ['label' => 'О проекте', 'url' => ['site/index']],
+                            ['label' => 'О проекте', 'url' => ['site/about']],
                             ['label' => 'Блог', 'url' => ['/site/blog']],
                             ['label' => 'Личный кабинет', 'url' => ['site/login']],
                         ],

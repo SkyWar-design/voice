@@ -4,6 +4,7 @@ namespace common\models;
 
 use Yii;
 use yii\data\ActiveDataProvider;
+use yii\data\SqlDataProvider;
 /**
  * This is the model class for table "card_voice".
  *
@@ -102,6 +103,69 @@ class CardVoice extends \yii\db\ActiveRecord
             'status' => 'Статус карточки',
             'category.name' => 'Категория'
         ];
+    }
+
+    //поиск по тегам
+    public function searchTag($name){
+
+        $count = Yii::$app->db->createCommand(
+            'SELECT count(*) FROM card_voice join page on card_id=card_voice.id WHERE voice_text_tags like :name and card_voice.status=:status',
+            [':status' => 1, ':name' => '%'.$name.'%'])->queryScalar();
+
+
+        $dataProvider = new SqlDataProvider([
+            'sql' => 'SELECT * FROM card_voice join page on card_id=card_voice.id  WHERE voice_text_tags like :name and card_voice.status=:status',
+            'params' => [':status' => 1,':name' => '%'.$name.'%'],
+            'totalCount' => $count,
+            'sort' => [
+                'attributes' => [
+                    'age',
+                    'name' => [
+                        'asc' => ['first_name' => SORT_ASC, 'last_name' => SORT_ASC],
+                        'desc' => ['first_name' => SORT_DESC, 'last_name' => SORT_DESC],
+                        'default' => SORT_DESC,
+                        'label' => 'Name',
+                    ],
+                ],
+            ],
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+        ]);
+
+
+        return $dataProvider;
+    }
+
+    public function searchName($name){
+
+        $count = Yii::$app->db->createCommand(
+            'SELECT count(*) FROM card_voice join page on card_id=card_voice.id WHERE voice_text_description like :name and voice_text_description like :name_2 and card_voice.status=:status',
+            [':status' => 1, ':name' => '%'.$name.'%',':name_2'=>'%с именинами%'])->queryScalar();
+
+
+        $dataProvider = new SqlDataProvider([
+            'sql' => 'SELECT * FROM card_voice join page on card_id=card_voice.id  WHERE voice_text_description like :name and voice_text_description like :name_2 and card_voice.status=:status',
+            'params' => [':status' => 1,':name' => '%'.$name.'%',':name_2'=>'%с именинами%'],
+            'totalCount' => $count,
+            'sort' => [
+                'attributes' => [
+                    'age',
+                    'name' => [
+                        'asc' => ['first_name' => SORT_ASC, 'last_name' => SORT_ASC],
+                        'desc' => ['first_name' => SORT_DESC, 'last_name' => SORT_DESC],
+                        'default' => SORT_DESC,
+                        'label' => 'Name',
+                    ],
+                ],
+            ],
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+        ]);
+
+
+        return $dataProvider;
     }
 
     //условия поиска для вывода списка карточек

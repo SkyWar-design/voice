@@ -101,7 +101,7 @@ $request = Yii::$app->request->get();
 
     <?=ListView::widget([
         'dataProvider' => $dataProvider,
-        'itemView' => '_category_card',
+        'itemView' => 'blocks/cards_category',
         'layout' => "{items}\n{pager}",
         'pager' => [
             'firstPageLabel' => '<i class="fa fa-angle-double-left fa-2" aria-hidden="true"></i>',
