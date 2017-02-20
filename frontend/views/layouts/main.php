@@ -17,6 +17,7 @@ $album_data .= $newDatetime->format('Y');
 
 $categories = $this->context->categories;
 $css_style_categories = Yii::$app->params['css_style_categories'];
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

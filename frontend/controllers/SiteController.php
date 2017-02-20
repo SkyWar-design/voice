@@ -36,7 +36,8 @@ class SiteController extends Controller
         $this->session = Yii::$app->session; //создаем сесию
         $this->session->open();
         $this->db = Yii::$app->db;
-
+        $category = new Category();
+        $category->setCategories();
     }
 
     /**
