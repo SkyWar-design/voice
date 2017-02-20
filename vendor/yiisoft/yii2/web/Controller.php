@@ -32,6 +32,8 @@ class Controller extends \yii\base\Controller
     //запишим сюда категории
     public $categories = [];
     //записываем категории
+
+    
     public function setCategories(){
         $this->categories = Category::getListCategory();
     }
