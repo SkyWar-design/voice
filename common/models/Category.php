@@ -42,7 +42,9 @@ class Category extends \yii\db\ActiveRecord
             [['name'], 'string', 'max' => 255],
         ];
     }
-
+    public function setCategories(){
+        $this->categories = Category::getListCategory();
+    }
     /**
      * @inheritdoc
      */
