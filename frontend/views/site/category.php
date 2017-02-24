@@ -71,7 +71,7 @@ $request = Yii::$app->request->get();
 
     <hr class="grey-line m-b-20 w-100-p">
 
-    <h2 class="m-t-20">Тем кто родился сегодня, 12 октября</h2>
+    <h2 class="m-t-20">Вам также понравятся</h2>
 
     <div class="mobile-centered">
         <div class="row-content d-flex-s-b m-b-30">

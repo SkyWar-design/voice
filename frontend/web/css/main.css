@@ -658,6 +658,7 @@ ul.pagination li span{
     width: 100%;
     display: flex;
     flex-flow: row wrap;
+    margin-bottom:20px;
 }
 .list-view > div{
     width: 195px;
