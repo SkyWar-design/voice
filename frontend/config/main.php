@@ -50,7 +50,7 @@ return [
                 'name/<name:.+>' => 'site/name',
                 'card/<id:.+>/<url:.+>' => 'site/card',
                 'category/<id:.+>'=>'site/category',
-                '<action:(calendar|catalog|about)>' => 'site/<action>',
+                '<action:(calendar|catalog|about|hits)>' => 'site/<action>',
                 '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
             ],
         ],
