@@ -89,18 +89,20 @@ class CardVoice extends \yii\db\ActiveRecord
     //получить id главной категории
     public function getMainCategory(){
         $card_category = $this->category;
-        if( !is_null($card_category->id) ){
-            $main_category_id = $card_category->this_id;
-            $main_category_name = $card_category->mainCategory->name;
-        }
-        else{
-            $main_category_id = $card_category->id;
-            $main_category_name = $card_category->name;
-        }
-        return [
-            'id' => $main_category_id,
-            'name' => $main_category_name
-        ];
+        var_dump($card_category);
+        exit();
+//        if( !is_null($card_category->id) ){
+//            $main_category_id = $card_category->this_id;
+//            $main_category_name = $card_category->mainCategory;
+//        }
+//        else{
+//            $main_category_id = $card_category->id;
+//            $main_category_name = $card_category->name;
+//        }
+//        return [
+//            'id' => $main_category_id,
+//            'name' => $main_category_name
+//        ];
     }
 
     /**
