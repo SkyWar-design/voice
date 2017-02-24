@@ -47,7 +47,7 @@ class Category extends \yii\db\ActiveRecord
     }
 
     public function getMainCategory(){
-        return $this->hasOne(Category::className(), ['id' => 'this_id']);
+        return $this->hasOne(self::className(), ['id' => 'this_id']);
     }
     /**
      * @inheritdoc
