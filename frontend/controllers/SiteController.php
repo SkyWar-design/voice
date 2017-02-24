@@ -256,7 +256,7 @@ class SiteController extends Controller
         $params = [];
         $card_voice = new CardVoice(['scenario' => 'search']);
         $dataProvider = $card_voice->searchCard_voice($params, 'publish_date');
-        return $this->render('new', [
+        return $this->render('new_card', [
             'dataProvider' => $dataProvider
         ]);
     }
