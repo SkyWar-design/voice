@@ -217,7 +217,8 @@ class SiteController extends Controller
         $dataProvider = CardVoice::searchTag($name);
 
         return $this->render('tag_search',[
-            'dataProvider' => $dataProvider
+            'dataProvider' => $dataProvider,
+            'search' => $name
         ]);
 
     }
@@ -227,7 +228,8 @@ class SiteController extends Controller
         $dataProvider = CardVoice::searchName($name);
 
         return $this->render('tag_search',[
-            'dataProvider' => $dataProvider
+            'dataProvider' => $dataProvider,
+            'search' => $name
         ]);
 
     }
@@ -237,7 +239,8 @@ class SiteController extends Controller
         $dataProvider = CardVoice::searchGlobal($search);
 
         return $this->render('tag_search',[
-            'dataProvider' => $dataProvider
+            'dataProvider' => $dataProvider,
+            'search' => $search
         ]);
     }
 
