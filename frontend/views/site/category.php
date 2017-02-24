@@ -26,7 +26,7 @@ $request = Yii::$app->request->get();
             <?=(isset($request['card_voice']['sex'])?'<input type="hidden" name="card_voice[sex]" value="'.$request['card_voice']['sex'].'">':'') ?>
             <a href="#" class="button-grey filter-type<?=(isset($request['card_voice']['sex']) && $request['card_voice']['sex']==2?' max-grey':'') ?>"  data-filter="card_voice[sex]" data-val="2">Для девушек</a>
             <a href="#" class="button-grey filter-type<?=(isset($request['card_voice']['sex']) && $request['card_voice']['sex']==1?' max-grey':'') ?>" data-filter="card_voice[sex]" data-val="1">Для парней</a>
-            <span class="count-card m-l-58">2528 открыток.</span>
+            <span class="count-card m-l-58"><?=$dataProvider->getTotalCount();?> открыток.</span>
             <div class="filter-how m-l-10">
                 <span>Сначала:&nbsp;</span>
                 <input type="radio" <?=((!isset($request['sort']) || $request['sort'] == 'new')?'checked':'') ?> name="sort" value="new" id="new">
