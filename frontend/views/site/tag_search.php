@@ -1,5 +1,4 @@
 <?php
-use yii\helpers\Url;
 use \yii\widgets\ListView;
 
 $this->title = 'Поиск по тегам';
@@ -22,6 +21,5 @@ $this->title = 'Поиск по тегам';
     ]);
 
     ?>
-
 
 </section>

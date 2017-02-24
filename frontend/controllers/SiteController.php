@@ -232,6 +232,15 @@ class SiteController extends Controller
 
     }
 
+    public function actionSearch($search){
+
+        $dataProvider = CardVoice::searchGlobal($search);
+
+        return $this->render('tag_search',[
+            'dataProvider' => $dataProvider
+        ]);
+    }
+
     //страница хиты
     public function actionHits(){
 

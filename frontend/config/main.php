@@ -48,6 +48,7 @@ return [
                 'calendar/<month:.+>' => 'site/calendar',
                 'tag/<name:.+>' => 'site/tag',
                 'name/<name:.+>' => 'site/name',
+                'search/<search:.+>' => 'site/search',
                 'card/<id:.+>/<url:.+>' => 'site/card',
                 'category/<id:.+>'=>'site/category',
                 '<action:(calendar|catalog|about|hits)>' => 'site/<action>',

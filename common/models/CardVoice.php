@@ -177,7 +177,40 @@ class CardVoice extends \yii\db\ActiveRecord
                 ],
             ],
             'pagination' => [
-                'pageSize' => 20,
+                'pageSize' => 18,
+            ],
+        ]);
+
+
+        return $dataProvider;
+    }
+
+    public static function searchGlobal($search){
+
+        $sql = 'SELECT count(*) FROM card_voice join page on card_id=card_voice.id WHERE voice_text_description like :search or voice_text_theme like :search or voice_text_tags like :search or page.description like :search or page.title like :search or page.text_h1 like :search';
+        $count = Yii::$app->db->createCommand(
+            $sql,
+            [':status' => 1, ':name' => '%'.$search.'%',':name_2'=>'%с именинами%'])->queryScalar();
+
+
+        $sql = 'SELECT * FROM card_voice join page on card_id=card_voice.id WHERE voice_text_description like :search or voice_text_theme like :search or voice_text_tags like :search or page.description like :search or page.title like :search or page.text_h1 like :search';
+        $dataProvider = new SqlDataProvider([
+            'sql' => $sql,
+            'params' => [':status' => 1,':name' => '%'.$search.'%',':name_2'=>'%с именинами%'],
+            'totalCount' => $count,
+            'sort' => [
+                'attributes' => [
+                    'age',
+                    'name' => [
+                        'asc' => ['first_name' => SORT_ASC, 'last_name' => SORT_ASC],
+                        'desc' => ['first_name' => SORT_DESC, 'last_name' => SORT_DESC],
+                        'default' => SORT_DESC,
+                        'label' => 'Name',
+                    ],
+                ],
+            ],
+            'pagination' => [
+                'pageSize' => 18,
             ],
         ]);
 
