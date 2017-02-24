@@ -2,7 +2,7 @@
 use yii\helpers\Url;
 use \yii\widgets\ListView;
 
-$this->title = 'Популярные поздравления';
+$this->title = 'Хиты';
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
@@ -37,3 +37,4 @@ $this->params['breadcrumbs'][] = $this->title;
     ?>
 
 </section>
+<?=\common\models\CardVoice::sendSearchFrom(); ?>

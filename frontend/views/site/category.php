@@ -37,23 +37,6 @@ $request = Yii::$app->request->get();
         </div>
     </form>
 
-    <script>
-        $(document).ready(function () {
-            $('.filter-type').on('click', function () {
-                if( $(this).attr('data-filter') != 'all' && $(this).attr('data-filter') != undefined ){
-                    $(this).after('<input type="hidden" name="'+$(this).attr('data-filter')+'" value="'+$(this).attr('data-val')+'">');
-                }
-                else if( $(this).attr('data-filter') == 'all' ){
-                    $('.search-form').find('input[type="hidden"]').remove();
-                }
-                else{
-                    $('#'+$(this).attr('for')).prop('checked', true);
-                }
-                $('.search-form').submit();
-            })
-        })
-    </script>
-
     <?=ListView::widget([
         'dataProvider' => $dataProvider,
         'itemView' => 'blocks/cards_category',
@@ -116,3 +99,4 @@ $request = Yii::$app->request->get();
     </div>
 
 </section>
+<?=\common\models\CardVoice::sendSearchFrom(); ?>
