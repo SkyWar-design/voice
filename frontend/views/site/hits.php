@@ -5,10 +5,6 @@ use \yii\widgets\ListView;
 $this->title = 'Популярные поздравления';
 $this->params['breadcrumbs'][] = $this->title;
 
-echo '<pre>';
-var_dump($dataProvider);
-echo '</pre>';
-
 ?>
 
 <section id="hits">
@@ -21,7 +17,7 @@ echo '</pre>';
             <?=(isset($request['card_voice']['sex'])?'<input type="hidden" name="card_voice[sex]" value="'.$request['card_voice']['sex'].'">':'') ?>
             <a href="#" class="button-grey filter-type<?=(isset($request['card_voice']['sex']) && $request['card_voice']['sex']==2?' max-grey':'') ?>"  data-filter="card_voice[sex]" data-val="2">Для девушек</a>
             <a href="#" class="button-grey filter-type<?=(isset($request['card_voice']['sex']) && $request['card_voice']['sex']==1?' max-grey':'') ?>" data-filter="card_voice[sex]" data-val="1">Для парней</a>
-            <span class="count-card m-l-58">2528 открыток.</span>
+            <span class="count-card m-l-58"><?=$dataProvider->getTotalCount();?> открыток.</span>
         </div>
     </form>
 
