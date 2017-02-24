@@ -58,7 +58,7 @@ $css_style_categories = Yii::$app->params['css_style_categories'];
                         ],
                     ]); ?>
                 </div>
-                <form action="<?=Url::toRoute('site/search') ?>" method="post" class="header-search-form">
+                <form action="<?=Url::toRoute('site/search') ?>" method="get" class="header-search-form">
                     <input type="text" placeholder="Поиск по сайту..." name="search">
                     <button type="submit" class="search-submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </form>
