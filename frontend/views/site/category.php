@@ -54,6 +54,21 @@ $request = Yii::$app->request->get();
         })
     </script>
 
+    <?=ListView::widget([
+        'dataProvider' => $dataProvider,
+        'itemView' => 'blocks/cards_category',
+        'layout' => "{items}\n{pager}",
+        'pager' => [
+            'firstPageLabel' => '<i class="fa fa-angle-double-left fa-2" aria-hidden="true"></i>',
+            'lastPageLabel' => '<i class="fa fa-angle-double-right fa-2" aria-hidden="true"></i>',
+            'nextPageLabel' => '<i class="fa fa-angle-right fa-2" aria-hidden="true"></i>',
+            'prevPageLabel' => '<i class="fa fa-angle-left fa-2" aria-hidden="true"></i>',
+            'maxButtonCount' => 12,
+        ],
+    ]);
+
+    ?>
+
     <h2 class="m-t-20">Тем кто родился сегодня, 12 октября</h2>
 
     <div class="mobile-centered">
@@ -98,21 +113,5 @@ $request = Yii::$app->request->get();
         </div>
     </div>
     <hr class="grey-line m-b-20 w-100-p">
-
-    <?=ListView::widget([
-        'dataProvider' => $dataProvider,
-        'itemView' => 'blocks/cards_category',
-        'layout' => "{items}\n{pager}",
-        'pager' => [
-            'firstPageLabel' => '<i class="fa fa-angle-double-left fa-2" aria-hidden="true"></i>',
-            'lastPageLabel' => '<i class="fa fa-angle-double-right fa-2" aria-hidden="true"></i>',
-            'nextPageLabel' => '<i class="fa fa-angle-right fa-2" aria-hidden="true"></i>',
-            'prevPageLabel' => '<i class="fa fa-angle-left fa-2" aria-hidden="true"></i>',
-            'maxButtonCount' => 12,
-        ],
-    ]);
-
-    ?>
-
 
 </section>
