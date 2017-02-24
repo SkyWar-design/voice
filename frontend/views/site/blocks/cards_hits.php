@@ -5,9 +5,9 @@ $url = $model->page->id.'/'.$model->page->url;
 $css_style_categories = Yii::$app->params['css_style_categories'];
 
 $main_category = $model->mainCategory;
-
+echo '<pre>';
 var_dump($main_category);
-
+echo '</pre>';
 ?>
 <!--<div class="player-min-content d-flex-s-b">-->
 <!--    <div class="player-min">-->
