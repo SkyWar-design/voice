@@ -232,6 +232,19 @@ class SiteController extends Controller
 
     }
 
+    //страницы хиты
+    public function actionHits(){
+        $this->title = 'Популярные поздравления';
+
+        $params = [];
+
+        $card_voice = new CardVoice(['scenario' => 'search']);
+        $dataProvider = $card_voice->searchCard_voice($params, 'popular');
+        return $this->render('hits', [
+            'dataProvider' => $dataProvider
+        ]);
+    }
+
     public function actionCard($id)
     {
 

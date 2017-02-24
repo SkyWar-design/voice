@@ -660,6 +660,9 @@ ul.pagination li span{
     flex-flow: row wrap;
     margin-bottom:20px;
 }
+.empty{
+    margin-top:20px;
+}
 .list-view > div{
     width: 195px;
     margin-right: 132px;
@@ -878,7 +881,8 @@ footer .social{
 }
 #catalog h2,
 #category h1,
-#card h1{
+#card h1,
+#hits h1{
     font-family: "MyriadProCondRegular";
     font-size: 36px;
     line-height: 36px;
@@ -1142,6 +1146,15 @@ h2.new-big:before,
 h1.new-big:before{
     background-position: 0 -680px!important;
 }
+.hits-big:before{
+    content: "";
+    display: inline-block;
+    background: url('/image/hits.png') 0 0 no-repeat;
+    width: 111px;
+    height: 68px;
+    vertical-align: middle;
+    margin-right: 15px;
+}
 .sub-category a span{
     color: #d1d1d1;
 }
@@ -1186,7 +1199,8 @@ h1.new-big:before{
 }
 #calendar .staled-hr-bottom,
 #category .staled-hr-bottom,
-#card .staled-hr-bottom{
+#card .staled-hr-bottom,
+#hits .staled-hr-bottom{
     padding-bottom:20px;
 }
 #catalog .grey-line,
