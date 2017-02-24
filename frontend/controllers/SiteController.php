@@ -234,7 +234,6 @@ class SiteController extends Controller
 
     //страницы хиты
     public function actionHits(){
-        $this->title = 'Популярные поздравления';
 
         $params = [];
 

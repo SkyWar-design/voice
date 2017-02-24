@@ -2,6 +2,8 @@
 use yii\helpers\Url;
 use \yii\widgets\ListView;
 
+$this->title = 'Популярные поздравления';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <section id="hits">
