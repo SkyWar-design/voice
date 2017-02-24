@@ -51,7 +51,7 @@ return [
                 'search/<search:.+>' => 'site/search',
                 'card/<id:.+>/<url:.+>' => 'site/card',
                 'category/<id:.+>'=>'site/category',
-                '<action:(calendar|catalog|about|hits)>' => 'site/<action>',
+                '<action:(calendar|catalog|about|hits|new)>' => 'site/<action>',
                 '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
             ],
         ],
