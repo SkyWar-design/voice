@@ -235,11 +235,7 @@ class SiteController extends Controller
     //страницы хиты
     public function actionHits(){
 
-        $params = [
-            'card_voice' => [
-                'category' => false
-            ]
-        ];
+        $params = [];
 
         if( Yii::$app->request->isGet ){
             $request = Yii::$app->request->get();

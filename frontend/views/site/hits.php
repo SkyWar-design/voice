@@ -4,7 +4,7 @@ use \yii\widgets\ListView;
 
 $this->title = 'Хиты';
 $this->params['breadcrumbs'][] = $this->title;
-
+$request = Yii::$app->request->get();
 ?>
 
 <section id="hits">
