@@ -4,6 +4,11 @@ use \yii\widgets\ListView;
 
 $this->title = 'Популярные поздравления';
 $this->params['breadcrumbs'][] = $this->title;
+
+echo '<pre>';
+var_dump($dataProvider);
+echo '</pre>';
+
 ?>
 
 <section id="hits">
