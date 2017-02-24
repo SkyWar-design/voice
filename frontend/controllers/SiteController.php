@@ -251,6 +251,15 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionNew(){
+        $params = [];
+        $card_voice = new CardVoice(['scenario' => 'search']);
+        $dataProvider = $card_voice->searchCard_voice($params, 'publish_date');
+        return $this->render('hits', [
+            'dataProvider' => $dataProvider
+        ]);
+    }
+
     public function actionCard($id)
     {
 

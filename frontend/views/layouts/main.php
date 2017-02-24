@@ -79,7 +79,7 @@ $css_style_categories = Yii::$app->params['css_style_categories'];
             'items' => [
                 ['label' => 'Каталог поздравлений', 'url' => ['site/catalog']],
                 ['label' => 'ХИТЫ', 'url' => ['site/hits']],
-                ['label' => 'Новинки', 'url' => ['site/login']],
+                ['label' => 'Новинки', 'url' => ['site/new']],
                 ['label' => 'Календарь праздников', 'url' => ['site/calendar']],
                 ['label' => 'СМС поздравления', 'url' => ['site/login']],
             ],
