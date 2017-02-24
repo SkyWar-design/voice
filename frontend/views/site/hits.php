@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <?=ListView::widget([
     'dataProvider' => $dataProvider,
-    'itemView' => 'blocks/cards_category',
+    'itemView' => 'blocks/cards_hits',
     'layout' => "{items}\n{pager}",
     'pager' => [
         'firstPageLabel' => '<i class="fa fa-angle-double-left fa-2" aria-hidden="true"></i>',
