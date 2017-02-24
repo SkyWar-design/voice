@@ -8,7 +8,7 @@ $request = Yii::$app->request->get();
 ?>
 
 <section id="hits">
-    <h1 class="staled-hr-bottom hits-big">Популярные открытки</h1>
+    <h1 class="staled-hr-bottom hits-big"><?=$this->title ?></h1>
 
 
     <form method="get" class="search-form" action="<?=Url::toRoute(['site/hits']) ?>">
