@@ -1155,6 +1155,15 @@ h1.new-big:before{
     vertical-align: middle;
     margin-right: 15px;
 }
+.new-card-big:before{
+    content: "";
+    display: inline-block;
+    background: url('/image/new.png') 0 0 no-repeat;
+    width: 50px;
+    height: 68px;
+    vertical-align: middle;
+    margin-right: 15px;
+}
 .sub-category a span{
     color: #d1d1d1;
 }

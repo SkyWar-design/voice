@@ -232,7 +232,7 @@ class SiteController extends Controller
 
     }
 
-    //страницы хиты
+    //страница хиты
     public function actionHits(){
 
         $params = [];
@@ -251,11 +251,12 @@ class SiteController extends Controller
         ]);
     }
 
+    //страница новинки
     public function actionNew(){
         $params = [];
         $card_voice = new CardVoice(['scenario' => 'search']);
         $dataProvider = $card_voice->searchCard_voice($params, 'publish_date');
-        return $this->render('hits', [
+        return $this->render('new', [
             'dataProvider' => $dataProvider
         ]);
     }
