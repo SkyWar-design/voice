@@ -187,13 +187,13 @@ class CardVoice extends \yii\db\ActiveRecord
 
     public static function searchGlobal($search){
 
-        $sql = 'SELECT count(*) FROM card_voice join page on card_id=card_voice.id WHERE (voice_text_description like :search or voice_text_theme like :search or voice_text_tags like :search or page.description like :search or page.title like :search or page.text_h1 like :search) AND status=1';
+        $sql = 'SELECT count(*) FROM card_voice join page on card_id=card_voice.id WHERE (voice_text_description like :search or voice_text_theme like :search or voice_text_tags like :search or page.description like :search or page.title like :search or page.text_h1 like :search) AND card_voice.status=1';
         $count = Yii::$app->db->createCommand(
             $sql,
             [':search' => '%'.$search.'%'])->queryScalar();
 
 
-        $sql = '(SELECT * FROM card_voice join page on card_id=card_voice.id WHERE voice_text_description like :search or voice_text_theme like :search or voice_text_tags like :search or page.description like :search or page.title like :search or page.text_h1 like :search) AND status=1';
+        $sql = '(SELECT * FROM card_voice join page on card_id=card_voice.id WHERE voice_text_description like :search or voice_text_theme like :search or voice_text_tags like :search or page.description like :search or page.title like :search or page.text_h1 like :search) AND card_voice.status=1';
         $dataProvider = new SqlDataProvider([
             'sql' => $sql,
             'params' => [':search' => '%'.$search.'%'],
