@@ -91,15 +91,15 @@ class CardVoice extends \yii\db\ActiveRecord
         $card_category = $this->category;
         if( !is_null($card_category->id) ){
             $main_category_id = $card_category->this_id;
-            $main_category_name = $card_category->mainCategory->name;
+//            $main_category_name = $card_category->mainCategory->name;
         }
         else{
             $main_category_id = $card_category->id;
-            $main_category_name = $card_category->name;
+//            $main_category_name = $card_category->name;
         }
         return [
             'id' => $main_category_id,
-            'name' => $main_category_name
+            'name' => 'test'
         ];
     }
 
