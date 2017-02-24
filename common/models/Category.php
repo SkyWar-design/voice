@@ -45,6 +45,10 @@ class Category extends \yii\db\ActiveRecord
     public function setCategories(){
         $this->categories = Category::getListCategory();
     }
+
+    public function getMainCategory(){
+        return $this->hasOne(Category::className(), ['this_id' => 'id']);
+    }
     /**
      * @inheritdoc
      */
