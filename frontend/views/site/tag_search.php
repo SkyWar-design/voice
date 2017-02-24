@@ -5,7 +5,7 @@ $this->title = 'Поиск по тегам';
 
 ?>
 
-<h1>Результаты поиска по "<?=$search ?>"</h1>
+<h1>Вы искали "<?=$search ?>"</h1>
 
 <section id="category">
 
