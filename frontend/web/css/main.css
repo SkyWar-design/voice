@@ -1218,7 +1218,8 @@ h1.new-big:before{
     flex-flow: row wrap;
     background: #f0f0f0;
 }
-#category .button-grey{
+#category .button-grey,
+#hits .button-grey{
     padding: 0 14px;
     line-height:20px;
     width: auto;
