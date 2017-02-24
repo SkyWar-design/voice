@@ -88,7 +88,7 @@ class CardVoice extends \yii\db\ActiveRecord
 
     //получить id главной категории
     public function getMainCategory(){
-        $card_category = $this->category;
+        $card_category = $this->category->mainCategory;
         return $card_category;
 //        if( !is_null($card_category->id) ){
 //            $main_category_id = $card_category->this_id;
